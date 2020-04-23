@@ -1,0 +1,23 @@
+(library
+  (name liboscn)
+  (libraries
+    libutils
+
+    core_kernel
+    cohttp
+    cohttp-lwt-unix
+    camlzip
+    lwt
+    lwt.unix
+    lambdasoup
+    ppx_deriving_yojson.runtime
+  )
+  (preprocess (pps
+    lwt_ppx
+    ppx_deriving_yojson
+  ))
+  (ocamlopt_flags -O3 -unbox-closures))
+
+(env
+  (dev
+    (flags (:standard -warn-error -A))))
