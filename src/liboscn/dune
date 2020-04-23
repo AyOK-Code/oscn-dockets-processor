@@ -6,11 +6,11 @@
     core_kernel
     cohttp
     cohttp-lwt-unix
-    camlzip
     lwt
     lwt.unix
     lambdasoup
     ppx_deriving_yojson.runtime
+    re2
   )
   (preprocess (pps
     lwt_ppx
