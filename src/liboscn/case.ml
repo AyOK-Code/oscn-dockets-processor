@@ -1,64 +1,6 @@
 open! Core_kernel
 
-let yojson_of_date date = `String (Date.to_string date)
-let yojson_of_uri uri = `String (Uri.to_string uri)
-
-type payment = {
-  amount: int;
-}
-
-type role =
-| Defendant
-| Plaintiff
-| Arresting_agency
-| Arresting_officer
-[@@deriving to_yojson]
-
-type name =
-| Full of {
-    first_name: Html.text;
-    last_name: Html.text;
-  }
-| Other_name of Html.text
-[@@deriving to_yojson]
-
-type party = {
-  name: name;
-  role: role;
-  (* dob: Date.t; *)
-} [@@deriving to_yojson]
-
-type event = {
-  datetime: Time.t;
-  description: Html.text;
-}
-
-type count = {
-  notes: Html.text; (* TODO: Process this further *)
-}
-
-let parse_role = function
-| "Defendant" -> Defendant
-| "Plaintiff" -> Plaintiff
-| "ARRESTING OFFICER" -> Arresting_officer
-| "ARRESTING AGENCY" -> Arresting_agency
-| s -> failwithf "Invalid role: '%s'" s ()
-
-type case = {
-  uri: Uri.t [@to_yojson yojson_of_uri];
-  title: Html.text;
-  parties: party list;
-  (* Parties lookup *)
-  (* is_defendant: bool; *)
-  case_number: Html.text;
-  date_filed: Date.t [@to_yojson yojson_of_date];
-  judge: Html.text;
-  (* Parties lookup *)
-  (* arresting_agency: Html.text; *)
-  (* court_dates: Date.t list; *)
-  (* charges: Html.text list; *)
-  (* payments: payment list; *)
-} [@@deriving to_yojson]
+open S
 
 let find_prefixed ~prefix strs =
   begin match List.find_map strs ~f:(String.chop_prefix ~prefix) with
@@ -67,10 +9,10 @@ let find_prefixed ~prefix strs =
   end
 
 
-let fake_fetch () = Lwt_io.chars_of_file "case3.html" |> Lwt_stream.to_string
+let fake_fetch () = Lwt_io.chars_of_file "case2.html" |> Lwt_stream.to_string
 let list_regex = Re2.create_exn ", "
 
-let scrape uri =
+let scrape ?last_name ?first_name ?middle_name uri =
   let open Soup in
 
   (* let%lwt raw = Oscn.real_fetch uri in *)
@@ -93,51 +35,71 @@ let scrape uri =
 
   (* Process parties *)
   let parties =
-    begin match html $? "div#oscn-content > div.sized > p:not([class])" with
-    | None -> failwith "Invalid page structure, could not find parties section"
-    | Some p ->
-      begin match previous_element p with
-      | Some h2 when String.(name h2 = "h2") && List.mem (classes h2) "party" ~equal:String.equal ->
-        let entries = Queue.create ~capacity:12 () in
-        let buf = Buffer.create 32 in
-        descendants p |> iter (fun child ->
-          begin match element child with
-          | Some el when String.(name el = "br") ->
-            let entry = Buffer.contents buf |> Html.clean in
-            Queue.enqueue entries entry;
-            Buffer.clear buf
-          | Some _el -> ()
-          | None -> Buffer.add_string buf (to_string child)
-          end
-        );
-        Queue.to_list entries |> List.map ~f:(fun entry ->
-          begin match Re2.split list_regex (Html.text_to_string entry) |> List.to_array with
-          | [|first; last; role|] ->
-            {
-              name = Full { first_name = Html.clean first; last_name = Html.clean last };
-              role = parse_role role;
-            }
-          | [|other; role|] ->
-            {
-              name = Other_name (Html.clean other);
-              role = parse_role role;
-            }
-          | _ -> failwithf "Invalid parties entry: '%s'" (Html.text_to_string entry) ()
-          end
+    begin match html $? "h2.section.party" with
+    | None -> failwith "Invalid page structure, could not find parties header"
+    | Some h2 ->
+      begin match next_element h2 with
+      | Some p when String.(name p = "p") && List.is_empty (classes p) ->
+        let groups = descendants p |> to_list |> List.group ~break:(fun _left right ->
+            Option.value_map (element right) ~default:false ~f:(fun el -> String.((name el) = "br"))
+          )
+        in
+        List.filter_map groups ~f:(fun group ->
+          let buf = Buffer.create 16 in
+          let person_href = List.fold group ~init:None ~f:(fun acc node ->
+              begin match element node with
+              | None ->
+                Buffer.add_string buf (to_string node);
+                acc
+              | Some el when String.(name el = "a") ->
+                Option.filter (attribute "href" el) ~f:(fun s -> not (String.is_empty s))
+              | Some _ -> None
+              end
+            )
+          in
+          Case_sections.process_party (Buffer.contents buf |> Html.clean) (Option.map person_href ~f:Oscn.make_uri_from_href)
         )
       | None | Some _ -> failwith "Invalid page structure, could not find parties header"
       end
     end
   in
 
+  (* Parties lookups *)
+  let needle_opt = begin match last_name, first_name, middle_name with
+  | (Some ln), (Some fn), (Some mn) -> Some (sprintf "%s, %s %s." ln fn mn |> String.uppercase)
+  | (Some ln), (Some fn), None -> Some (sprintf "%s, %s" ln fn |> String.uppercase)
+  | (Some ln), None, None -> Some (sprintf "%s," ln |> String.uppercase)
+  | _ -> None
+  end
+  in
+  let%lwt () = Lwt_io.printlf "PREFIX: %s" (Option.value ~default:"--" needle_opt) in
+  let name_matcher left right =
+    String.is_prefix ~prefix:left right || String.is_prefix ~prefix:right left
+  in
+  let is_defendant = Option.value_map needle_opt ~default:false ~f:(fun needle ->
+      List.exists parties ~f:(function
+      | { role = Defendant; name = Other_name s; uri = _ } when name_matcher needle (Html.text_to_string s) -> true
+      | { role = Defendant; name = Full { first_name; last_name; }; uri = _ } ->
+        name_matcher needle (sprintf "%s, %s" (Html.text_to_string last_name) (Html.text_to_string first_name))
+      | _ -> false
+      )
+    )
+  in
+  let arresting_agency = List.find_map parties ~f:(function
+    | { name; role = Arresting_agency; uri = _ } -> Some (name_to_text name)
+    | _ -> None
+    )
+  in
 
   let case = {
     uri;
     title;
     parties;
+    is_defendant;
     case_number;
     date_filed;
     judge;
+    arresting_agency;
   }
   in
   print_endline (Yojson.Safe.pretty_to_string (case_to_yojson case));

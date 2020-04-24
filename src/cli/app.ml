@@ -9,7 +9,7 @@ let () = Lwt.async_exception_hook := (fun ex ->
 let main () =
   let uri = Liboscn.Oscn.make_uri_from_href "GetCaseInformation.aspx?db=oklahoma&number=TR-1991-3731&cmid=180879" in
 
-  Liboscn.Case.scrape uri
+  Liboscn.Case.scrape ~first_name:"robert" ~last_name:"johnson" uri
 
 (* let%lwt results = Liboscn.Search.scrape ~last_name:"Johnson" ~first_name:"Bobby" () in *)
 (* let j = `Assoc (String.Table.fold results ~init:[] ~f:(fun ~key ~data acc -> *)
