@@ -1,5 +1,8 @@
 open! Core_kernel
 
+let yojson_of_time time = `String (Time.to_string time)
+let yojson_of_time_array arr =
+  `List (Array.fold_right arr ~init:[] ~f:(fun time acc -> `String (Time.to_string time)::acc))
 let yojson_of_date date = `String (Date.to_string date)
 let yojson_of_date_option = function
 | Some date -> `String (Date.to_string date)
@@ -28,10 +31,6 @@ type name =
 | Other_name of Html.text
 [@@deriving to_yojson]
 
-let name_to_text = function
-| Full { first_name; last_name } -> sprintf "%s, %s" (Html.text_to_string last_name) (Html.text_to_string first_name) |> Html.clean
-| Other_name s -> s
-
 type party = {
   name: name;
   role: role;
@@ -39,31 +38,26 @@ type party = {
 } [@@deriving to_yojson]
 
 type event = {
-  datetime: Time.t;
+  datetime: Time.t [@to_yojson yojson_of_time];
   description: Html.text;
 }
+[@@deriving to_yojson]
 
 type count = {
   notes: Html.text; (* TODO: Process this further *)
 }
 
-let parse_role = function
-| "Defendant" -> Defendant
-| "Plaintiff" -> Plaintiff
-| "ARRESTING OFFICER" -> Arresting_officer
-| "ARRESTING AGENCY" -> Arresting_agency
-| s -> failwithf "Invalid role: '%s'" s ()
-
 type case = {
   uri: Uri.t [@to_yojson yojson_of_uri];
   title: Html.text;
-  parties: party list;
+  parties: party array;
   is_defendant: bool;
   case_number: Html.text;
   date_filed: Date.t [@to_yojson yojson_of_date];
   judge: Html.text;
   arresting_agency: Html.text option;
-  (* court_dates: Date.t list; *)
+  events: event array;
+  court_dates: Time.t array [@to_yojson yojson_of_time_array];
   (* charges: Html.text list; *)
   (* payments: payment list; *)
 } [@@deriving to_yojson]
