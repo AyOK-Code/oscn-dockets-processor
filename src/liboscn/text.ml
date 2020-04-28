@@ -1,5 +1,7 @@
 open! Core_kernel
 
+type t = string [@@deriving to_yojson]
+
 let escape_table = function
 | "nbsp" -> " "
 | "amp" -> "&"
@@ -15,15 +17,16 @@ let escape_table = function
     with _ -> sprintf "&%s;" s
   end
 
-type text = string [@@deriving to_yojson]
-
 let escape_regex = Re2.create_exn "&(.*?);"
-let ws_regex = Re2.create_exn "\\s+"
+let ws_regex = Re2.create_exn (sprintf "(?:\\s|\u{00A0})+")
 
 let clean s =
   Re2.replace_exn escape_regex s ~f:(fun m ->
     Re2.Match.get_exn m ~sub:(`Index 1) |> escape_table
   )
   |> Re2.replace_exn ws_regex ~f:(fun _m -> " ")
+  |> String.strip
 
-let text_to_string = Fn.id
+let require text = Option.some_if (String.is_empty text |> not) text
+
+let to_string = Fn.id

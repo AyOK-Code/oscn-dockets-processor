@@ -12,10 +12,6 @@ let yojson_of_uri_option = function
 | Some uri -> `String (Uri.to_string uri)
 | None -> `Null
 
-type payment = {
-  amount: int;
-}
-
 type role =
 | Defendant
 | Plaintiff
@@ -25,10 +21,10 @@ type role =
 
 type name =
 | Full of {
-    first_name: Html.text;
-    last_name: Html.text;
+    first_name: Text.t;
+    last_name: Text.t;
   }
-| Other_name of Html.text
+| Other_name of Text.t
 [@@deriving to_yojson]
 
 type party = {
@@ -39,25 +35,40 @@ type party = {
 
 type event = {
   datetime: Time.t [@to_yojson yojson_of_time];
-  description: Html.text;
+  description: Text.t;
 }
 [@@deriving to_yojson]
 
 type count = {
-  notes: Html.text; (* TODO: Process this further *)
+  notes: Text.t; (* TODO: Process this further *)
+}
+
+type docket = {
+  date: Date.t option [@to_yojson yojson_of_date_option];
+  code: Text.t option;
+  description: Text.t;
+  count: Text.t option;
+  party: Text.t option;
+  amount: Money.t option;
+}
+[@@deriving to_yojson]
+
+type payment = {
+  amount: int;
 }
 
 type case = {
   uri: Uri.t [@to_yojson yojson_of_uri];
-  title: Html.text;
+  title: Text.t;
   parties: party array;
   is_defendant: bool;
-  case_number: Html.text;
+  case_number: Text.t;
   date_filed: Date.t [@to_yojson yojson_of_date];
-  judge: Html.text;
-  arresting_agency: Html.text option;
+  judge: Text.t;
+  arresting_agency: Text.t option;
   events: event array;
   court_dates: Time.t array [@to_yojson yojson_of_time_array];
-  (* charges: Html.text list; *)
+  dockets: docket array;
+  (* charges: Text.t list; *)
   (* payments: payment list; *)
 } [@@deriving to_yojson]

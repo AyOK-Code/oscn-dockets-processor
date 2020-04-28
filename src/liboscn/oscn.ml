@@ -40,10 +40,11 @@ let parse_role = function
 | s -> failwithf "Invalid role: '%s'" s ()
 
 let name_to_text = function
-| Full { first_name; last_name } -> sprintf "%s, %s" (Html.text_to_string last_name) (Html.text_to_string first_name) |> Html.clean
+| Full { first_name; last_name } -> sprintf "%s, %s" (Text.to_string last_name) (Text.to_string first_name) |> Text.clean
 | Other_name s -> s
 
 let datetime_regex = Re2.create_exn "^[A-Z][a-z]+, ([A-Z][a-z]+) ([1-9][0-9]?), ([12][0-9]{3})(?: at ([1-9][0-2]?:[0-5][0-9][AP]M))?$"
+let date_regex = Re2.create_exn "^([01][0-9])-([0-3][0-9])-([12][0-9]{3})$"
 
 let parse_month = function
 | "January" -> Month.Jan
@@ -60,13 +61,23 @@ let parse_month = function
 | "December" -> Month.Dec
 | s -> failwithf "Invalid month: '%s'" s ()
 
-let parse_datetime text =
-  let raw = Html.text_to_string text in
+(* Thursday, October 13, 2016 at 1:30PM *)
+let parse_datetime ~section text =
+  let raw = Text.to_string text in
   begin match Re2.find_submatches datetime_regex raw with
   | Ok [|_whole; Some m; Some d; Some y; t|] ->
     let date = Date.create_exn ~m:(parse_month m) ~d:(Int.of_string d) ~y:(Int.of_string y) in
     let time = Option.value_map t ~default:Time.Ofday.start_of_day ~f:Time.Ofday.of_string  in
     Time.of_date_ofday ~zone:Time.Zone.utc date time
-  | Ok _ -> failwithf "Invalid datetime '%s'" raw ()
-  | Error err -> failwith (Error.to_string_hum err)
+  | Ok _ | Error _ -> failwithf "Invalid %s datetime '%s'" section raw ()
+  end
+
+(* 08-31-2015 *)
+let parse_date ~section text =
+  let raw = Text.to_string text in
+  let drop_leading_zeroes s = String.chop_prefix ~prefix:"0" s |> Option.value ~default:s |> Int.of_string in
+  begin match Re2.find_submatches date_regex raw with
+  | Ok [|_whole; Some m; Some d; Some y|] ->
+    Date.create_exn ~m:(m |> drop_leading_zeroes |> Month.of_int_exn) ~d:(drop_leading_zeroes d) ~y:(Int.of_string y)
+  | Ok _ | Error _ -> failwithf "Invalid %s date '%s'" section raw ()
   end

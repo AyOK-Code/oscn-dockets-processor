@@ -7,10 +7,10 @@ let yojson_of_uri uri = `String (Uri.to_string uri)
 
 type search_result = {
   uri: Uri.t [@to_yojson yojson_of_uri];
-  case_number: Html.text;
+  case_number: Text.t;
   date_filed: Date.t [@to_yojson yojson_of_date];
-  title: Html.text;
-  found_party: Html.text;
+  title: Text.t;
+  found_party: Text.t;
 } [@@deriving to_yojson]
 
 type processed =
@@ -24,7 +24,7 @@ let extract_cell cell =
   let open Soup in
   begin match leaf_text cell with
   | None | Some "" -> failwith "Empty cell"
-  | Some x -> Html.clean x
+  | Some x -> Text.clean x
   end
 
 let process_row row =
@@ -40,12 +40,12 @@ let process_row row =
       let case = {
         uri = Oscn.make_uri_from_href link;
         case_number = extract_cell td1;
-        date_filed = extract_cell td2 |> Html.text_to_string |> Date.of_string;
+        date_filed = extract_cell td2 |> Text.to_string |> Date.of_string;
         title = extract_cell td3;
         found_party = extract_cell td4;
       }
       in
-      let code = String.take_while (Html.text_to_string case.case_number) ~f:(Char.(<>) '-') |> String.uppercase in
+      let code = String.take_while (Text.to_string case.case_number) ~f:(Char.(<>) '-') |> String.uppercase in
       if Array.mem valid_codes code ~equal:String.(=)
       then Success case
       else Skipped case
@@ -69,7 +69,7 @@ let rec process_page raw results =
         | ll when List.mem ll "resultTableRow" ~equal:String.equal ->
           (* It's a 'resultTableRow' *)
           begin match process_row tchild with
-          | Success ({ case_number; _ } as case) -> String.Table.update results (Html.text_to_string case_number) ~f:(fun _ -> case)
+          | Success ({ case_number; _ } as case) -> String.Table.update results (Text.to_string case_number) ~f:(fun _ -> case)
           | Skipped _ | Failed _ -> ()
           end;
           Lwt.return_unit
