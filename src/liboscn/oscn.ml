@@ -4,6 +4,8 @@ open S
 
 let pool = Lwt_pool.create 2 (fun () -> Lwt.return_unit)
 
+let debug_string_list ll = print_endline (`List (List.map ll ~f:(fun s -> `String s)) |> Yojson.Basic.pretty_to_string)
+
 let make_uri_from_href href =
   let no_leading_slash = String.chop_prefix href ~prefix:"/" |> Option.value ~default:href in
   let fixed =
@@ -32,6 +34,13 @@ let real_fetch uri =
     end
   )
 
+let is_court_appearance s =
+  Array.fold_until [|"APPEARANCE"; "DOCKET"; "WC"|] ~init:() ~finish:(fun () -> false) ~f:(fun () needle ->
+    if String.is_substring s ~substring:needle
+    then Stop true
+    else Continue ()
+  )
+
 let parse_role = function
 | "Defendant" -> Defendant
 | "Plaintiff" -> Plaintiff
@@ -40,10 +49,10 @@ let parse_role = function
 | s -> failwithf "Invalid role: '%s'" s ()
 
 let name_to_text = function
-| Full { first_name; last_name } -> sprintf "%s, %s" (Text.to_string last_name) (Text.to_string first_name) |> Text.clean
+| Full_name { first_name; last_name } -> sprintf "%s, %s" (Text.to_string last_name) (Text.to_string first_name) |> Text.clean
 | Other_name s -> s
 
-let datetime_regex = Re2.create_exn "^[A-Z][a-z]+, ([A-Z][a-z]+) ([1-9][0-9]?), ([12][0-9]{3})(?: at ([1-9][0-2]?:[0-5][0-9][AP]M))?$"
+let datetime_regex = Re2.create_exn "^[A-Z][a-z]+, ([A-Z][a-z]+) ([1-9][0-9]?), ([12][0-9]{3})(?: at ([0-9][0-2]?:[0-5][0-9] ?[AP]M))?$"
 let date_regex = Re2.create_exn "^([01][0-9])-([0-3][0-9])-([12][0-9]{3})$"
 
 let parse_month = function
@@ -67,7 +76,11 @@ let parse_datetime ~section text =
   begin match Re2.find_submatches datetime_regex raw with
   | Ok [|_whole; Some m; Some d; Some y; t|] ->
     let date = Date.create_exn ~m:(parse_month m) ~d:(Int.of_string d) ~y:(Int.of_string y) in
-    let time = Option.value_map t ~default:Time.Ofday.start_of_day ~f:Time.Ofday.of_string  in
+    let time = begin match t with
+    | Some "0:00 AM" | None -> Time.Ofday.start_of_day
+    | Some x -> Time.Ofday.of_string x
+    end
+    in
     Time.of_date_ofday ~zone:Time.Zone.utc date time
   | Ok _ | Error _ -> failwithf "Invalid %s datetime '%s'" section raw ()
   end
