@@ -34,13 +34,6 @@ let real_fetch uri =
     end
   )
 
-let is_court_appearance s =
-  Array.fold_until [|"APPEARANCE"; "DOCKET"; "WC"|] ~init:() ~finish:(fun () -> false) ~f:(fun () needle ->
-    if String.is_substring s ~substring:needle
-    then Stop true
-    else Continue ()
-  )
-
 let parse_role = function
 | "Defendant" -> Defendant
 | "Plaintiff" -> Plaintiff
@@ -51,6 +44,19 @@ let parse_role = function
 let name_to_text = function
 | Full_name { first_name; last_name } -> sprintf "%s, %s" (Text.to_string last_name) (Text.to_string first_name) |> Text.clean
 | Other_name s -> s
+
+let make_name_matcher ~last_name ~first_name ~middle_name =
+  begin match first_name, middle_name with
+  | (Some fn), (Some mn) -> Some (sprintf "%s, %s %s." last_name fn mn |> String.uppercase)
+  | (Some fn), None -> Some (sprintf "%s, %s" last_name fn |> String.uppercase)
+  | None, None -> Some (sprintf "%s," last_name |> String.uppercase)
+  | _ -> None
+  end
+  |> function
+  | None -> (fun _name -> false)
+  | Some needle ->
+    let name_matcher left right = String.is_prefix ~prefix:left right || String.is_prefix ~prefix:right left in
+    (fun name -> name_matcher needle (Text.to_string name))
 
 let datetime_regex = Re2.create_exn "^[A-Z][a-z]+, ([A-Z][a-z]+) ([1-9][0-9]?), ([12][0-9]{3})(?: at ([0-9][0-2]?:[0-5][0-9] ?[AP]M))?$"
 let date_regex = Re2.create_exn "^([01][0-9])-([0-3][0-9])-([12][0-9]{3})$"
@@ -94,3 +100,54 @@ let parse_date ~section text =
     Date.create_exn ~m:(m |> drop_leading_zeroes |> Month.of_int_exn) ~d:(drop_leading_zeroes d) ~y:(Int.of_string y)
   | Ok _ | Error _ -> failwithf "Invalid %s date '%s'" section raw ()
   end
+
+let prepare_data ~last_name ?first_name ?middle_name datas =
+  let name_matcher = make_name_matcher ~last_name ~first_name ~middle_name in
+  let cases = List.filter_map datas ~f:(fun data ->
+      (* Done this way to ensure we get warnings if we miss a field *)
+      let {
+        status;
+        uri;
+        title;
+        parties;
+        is_defendant;
+        case_number;
+        date_filed;
+        date_closed;
+        judge;
+        arresting_agency;
+        events;
+        transactions;
+        counts;
+      } = data
+      in
+      let open_counts, completed_counts = begin match counts with
+      | OpenCaseCounts x -> x, [||]
+      | CompletedCaseCounts x -> [||], x
+      end
+      in
+      begin match is_defendant with
+      | false -> None
+      | true ->
+        case_to_yojson {
+          status;
+          uri;
+          title;
+          parties;
+          case_number;
+          date_filed;
+          date_closed;
+          judge;
+          arresting_agency;
+          events = Array.filter events ~f:(fun { party; _ } -> Option.value_map party ~default:true ~f:name_matcher);
+          transactions = Array.filter transactions ~f:(fun { party; _ } -> Option.value_map party ~default:true ~f:name_matcher);
+          open_counts;
+          completed_counts = Array.filter completed_counts ~f:(fun { party; _ } -> Option.value_map party ~default:true ~f:name_matcher);
+        }
+        |> Option.return
+      end
+    )
+  in
+  `Assoc [
+    "cases", `List cases
+  ]

@@ -90,10 +90,10 @@ let rec process_page raw results =
     )
   )
 
-let scrape ?last_name ?first_name ?middle_name ?dob_before ?dob_after () =
+let scrape ~last_name ?first_name ?middle_name ?dob_before ?dob_after () =
   let query = [
     "db", ["all"];
-    "lname", (Option.value last_name ~default:"" |> List.return);
+    "lname", [last_name];
     "fname", (Option.value first_name ~default:"" |> List.return);
     "mname", (Option.value middle_name ~default:"" |> List.return);
     "DoBMin", (Option.value_map dob_before ~default:"" ~f:Date.to_string |> List.return);

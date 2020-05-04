@@ -27,6 +27,8 @@ let find_section ~html ~section_classes ~el_type =
     end
   end
 
+let td_party td = Soup.texts td |> String.concat ~sep:" " |> String.uppercase |> Text.clean |> Text.require
+
 let list_regex = Re2.create_exn ", "
 
 let process_party text uri =
@@ -54,7 +56,7 @@ let rec process_counts_open acc el =
   begin match Option.bind p ~f:(fun x -> texts x |> List.last) with
   | None -> acc
   | Some s ->
-    process_counts_open ((Text.clean s)::acc) (Option.value_exn ~message:"Faulty assumption in counts processing" p)
+    process_counts_open ({ description = Text.clean s }::acc) (Option.value_exn ~message:"Faulty assumption in counts processing" p)
   end
 
 let process_counts_closed div =
@@ -86,9 +88,10 @@ let process_counts_closed div =
   end
   in
   (* Second table *)
-  let disposition, count_as_disposed, violation_of = begin match second $$ "tbody tr td" |> to_list with
-  | [_blank; _party; information] ->
-    begin match trimmed_texts information with
+  let disposition, count_as_disposed, violation_of, party = begin match second $$ "tbody tr td" |> to_list with
+  | [_td1; td2; td3] ->
+    let party = td_party td2 in
+    begin match trimmed_texts td3 with
     | [td1; td2; "Violation of"; td4] ->
       let disposition = begin match String.chop_prefix td1 ~prefix:"Disposed:" with
       | Some s -> Text.clean s
@@ -101,13 +104,14 @@ let process_counts_closed div =
       end
       in
       let violation_of = Text.clean td4 in
-      disposition, count_as_disposed, violation_of
+      disposition, count_as_disposed, violation_of, party
     | _ -> failwith "Invalid page structure, fragments of second count column for the second line"
     end
   | _ -> failwith "Invalid page structure, could not locate distinct count columns for the second line"
   end
   in
   {
+    party;
     count_as_filed;
     date_of_offense;
     disposition;
@@ -117,8 +121,9 @@ let process_counts_closed div =
 
 let fake_fetch () = Lwt_io.chars_of_file "case7.html" |> Lwt_stream.to_string
 
-let scrape ?last_name ?first_name ?middle_name uri =
+let scrape ~last_name ?first_name ?middle_name uri =
   let open Soup in
+  let name_matcher = Oscn.make_name_matcher ~last_name ~first_name ~middle_name in
 
   (* let%lwt raw = Oscn.real_fetch uri in *)
   let%lwt raw = fake_fetch () in
@@ -172,23 +177,10 @@ let scrape ?last_name ?first_name ?middle_name uri =
   in
 
   (* Parties lookups *)
-  let needle_opt = begin match last_name, first_name, middle_name with
-  | (Some ln), (Some fn), (Some mn) -> Some (sprintf "%s, %s %s." ln fn mn |> String.uppercase)
-  | (Some ln), (Some fn), None -> Some (sprintf "%s, %s" ln fn |> String.uppercase)
-  | (Some ln), None, None -> Some (sprintf "%s," ln |> String.uppercase)
-  | _ -> None
-  end
-  in
-  let name_matcher left right =
-    String.is_prefix ~prefix:left right || String.is_prefix ~prefix:right left
-  in
-  let is_defendant = Option.value_map needle_opt ~default:false ~f:(fun needle ->
-      Array.exists parties ~f:(function
-      | { role = Defendant; name = Other_name s; uri = _ } when name_matcher needle (Text.to_string s) -> true
-      | { role = Defendant; name = Full_name { first_name; last_name; }; uri = _ } ->
-        name_matcher needle (sprintf "%s, %s" (Text.to_string last_name) (Text.to_string first_name))
-      | _ -> false
-      )
+  let is_defendant =
+    Array.exists parties ~f:(function
+    | { role = Defendant; name; _ } when name_matcher (Oscn.name_to_text name) -> true
+    | _ -> false
     )
   in
   let arresting_agency = Array.find_map parties ~f:(function
@@ -202,9 +194,11 @@ let scrape ?last_name ?first_name ?middle_name uri =
     let table = find_section ~html ~section_classes:["section"; "events"] ~el_type:"table" in
     table $$ "tbody tr" |> to_list |> Array.of_list_map ~f:(fun row ->
       begin match row $$ "td" |> to_list with
-      | [td1; _td2; td3; _td4] ->
+      | [td1; td2; td3; _td4] ->
+        let party = td_party td2 in
         begin match trimmed_texts td1 with
         | hd::rest -> {
+            party;
             datetime = Oscn.parse_datetime ~section:"event" (Text.clean hd);
             description = String.concat ~sep:" " rest |> String.uppercase |> Text.clean;
             judge = texts td3 |> String.concat ~sep:" " |> Text.clean |> Text.require;
@@ -216,22 +210,19 @@ let scrape ?last_name ?first_name ?middle_name uri =
     )
   in
 
-  (* Events lookups *)
-  let court_dates = Array.filter events ~f:(fun { description; _ } -> Oscn.is_court_appearance (Text.to_string description)) in
-
   (* Process counts *)
   let counts = begin match status with
   | Open ->
     begin try
       begin match html $? "h2.section.counts" with
       | None -> raise (Not_present "Did not find a counts section")
-      | Some h2 -> Simple (process_counts_open [] h2 |> Array.of_list_rev)
+      | Some h2 -> OpenCaseCounts (process_counts_open [] h2 |> Array.of_list_rev)
       end
-    with Not_present _ -> Simple [||] end
+    with Not_present _ -> OpenCaseCounts [||] end
   | Completed ->
     begin match html $$ "div.CountsContainer" |> to_list with
     | [] -> failwith "Invalid page structure, did not find a counts section on a Closed case."
-    | containers -> Complete (Array.of_list_map containers ~f:process_counts_closed)
+    | containers -> CompletedCaseCounts (Array.of_list_map containers ~f:process_counts_closed)
     end
   end
   in
@@ -246,11 +237,11 @@ let scrape ?last_name ?first_name ?middle_name uri =
       in
       begin match rows with
       | [|td1; td2; td3; td4; td5; td6|] -> {
+          party = td5 |> Text.uppercase |> Text.require;
           date = td1 |> Text.require |> Option.map ~f:(Oscn.parse_date ~section:"docket");
           code = td2 |> Text.require;
           description = td3;
           count = td4 |> Text.require;
-          party = td5 |> Text.require;
           amount = td6 |> Text.require |> Option.map ~f:(fun x -> Text.to_string x |> Money.amount);
         }
       | _ -> failwith "Invalid dockets table structure"
@@ -260,7 +251,6 @@ let scrape ?last_name ?first_name ?middle_name uri =
 
   (* Dockets lookups *)
   let transactions = Array.filter dockets ~f:(fun { amount; _ } -> Option.is_some amount) in
-
 
   let case = {
     status;
@@ -274,11 +264,8 @@ let scrape ?last_name ?first_name ?middle_name uri =
     judge;
     arresting_agency;
     events;
-    court_dates;
     transactions;
     counts;
   }
   in
-  print_endline (Yojson.Safe.pretty_to_string (case_to_yojson case));
-
-  Lwt.return_unit
+  Lwt.return case

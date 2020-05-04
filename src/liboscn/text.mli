@@ -6,4 +6,6 @@ val clean: string -> t
 
 val require: t -> t option
 
+val uppercase: t -> t
+
 val to_string: t -> string
