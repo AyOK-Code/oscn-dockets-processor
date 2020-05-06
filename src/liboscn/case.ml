@@ -110,7 +110,6 @@ let process_counts_closed div =
       | _ -> failwith "Invalid page structure, end of fragments of second count column for the second line"
       end
       in
-      (* let violation_of = Text.clean td4 in *)
       disposition, count_as_disposed, violation_of, party
     | _ -> failwith "Invalid page structure, fragments of second count column for the second line"
     end
@@ -241,18 +240,20 @@ let process ~last_name ?first_name ?middle_name uri raw =
   let dockets =
     let table = find_section ~html ~section_classes:["section"; "dockets"] ~el_type:"table" in
     table $$ "tbody tr" |> to_list |> Array.of_list_map ~f:(fun row ->
-      let rows = row $$ "td" |> to_list |> Array.of_list_map ~f:(fun td ->
-          texts td |> String.concat ~sep:" " |> Text.clean
-        )
-      in
+      let rows = row $$ "td" |> to_list in
       begin match rows with
-      | [|td1; td2; td3; td4; td5; td6|] -> {
-          party = td5 |> Text.uppercase |> Text.require;
-          date = td1 |> Text.require |> Option.map ~f:(Oscn.parse_date ~section:"docket");
-          code = td2 |> Text.require;
-          description = td3;
-          count = td4 |> Text.require;
-          amount = td6 |> Text.require |> Option.map ~f:(fun x -> Text.to_string x |> Money.amount);
+      | [td1; td2; td3; td4; td5; td6] ->
+        {
+          date = texts td1 |> String.concat ~sep:" " |> Text.clean |> Text.require |> Option.map ~f:(Oscn.parse_date ~section:"docket");
+          code = texts td2 |> String.concat ~sep:" " |> Text.clean |> Text.require;
+          description = Option.value_map (child_element td3) ~default:"" ~f:(fun x -> texts x |> String.concat ~sep:" ") |> Text.clean;
+          links = td3 $$ "a[href]" |> to_list |> List.filter_map ~f:(fun link ->
+              attribute "href" link
+              |> Option.map ~f:(fun x -> Oscn.make_uri_from_href x |> Uri.to_string)
+            );
+          count = texts td4 |> String.concat ~sep:" " |> Text.clean |> Text.require;
+          party = texts td5 |> String.concat ~sep:" " |> Text.clean |> Text.uppercase |> Text.require;
+          amount = texts td6 |> String.concat ~sep:" " |> Text.clean |> Text.require |> Option.map ~f:(fun x -> Text.to_string x |> Money.amount);
         }
       | _ -> failwith "Invalid dockets table structure"
       end

@@ -55,21 +55,21 @@
         {
           "Date__c": "2014-11-17",
           "Code__c": null,
-          "Description__c": "FILE & ENTER PETITION Document Available at Court Clerk's Office",
+          "Description__c": "FILE & ENTER PETITION",
           "Count__c": null,
           "Amount__c": "163.00"
         },
         {
           "Date__c": null,
           "Code__c": null,
-          "Description__c": "(Entry with fee only)",
+          "Description__c": "",
           "Count__c": null,
           "Amount__c": "6.00"
         },
         {
           "Date__c": null,
           "Code__c": null,
-          "Description__c": "(Entry with fee only)",
+          "Description__c": "",
           "Count__c": null,
           "Amount__c": "2.00"
         },
@@ -118,21 +118,21 @@
         {
           "Date__c": "2014-11-17",
           "Code__c": null,
-          "Description__c": "ISSUE SUMMONS Document Available at Court Clerk's Office",
+          "Description__c": "ISSUE SUMMONS",
           "Count__c": null,
           "Amount__c": "30.00"
         },
         {
           "Date__c": "2015-03-20",
           "Code__c": null,
-          "Description__c": "ISSUE SPECIAL EXECUTION AND ORDER OF SALE Document Available at Court Clerk's Office",
+          "Description__c": "ISSUE SPECIAL EXECUTION AND ORDER OF SALE",
           "Count__c": null,
           "Amount__c": "33.00"
         },
         {
           "Date__c": null,
           "Code__c": null,
-          "Description__c": "(Entry with fee only)",
+          "Description__c": "",
           "Count__c": null,
           "Amount__c": "75.00"
         },
@@ -174,21 +174,21 @@
         {
           "Date__c": "2015-05-05",
           "Code__c": null,
-          "Description__c": "BILL OF APPRAISERS Document Available at Court Clerk's Office",
+          "Description__c": "BILL OF APPRAISERS",
           "Count__c": null,
           "Amount__c": "445.50"
         },
         {
           "Date__c": "2015-05-05",
           "Code__c": null,
-          "Description__c": "SPECIAL EXECUTION AND ORDER OF SALE Document Available at Court Clerk's Office",
+          "Description__c": "SPECIAL EXECUTION AND ORDER OF SALE",
           "Count__c": null,
           "Amount__c": "4.50"
         },
         {
           "Date__c": "2015-06-04",
           "Code__c": null,
-          "Description__c": "ORDER CONFIRMING SHERIFF'S SALE AND DISBURSING SALE Document Available at Court Clerk's Office",
+          "Description__c": "ORDER CONFIRMING SHERIFF'S SALE AND DISBURSING SALE",
           "Count__c": null,
           "Amount__c": "300.00"
         },

@@ -121,7 +121,7 @@
         {
           "Date__c": "2015-08-31",
           "Code__c": null,
-          "Description__c": "APPEARANCE BOND FEE (STEVEN CHARLES $6000) Document Available at Court Clerk's Office",
+          "Description__c": "APPEARANCE BOND FEE (STEVEN CHARLES $6000)",
           "Count__c": null,
           "Amount__c": "10.00"
         },
@@ -156,21 +156,21 @@
         {
           "Date__c": null,
           "Code__c": null,
-          "Description__c": "(Entry with fee only)",
+          "Description__c": "",
           "Count__c": null,
           "Amount__c": "5.00"
         },
         {
           "Date__c": null,
           "Code__c": null,
-          "Description__c": "(Entry with fee only)",
+          "Description__c": "",
           "Count__c": null,
           "Amount__c": "9.00"
         },
         {
           "Date__c": null,
           "Code__c": null,
-          "Description__c": "(Entry with fee only)",
+          "Description__c": "",
           "Count__c": null,
           "Amount__c": "5.00"
         },
@@ -310,21 +310,21 @@
         {
           "Date__c": null,
           "Code__c": null,
-          "Description__c": "(Entry with fee only)",
+          "Description__c": "",
           "Count__c": null,
           "Amount__c": "5.00"
         },
         {
           "Date__c": null,
           "Code__c": null,
-          "Description__c": "(Entry with fee only)",
+          "Description__c": "",
           "Count__c": null,
           "Amount__c": "9.00"
         },
         {
           "Date__c": null,
           "Code__c": null,
-          "Description__c": "(Entry with fee only)",
+          "Description__c": "",
           "Count__c": null,
           "Amount__c": "5.00"
         },
@@ -450,7 +450,7 @@
         {
           "Date__c": "2015-10-21",
           "Code__c": null,
-          "Description__c": "APPEARANCE BOND FEE (HEATHER MOUNGER $6000) Document Available at Court Clerk's Office",
+          "Description__c": "APPEARANCE BOND FEE (HEATHER MOUNGER $6000)",
           "Count__c": null,
           "Amount__c": "10.00"
         },
@@ -478,14 +478,14 @@
         {
           "Date__c": null,
           "Code__c": null,
-          "Description__c": "(Entry with fee only)",
+          "Description__c": "",
           "Count__c": null,
           "Amount__c": "-25.00"
         },
         {
           "Date__c": null,
           "Code__c": null,
-          "Description__c": "(Entry with fee only)",
+          "Description__c": "",
           "Count__c": null,
           "Amount__c": "-2.50"
         },
@@ -499,28 +499,28 @@
         {
           "Date__c": null,
           "Code__c": null,
-          "Description__c": "(Entry with fee only)",
+          "Description__c": "",
           "Count__c": null,
           "Amount__c": "-25.00"
         },
         {
           "Date__c": null,
           "Code__c": null,
-          "Description__c": "(Entry with fee only)",
+          "Description__c": "",
           "Count__c": null,
           "Amount__c": "-2.50"
         },
         {
           "Date__c": "2016-12-22",
           "Code__c": null,
-          "Description__c": "SENTENCING ORDER Document Available (#CC16122200000824) TIFF PDF",
+          "Description__c": "SENTENCING ORDER",
           "Count__c": null,
           "Amount__c": "200.00"
         },
         {
           "Date__c": null,
           "Code__c": null,
-          "Description__c": "(Entry with fee only)",
+          "Description__c": "",
           "Count__c": null,
           "Amount__c": "50.00"
         },
@@ -555,14 +555,14 @@
         {
           "Date__c": "2017-03-14",
           "Code__c": null,
-          "Description__c": "ISSUE BENCH WARRANT FOR FTP Document Available at Court Clerk's Office",
+          "Description__c": "ISSUE BENCH WARRANT FOR FTP",
           "Count__c": null,
           "Amount__c": "5.00"
         },
         {
           "Date__c": null,
           "Code__c": null,
-          "Description__c": "(Entry with fee only)",
+          "Description__c": "",
           "Count__c": null,
           "Amount__c": "50.00"
         },
@@ -576,14 +576,14 @@
         {
           "Date__c": "2017-04-11",
           "Code__c": null,
-          "Description__c": "ISSUE BENCH WARRANT FOR FTP Document Available at Court Clerk's Office",
+          "Description__c": "ISSUE BENCH WARRANT FOR FTP",
           "Count__c": null,
           "Amount__c": "5.00"
         },
         {
           "Date__c": null,
           "Code__c": null,
-          "Description__c": "(Entry with fee only)",
+          "Description__c": "",
           "Count__c": null,
           "Amount__c": "50.00"
         },
@@ -597,14 +597,14 @@
         {
           "Date__c": "2017-08-01",
           "Code__c": null,
-          "Description__c": "ISSUE BENCH WARRANT FOR FTP Document Available at Court Clerk's Office",
+          "Description__c": "ISSUE BENCH WARRANT FOR FTP",
           "Count__c": null,
           "Amount__c": "5.00"
         },
         {
           "Date__c": null,
           "Code__c": null,
-          "Description__c": "(Entry with fee only)",
+          "Description__c": "",
           "Count__c": null,
           "Amount__c": "50.00"
         },
@@ -618,14 +618,14 @@
         {
           "Date__c": "2017-11-14",
           "Code__c": null,
-          "Description__c": "ISSUE BENCH WARRANT FOR FTP Document Available at Court Clerk's Office",
+          "Description__c": "ISSUE BENCH WARRANT FOR FTP",
           "Count__c": null,
           "Amount__c": "5.00"
         },
         {
           "Date__c": null,
           "Code__c": null,
-          "Description__c": "(Entry with fee only)",
+          "Description__c": "",
           "Count__c": null,
           "Amount__c": "50.00"
         },

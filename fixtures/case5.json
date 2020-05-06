@@ -132,7 +132,7 @@
         {
           "Date__c": "2019-12-13",
           "Code__c": "WAIS",
-          "Description__c": "WRIT OF ASSISTANCE ISSUED Document Available at Court Clerk's Office",
+          "Description__c": "WRIT OF ASSISTANCE ISSUED",
           "Count__c": null,
           "Amount__c": "50.00"
         },

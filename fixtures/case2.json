@@ -51,28 +51,28 @@
         {
           "Date__c": null,
           "Code__c": null,
-          "Description__c": "(Entry with fee only)",
+          "Description__c": "",
           "Count__c": null,
           "Amount__c": "5.00"
         },
         {
           "Date__c": null,
           "Code__c": null,
-          "Description__c": "(Entry with fee only)",
+          "Description__c": "",
           "Count__c": null,
           "Amount__c": "6.00"
         },
         {
           "Date__c": null,
           "Code__c": null,
-          "Description__c": "(Entry with fee only)",
+          "Description__c": "",
           "Count__c": null,
           "Amount__c": "5.00"
         },
         {
           "Date__c": null,
           "Code__c": null,
-          "Description__c": "(Entry with fee only)",
+          "Description__c": "",
           "Count__c": null,
           "Amount__c": "9.00"
         },
