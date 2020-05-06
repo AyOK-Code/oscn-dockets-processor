@@ -8,8 +8,10 @@ let () = Lwt.async_exception_hook := (fun ex ->
   )
 let main () =
   let uri = Liboscn.Oscn.make_uri_from_href "GetCaseInformation.aspx?db=oklahoma&number=TR-1991-3731&cmid=180879" in
+  (* let%lwt raw = Liboscn.Oscn.fetch uri in *)
+  let%lwt raw = Liboscn.Oscn.fetch_from_file "fixtures/case5.html" in
 
-  let%lwt case = Liboscn.Case.scrape ~first_name:"daniel" ~last_name:"laughlin" uri in
+  let case = Liboscn.Case.process ~first_name:"shantal" ~last_name:"ward" uri raw in
   print_endline (Yojson.Safe.pretty_to_string (Liboscn.Oscn.prepare_data ~first_name:"daniel" ~last_name:"laughlin" [case]));
   Lwt.return_unit
 

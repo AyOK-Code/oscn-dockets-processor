@@ -1,0 +1,151 @@
+{
+  "cases": [
+    {
+      "status": "Completed",
+      "uri": "https://www.oscn.net/dockets/GetCaseInformation.aspx?db=oklahoma&number=SC-2019-23057&cmid=3833620",
+      "title": "Portland Parke, LLC, DBA PORTLAND PARKE APARTMENTS, Plaintiff, v. Daniel Laughlin, & Hannah Tiger, & ALL OCCUPANTS Defendant.",
+      "parties": [
+        {
+          "Name__c": "LAUGHLIN, DANIEL",
+          "Role__c": "Defendant"
+        },
+        {
+          "Name__c": "PORTLAND PARKE, LLC",
+          "Role__c": "Plaintiff"
+        },
+        {
+          "Name__c": "TIGER, HANNAH",
+          "Role__c": "Defendant"
+        }
+      ],
+      "case_number": "SC-2019-23057",
+      "date_filed": "2019-12-05",
+      "date_closed": "2019-12-12",
+      "judge": "Chief Special Judge",
+      "arresting_agency": null,
+      "events": [
+        {
+          "Datetime__c": "2019-12-12 10:00:00.000000Z",
+          "Description__c": "HEARING",
+          "Judge__c": "Chief Special Judge"
+        }
+      ],
+      "transactions": [
+        {
+          "Date__c": "2019-12-05",
+          "Code__c": "AFDC1",
+          "Description__c": "AFFIDAVIT",
+          "Count__c": null,
+          "Amount__c": "45.00"
+        },
+        {
+          "Date__c": "2019-12-05",
+          "Code__c": "DMFE",
+          "Description__c": "DISPUTE MEDIATION FEE",
+          "Count__c": null,
+          "Amount__c": "7.00"
+        },
+        {
+          "Date__c": "2019-12-05",
+          "Code__c": "PFE7",
+          "Description__c": "LAW LIBRARY FEE",
+          "Count__c": null,
+          "Amount__c": "6.00"
+        },
+        {
+          "Date__c": "2019-12-05",
+          "Code__c": "ADJUST",
+          "Description__c": "ADJUSTING ENTRY: MONIES DUE TO AC09-CARD ALLOCATION",
+          "Count__c": null,
+          "Amount__c": "1.45"
+        },
+        {
+          "Date__c": "2019-12-13",
+          "Code__c": "AWAS",
+          "Description__c": "APPLICATION FOR WRIT OF ASSISTANCE",
+          "Count__c": null,
+          "Amount__c": "33.00"
+        },
+        {
+          "Date__c": "2019-12-13",
+          "Code__c": "OCISR",
+          "Description__c": "OKLAHOMA COURT INFORMATION SYSTEM REVOLVING FUND",
+          "Count__c": null,
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": "2019-12-13",
+          "Code__c": "OCJC",
+          "Description__c": "OKLAHOMA COUNCIL ON JUDICIAL COMPLAINTS REVOLVING FUND",
+          "Count__c": null,
+          "Amount__c": "1.55"
+        },
+        {
+          "Date__c": "2019-12-13",
+          "Code__c": "OCASA",
+          "Description__c": "OKLAHOMA COURT APPOINTED SPECIAL ADVOCATES",
+          "Count__c": null,
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": "2019-12-13",
+          "Code__c": "CCADMIN0155",
+          "Description__c": "COURT CLERK ADMINISTRATIVE FEE ON $1.55 COLLECTION",
+          "Count__c": null,
+          "Amount__c": "0.16"
+        },
+        {
+          "Date__c": "2019-12-13",
+          "Code__c": "SJFIS",
+          "Description__c": "STATE JUDICIAL REVOLVING FUND - INTERPRETER AND TRANSLATOR SERVICES",
+          "Count__c": null,
+          "Amount__c": "0.45"
+        },
+        {
+          "Date__c": "2019-12-13",
+          "Code__c": "DCADMIN155",
+          "Description__c": "DISTRICT COURT ADMINISTRATIVE FEE ON $1.55 COLLECTIONS",
+          "Count__c": null,
+          "Amount__c": "0.23"
+        },
+        {
+          "Date__c": "2019-12-13",
+          "Code__c": "DCADMIN05",
+          "Description__c": "DISTRICT COURT ADMINISTRATIVE FEE ON $5 COLLECTIONS",
+          "Count__c": null,
+          "Amount__c": "0.75"
+        },
+        {
+          "Date__c": "2019-12-13",
+          "Code__c": "CCRMPF",
+          "Description__c": "COURT CLERK'S RECORDS MANAGEMENT AND PRESERVATION FEE",
+          "Count__c": null,
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": "2019-12-13",
+          "Code__c": "CCADMIN04",
+          "Description__c": "COURT CLERK ADMINISTRATIVE FEE ON COLLECTIONS",
+          "Count__c": null,
+          "Amount__c": "0.50"
+        },
+        {
+          "Date__c": "2019-12-13",
+          "Code__c": "WAIS",
+          "Description__c": "WRIT OF ASSISTANCE ISSUED Document Available at Court Clerk's Office",
+          "Count__c": null,
+          "Amount__c": "50.00"
+        },
+        {
+          "Date__c": "2019-12-13",
+          "Code__c": "ADJUST",
+          "Description__c": "ADJUSTING ENTRY: MONIES DUE TO AC09-CARD ALLOCATION",
+          "Count__c": null,
+          "Amount__c": "3.17"
+        }
+      ],
+      "open_counts": [],
+      "completed_counts": []
+    }
+  ]
+}

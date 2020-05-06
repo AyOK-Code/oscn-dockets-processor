@@ -32,3 +32,5 @@ let require text = Option.some_if (String.is_empty text |> not) text
 let uppercase = String.uppercase
 
 let to_string = Fn.id
+
+let (=) = String.(=)

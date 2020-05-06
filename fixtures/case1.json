@@ -1,0 +1,675 @@
+{
+  "cases": [
+    {
+      "status": "Open",
+      "uri": "https://www.oscn.net/dockets/GetCaseInformation.aspx?db=wagoner&number=CF-2015-00470&cmid=11288",
+      "title": "STATE OF OKLAHOMA V. ROBERT LEE JOHNSON",
+      "parties": [
+        {
+          "Name__c": "JOHNSON, ROBERT LEE",
+          "Role__c": "Defendant"
+        }
+      ],
+      "case_number": "CF-2015-00470",
+      "date_filed": "2015-09-17",
+      "date_closed": null,
+      "judge": "KIRKLEY, DOUGLAS",
+      "arresting_agency": null,
+      "events": [
+        {
+          "Datetime__c": "2015-08-31 13:30:00.000000Z",
+          "Description__c": "ARRAIGNMENT DOCKET",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2015-09-08 13:30:00.000000Z",
+          "Description__c": "ARRAIGNMENT DOCKET",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2015-09-30 13:30:00.000000Z",
+          "Description__c": "ARRAIGNMENT DOCKET",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2015-10-22 13:30:00.000000Z",
+          "Description__c": "ARRAIGNMENT DOCKET",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2015-11-19 08:00:00.000000Z",
+          "Description__c": "CRIMINAL DOCKET SHOOK",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2015-12-02 13:30:00.000000Z",
+          "Description__c": "ARRAIGNMENT DOCKET",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2015-12-17 13:30:00.000000Z",
+          "Description__c": "ARRAIGNMENT DOCKET",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2015-12-30 13:30:00.000000Z",
+          "Description__c": "ARRAIGNMENT DOCKET",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2016-02-18 08:00:00.000000Z",
+          "Description__c": "CRIMINAL DOCKET SHOOK",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2016-03-17 08:00:00.000000Z",
+          "Description__c": "CRIMINAL DOCKET SHOOK",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2016-05-18 08:00:00.000000Z",
+          "Description__c": "CRIMINAL DOCKET SHOOK",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2016-07-13 08:00:00.000000Z",
+          "Description__c": "CRIMINAL DOCKET SHOOK",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2016-08-25 13:30:00.000000Z",
+          "Description__c": "CRIMINAL DOCKET LUTON",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2016-10-13 13:30:00.000000Z",
+          "Description__c": "CRIMINAL DOCKET LUTON",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2016-12-20 00:00:00.000000Z",
+          "Description__c": "J&S",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2016-12-22 13:30:00.000000Z",
+          "Description__c": "CRIMINAL DOCKET LUTON",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2016-12-22 00:00:00.000000Z",
+          "Description__c": "GUILTY PLEA",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2018-02-16 00:00:00.000000Z",
+          "Description__c": "WC - CASE SENT TO COLLECTIONS",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2018-05-23 00:00:00.000000Z",
+          "Description__c": "WC - CASE RE-SENT TO COLLECTIONS",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2018-06-06 00:00:00.000000Z",
+          "Description__c": "WC - CASE SENT TO COLLECTIONS",
+          "Judge__c": null
+        }
+      ],
+      "transactions": [
+        {
+          "Date__c": "2015-08-31",
+          "Code__c": null,
+          "Description__c": "APPEARANCE BOND FEE (STEVEN CHARLES $6000) Document Available at Court Clerk's Office",
+          "Count__c": null,
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "JAIL OPERATION FEE",
+          "Count__c": null,
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF JAIL OPERATION FEE",
+          "Count__c": null,
+          "Amount__c": "2.50"
+        },
+        {
+          "Date__c": "2015-09-18",
+          "Code__c": null,
+          "Description__c": "MISDEMEANOR INFORMATION ($196)",
+          "Count__c": null,
+          "Amount__c": "83.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "CT II: THREATEN TO PERFORM ACT OF VIOLENCE",
+          "Count__c": null,
+          "Amount__c": "6.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "(Entry with fee only)",
+          "Count__c": null,
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "(Entry with fee only)",
+          "Count__c": null,
+          "Amount__c": "9.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "(Entry with fee only)",
+          "Count__c": null,
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "STATE TREASURERS FORENSIC FEE",
+          "Count__c": null,
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF AFS1",
+          "Count__c": null,
+          "Amount__c": "0.50"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF CLT9",
+          "Count__c": null,
+          "Amount__c": "0.90"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF FORE",
+          "Count__c": null,
+          "Amount__c": "0.50"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "MEDICAL LIABILITY FEE",
+          "Count__c": null,
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF MLRF",
+          "Count__c": null,
+          "Amount__c": "1.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "DA REVOLVING FUND",
+          "Count__c": null,
+          "Amount__c": "15.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF DARF",
+          "Count__c": null,
+          "Amount__c": "1.50"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "OKLAHOMA COURT INFORMATION SYSTEM FEE - EFFECTIVE 07/01/04",
+          "Count__c": null,
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "TRAMA CARE RF",
+          "Count__c": null,
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF TCRF",
+          "Count__c": null,
+          "Amount__c": "1.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "SHERIFF SERVICE FEE-COURTHOUSE SECURITY SUB ACCOUNT",
+          "Count__c": null,
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF COURTHOUSE SECURITY FEE",
+          "Count__c": null,
+          "Amount__c": "1.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "ATTORNEY GENERAL VICTIM SERVICES UNIT",
+          "Count__c": null,
+          "Amount__c": "3.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF AG VICTIM SERVICES FEE",
+          "Count__c": null,
+          "Amount__c": "0.30"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "CHILD ABUSE MULTIDISCIPLINARY ACCOUNT",
+          "Count__c": null,
+          "Amount__c": "3.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF CAMA FEE",
+          "Count__c": null,
+          "Amount__c": "0.30"
+        },
+        {
+          "Date__c": "2015-09-18",
+          "Code__c": null,
+          "Description__c": "MISDEMEANOR INFORMATION ($196)",
+          "Count__c": null,
+          "Amount__c": "83.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "CT III: PUBLIC INTOX",
+          "Count__c": null,
+          "Amount__c": "6.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "(Entry with fee only)",
+          "Count__c": null,
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "(Entry with fee only)",
+          "Count__c": null,
+          "Amount__c": "9.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "(Entry with fee only)",
+          "Count__c": null,
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "STATE TREASURERS FORENSIC FEE",
+          "Count__c": null,
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF AFS1",
+          "Count__c": null,
+          "Amount__c": "0.50"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF CLT9",
+          "Count__c": null,
+          "Amount__c": "0.90"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF FORE",
+          "Count__c": null,
+          "Amount__c": "0.50"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "MEDICAL LIABILITY FEE",
+          "Count__c": null,
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF MLRF",
+          "Count__c": null,
+          "Amount__c": "1.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "DA REVOLVING FUND",
+          "Count__c": null,
+          "Amount__c": "15.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF DARF",
+          "Count__c": null,
+          "Amount__c": "1.50"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "OKLAHOMA COURT INFORMATION SYSTEM FEE - EFFECTIVE 07/01/04",
+          "Count__c": null,
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "TRAMA CARE RF",
+          "Count__c": null,
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF TCRF",
+          "Count__c": null,
+          "Amount__c": "1.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "SHERIFF SERVICE FEE-COURTHOUSE SECURITY SUB ACCOUNT",
+          "Count__c": null,
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF COURTHOUSE SECURITY FEE",
+          "Count__c": null,
+          "Amount__c": "1.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "ATTORNEY GENERAL VICTIM SERVICES UNIT",
+          "Count__c": null,
+          "Amount__c": "3.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF AG VICTIM SERVICES FEE",
+          "Count__c": null,
+          "Amount__c": "0.30"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "CHILD ABUSE MULTIDISCIPLINARY ACCOUNT",
+          "Count__c": null,
+          "Amount__c": "3.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF CAMA FEE",
+          "Count__c": null,
+          "Amount__c": "0.30"
+        },
+        {
+          "Date__c": "2015-10-21",
+          "Code__c": null,
+          "Description__c": "APPEARANCE BOND FEE (HEATHER MOUNGER $6000) Document Available at Court Clerk's Office",
+          "Count__c": null,
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "JAIL OPERATION FEE",
+          "Count__c": null,
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF JAIL OPERATION FEE",
+          "Count__c": null,
+          "Amount__c": "2.50"
+        },
+        {
+          "Date__c": "2016-01-29",
+          "Code__c": null,
+          "Description__c": "CORRECTION TO ACCOUNTING ENTRIES OF INITIAL BOND FILING",
+          "Count__c": null,
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "(Entry with fee only)",
+          "Count__c": null,
+          "Amount__c": "-25.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "(Entry with fee only)",
+          "Count__c": null,
+          "Amount__c": "-2.50"
+        },
+        {
+          "Date__c": "2016-01-29",
+          "Code__c": null,
+          "Description__c": "CORRECTION TO ACCOUNTING ENTRIES OF INITIAL BOND FILING",
+          "Count__c": null,
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "(Entry with fee only)",
+          "Count__c": null,
+          "Amount__c": "-25.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "(Entry with fee only)",
+          "Count__c": null,
+          "Amount__c": "-2.50"
+        },
+        {
+          "Date__c": "2016-12-22",
+          "Code__c": null,
+          "Description__c": "SENTENCING ORDER Document Available (#CC16122200000824) TIFF PDF",
+          "Count__c": null,
+          "Amount__c": "200.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "(Entry with fee only)",
+          "Count__c": null,
+          "Amount__c": "50.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "FIGURE 10% FEES FOR RV",
+          "Count__c": null,
+          "Amount__c": "27.60"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "FIGURE 10% FEES FOR DA",
+          "Count__c": null,
+          "Amount__c": "27.60"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "FIGURE 15% FEES FOR DISTRICT COURT REVOLVING FUND",
+          "Count__c": null,
+          "Amount__c": "41.40"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "FIGURE 90% FEES FOR SHERIFF",
+          "Count__c": null,
+          "Amount__c": "248.40"
+        },
+        {
+          "Date__c": "2017-03-14",
+          "Code__c": null,
+          "Description__c": "ISSUE BENCH WARRANT FOR FTP Document Available at Court Clerk's Office",
+          "Count__c": null,
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "(Entry with fee only)",
+          "Count__c": null,
+          "Amount__c": "50.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "OKLAHOMA COURT INFORMATION SYSTEM",
+          "Count__c": null,
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": "2017-04-11",
+          "Code__c": null,
+          "Description__c": "ISSUE BENCH WARRANT FOR FTP Document Available at Court Clerk's Office",
+          "Count__c": null,
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "(Entry with fee only)",
+          "Count__c": null,
+          "Amount__c": "50.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "OKLAHOMA COURT INFORMATION SYSTEM",
+          "Count__c": null,
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": "2017-08-01",
+          "Code__c": null,
+          "Description__c": "ISSUE BENCH WARRANT FOR FTP Document Available at Court Clerk's Office",
+          "Count__c": null,
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "(Entry with fee only)",
+          "Count__c": null,
+          "Amount__c": "50.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "OKLAHOMA COURT INFORMATION SYSTEM",
+          "Count__c": null,
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": "2017-11-14",
+          "Code__c": null,
+          "Description__c": "ISSUE BENCH WARRANT FOR FTP Document Available at Court Clerk's Office",
+          "Count__c": null,
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "(Entry with fee only)",
+          "Count__c": null,
+          "Amount__c": "50.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "OKLAHOMA COURT INFORMATION SYSTEM",
+          "Count__c": null,
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": "2018-02-16",
+          "Code__c": null,
+          "Description__c": "WC COLLECTIONS FEE",
+          "Count__c": null,
+          "Amount__c": "335.10"
+        },
+        {
+          "Date__c": "2018-02-16",
+          "Code__c": null,
+          "Description__c": "REDUCTION IN BENCH WARRANT FEE",
+          "Count__c": null,
+          "Amount__c": "-5.00"
+        },
+        {
+          "Date__c": "2018-02-16",
+          "Code__c": null,
+          "Description__c": "ADDITION FOR WARRANT COLLECTION",
+          "Count__c": null,
+          "Amount__c": "5.00"
+        }
+      ],
+      "open_counts": [
+        {
+          "Description__c": "BATTERY/ASSAULT & BATTERY ON POLICE OFFICER"
+        },
+        {
+          "Description__c": "THREATEN TO PERFORM ACT OF VIOLENCE"
+        },
+        {
+          "Description__c": "PUBLIC INTOX"
+        }
+      ],
+      "completed_counts": []
+    }
+  ]
+}

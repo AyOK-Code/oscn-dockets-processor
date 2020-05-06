@@ -79,7 +79,7 @@ type completed_case_count = {
   date_of_offense: Date.t [@to_yojson yojson_of_date] [@key "DateOfOffense__c"];
   disposition: Text.t [@key "Disposition__c"];
   count_as_disposed: Text.t [@key "CountAsDisposed__c"];
-  violation_of: Text.t [@key "ViolationOf__c"];
+  violation_of: Text.t option [@key "ViolationOf__c"];
 } [@@deriving to_yojson]
 let completed_case_count_to_yojson j = completed_case_count_to_yojson j |> except "party"
 

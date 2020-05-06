@@ -1,0 +1,54 @@
+{
+  "cases": [
+    {
+      "status": "Completed",
+      "uri": "https://www.oscn.net/dockets/GetCaseInformation.aspx?db=oklahoma&number=CM-2010-1584&cmid=2596069",
+      "title": "State of Oklahoma v. Laughlin, Daniel W",
+      "parties": [
+        {
+          "Name__c": "LAUGHLIN, DANIEL W",
+          "Role__c": "Defendant"
+        },
+        {
+          "Name__c": "STATE OF OKLAHOMA",
+          "Role__c": "Plaintiff"
+        }
+      ],
+      "case_number": "CM-2010-1584",
+      "date_filed": "2010-04-16",
+      "date_closed": "2013-10-02",
+      "judge": "Hall, Russell D.",
+      "arresting_agency": null,
+      "events": [
+        {
+          "Datetime__c": "2010-06-01 09:00:00.000000Z",
+          "Description__c": "TRUANCY DISPOSITION DOCKET",
+          "Judge__c": "Charles G. Humble"
+        },
+        {
+          "Datetime__c": "2010-11-16 09:00:00.000000Z",
+          "Description__c": "TRUANCY DISPOSITION DOCKET",
+          "Judge__c": "Charles G. Humble"
+        }
+      ],
+      "transactions": [],
+      "open_counts": [],
+      "completed_counts": [
+        {
+          "CountAsFiled__c": "EDUC, REFUSING AND NEGLECTING TO CAUSE A CHILD UNDER THE AGE EIGHTEEN(18) TO ATTEND SCHOOL",
+          "DateOfOffense__c": "2009-12-08",
+          "Disposition__c": "DISMISSED, 10/02/2013. Dismissed- Request of the State",
+          "CountAsDisposed__c": "REFUSING AND NEGLECTING TO CAUSE A CHILD UNDER THE AGE EIGHTEEN(18) TO ATTEND SCHOOL(EDUC)",
+          "ViolationOf__c": "70 O.S. 10-105"
+        },
+        {
+          "CountAsFiled__c": "EDUC, REFUSING AND NEGLECTING TO CAUSE A CHILD UNDER THE AGE EIGHTEEN (18) TO ATTEND SCHOOL",
+          "DateOfOffense__c": "2009-11-20",
+          "Disposition__c": "DISMISSED, 10/02/2013. Dismissed- Request of the State",
+          "CountAsDisposed__c": "REFUSING AND NEGLECTING TO CAUSE A CHILD UNDER THE AGE EIGHTEEN (18) TO ATTEND SCHOOL(EDUC)",
+          "ViolationOf__c": "70 O.S. 10-105"
+        }
+      ]
+    }
+  ]
+}

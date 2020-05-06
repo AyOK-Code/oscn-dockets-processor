@@ -17,7 +17,7 @@ let make_uri_from_href href =
   |> (fun u -> Uri.with_scheme u (Some "https"))
   |> (fun u -> Uri.with_host u (Some "www.oscn.net"))
 
-let real_fetch uri =
+let fetch uri =
   let open Cohttp in
   let open Cohttp_lwt_unix in
   let module Body = Cohttp_lwt.Body in
@@ -33,6 +33,8 @@ let real_fetch uri =
     | _ -> failwithf "The OSCN Dockets website failed with HTTP %s" (Code.string_of_status status) ()
     end
   )
+
+let fetch_from_file filename = Lwt_io.chars_of_file filename |> Lwt_stream.to_string
 
 let parse_role = function
 | "Defendant" -> Defendant

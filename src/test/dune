@@ -1,0 +1,13 @@
+(tests
+  (names test)
+  (libraries
+    liboscn
+
+    alcotest-lwt
+    simple-diff
+  )
+  (preprocess (pps
+    lwt_ppx
+  ))
+  (ocamlopt_flags -Oclassic)
+)

@@ -1,0 +1,207 @@
+{
+  "cases": [
+    {
+      "status": "Open",
+      "uri": "https://www.oscn.net/dockets/GetCaseInformation.aspx?db=mcclain&number=CJ-2014-00181&cmid=16110",
+      "title": "BANK OF NEW YORK MELLON TRUST V. JANE DOE, ET. AL.",
+      "parties": [
+        {
+          "Name__c": "MARQUEZ, DAVE",
+          "Role__c": "Defendant"
+        },
+        {
+          "Name__c": "BANK OF NEW YORK MELLON TRUST",
+          "Role__c": "Plaintiff"
+        },
+        {
+          "Name__c": "DOE, JANE",
+          "Role__c": "Defendant"
+        },
+        {
+          "Name__c": "OCCUPANTS OF THE PREMISES",
+          "Role__c": "Defendant"
+        },
+        {
+          "Name__c": "LEINO, BRUCE",
+          "Role__c": "Defendant"
+        },
+        {
+          "Name__c": "JOHNSON, ROBERT H.",
+          "Role__c": "Defendant"
+        },
+        {
+          "Name__c": "DOE, JANE",
+          "Role__c": "Defendant"
+        }
+      ],
+      "case_number": "CJ-2014-00181",
+      "date_filed": "2014-11-17",
+      "date_closed": null,
+      "judge": "DIXON, GREG",
+      "arresting_agency": null,
+      "events": [
+        {
+          "Datetime__c": "2015-03-12 00:00:00.000000Z",
+          "Description__c": "COURT ORDER",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2015-06-04 13:30:00.000000Z",
+          "Description__c": "MOTION TO CONFIRM SHERIFF'S SALE",
+          "Judge__c": null
+        }
+      ],
+      "transactions": [
+        {
+          "Date__c": "2014-11-17",
+          "Code__c": null,
+          "Description__c": "FILE & ENTER PETITION Document Available at Court Clerk's Office",
+          "Count__c": null,
+          "Amount__c": "163.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "(Entry with fee only)",
+          "Count__c": null,
+          "Amount__c": "6.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "(Entry with fee only)",
+          "Count__c": null,
+          "Amount__c": "2.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "OKLAHOMA COURT INFORMATION SYSTEM FEE - EFFECTIVE 07/01/04",
+          "Count__c": null,
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "LENGTHY TRIAL FUND",
+          "Count__c": null,
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "OK COURT APPOINTED SPECIAL ADVOCATES",
+          "Count__c": null,
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF CASA TO COURT CLERK REVOLVING FUND",
+          "Count__c": null,
+          "Amount__c": "0.50"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "OK COUNCIL ON JUDICIAL COMPLAINTS REVOLVING FUND",
+          "Count__c": null,
+          "Amount__c": "2.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF COJC TO COURT CLERK REVOLVING FUND",
+          "Count__c": null,
+          "Amount__c": "0.20"
+        },
+        {
+          "Date__c": "2014-11-17",
+          "Code__c": null,
+          "Description__c": "ISSUE SUMMONS Document Available at Court Clerk's Office",
+          "Count__c": null,
+          "Amount__c": "30.00"
+        },
+        {
+          "Date__c": "2015-03-20",
+          "Code__c": null,
+          "Description__c": "ISSUE SPECIAL EXECUTION AND ORDER OF SALE Document Available at Court Clerk's Office",
+          "Count__c": null,
+          "Amount__c": "33.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "(Entry with fee only)",
+          "Count__c": null,
+          "Amount__c": "75.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "OKLAHOMA COURT INFORMATION SYSTEM FEE - EFFECTIVE 07/01/04",
+          "Count__c": null,
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "OK COURT APPOINTED SPECIAL ADVOCATES",
+          "Count__c": null,
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF CASA TO COURT CLERK REVOLVING FUND",
+          "Count__c": null,
+          "Amount__c": "0.50"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "OK COUNCIL ON JUDICIAL COMPLAINTS REVOLVING FUND",
+          "Count__c": null,
+          "Amount__c": "2.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF COJC TO COURT CLERK REVOLVING FUND",
+          "Count__c": null,
+          "Amount__c": "0.20"
+        },
+        {
+          "Date__c": "2015-05-05",
+          "Code__c": null,
+          "Description__c": "BILL OF APPRAISERS Document Available at Court Clerk's Office",
+          "Count__c": null,
+          "Amount__c": "445.50"
+        },
+        {
+          "Date__c": "2015-05-05",
+          "Code__c": null,
+          "Description__c": "SPECIAL EXECUTION AND ORDER OF SALE Document Available at Court Clerk's Office",
+          "Count__c": null,
+          "Amount__c": "4.50"
+        },
+        {
+          "Date__c": "2015-06-04",
+          "Code__c": null,
+          "Description__c": "ORDER CONFIRMING SHERIFF'S SALE AND DISBURSING SALE Document Available at Court Clerk's Office",
+          "Count__c": null,
+          "Amount__c": "300.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "PROCEEDS",
+          "Count__c": null,
+          "Amount__c": "52,500.00"
+        }
+      ],
+      "open_counts": [],
+      "completed_counts": []
+    }
+  ]
+}

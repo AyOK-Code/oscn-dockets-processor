@@ -1,0 +1,47 @@
+{
+  "cases": [
+    {
+      "status": "Completed",
+      "uri": "https://www.oscn.net/dockets/GetCaseInformation.aspx?db=oklahoma&number=TR-1991-3731&cmid=180879",
+      "title": "State of Oklahoma v. JOHNSON BOBBY L",
+      "parties": [
+        {
+          "Name__c": "JOHNSON, BOBBY L",
+          "Role__c": "Defendant"
+        },
+        {
+          "Name__c": "STATE OF OKLAHOMA",
+          "Role__c": "Plaintiff"
+        }
+      ],
+      "case_number": "TR-1991-3731",
+      "date_filed": "1991-03-12",
+      "date_closed": "1991-04-25",
+      "judge": "Trial Court Docket",
+      "arresting_agency": null,
+      "events": [
+        {
+          "Datetime__c": "1991-03-22 08:00:00.000000Z",
+          "Description__c": "INITIAL APPEARANCE (TRAFFIC)",
+          "Judge__c": "Susan W. Bragg"
+        },
+        {
+          "Datetime__c": "1991-04-19 08:00:00.000000Z",
+          "Description__c": "HEARING",
+          "Judge__c": "Susan W. Bragg"
+        }
+      ],
+      "transactions": [],
+      "open_counts": [],
+      "completed_counts": [
+        {
+          "CountAsFiled__c": "FAILURE TO PROPERLY WEAR SAFETY BELT",
+          "DateOfOffense__c": "1991-03-12",
+          "Disposition__c": "CONVICTION, 04/25/1991. Guilty Plea",
+          "CountAsDisposed__c": "FAILURE TO WEAR SAFETY BELT PROPERLY (SB3)",
+          "ViolationOf__c": "O.S. 12 417"
+        }
+      ]
+    }
+  ]
+}

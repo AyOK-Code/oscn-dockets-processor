@@ -67,7 +67,7 @@ let process_counts_closed div =
   end
   in
   (* First table *)
-  let count_as_filed, date_of_offense = begin match first $$ "tbody tr td" |> to_list with
+  let count_as_filed, date_of_offense, violation_of1 = begin match first $$ "tbody tr td" |> to_list with
   | [number; description] ->
     begin match texts number with
     | s::_ when String.is_prefix s ~prefix:"Count #" -> ()
@@ -83,16 +83,17 @@ let process_counts_closed div =
       |> Text.clean
     in
     let date_of_offense = find_prefixed fragments ~prefix:"Date of Offense: " |> Date.of_string in
-    count_as_filed, date_of_offense
+    let violation_of = description $? "a" |> Option.map ~f:(fun el -> texts el |> String.concat ~sep:" " |> Text.clean) in
+    count_as_filed, date_of_offense, violation_of
   | _ -> failwith "Invalid page structure, could not locate distinct count columns for the first line"
   end
   in
   (* Second table *)
-  let disposition, count_as_disposed, violation_of, party = begin match second $$ "tbody tr td" |> to_list with
+  let disposition, count_as_disposed, violation_of2, party = begin match second $$ "tbody tr td" |> to_list with
   | [_td1; td2; td3] ->
     let party = td_party td2 in
     begin match trimmed_texts td3 with
-    | [td1; td2; "Violation of"; td4] ->
+    | td1::td2::rest ->
       let disposition = begin match String.chop_prefix td1 ~prefix:"Disposed:" with
       | Some s -> Text.clean s
       | None -> failwith "Could not find disposition information"
@@ -103,11 +104,25 @@ let process_counts_closed div =
       | None -> failwith "Could not find count as disposed information"
       end
       in
-      let violation_of = Text.clean td4 in
+      let violation_of = begin match rest with
+      | ["Violation of"; td4] -> Some (Text.clean td4)
+      | [] -> None
+      | _ -> failwith "Invalid page structure, end of fragments of second count column for the second line"
+      end
+      in
+      (* let violation_of = Text.clean td4 in *)
       disposition, count_as_disposed, violation_of, party
     | _ -> failwith "Invalid page structure, fragments of second count column for the second line"
     end
   | _ -> failwith "Invalid page structure, could not locate distinct count columns for the second line"
+  end
+  in
+  let violation_of = begin match violation_of1, violation_of2 with
+  | (Some xx as x), (Some yy) when Text.(xx = yy) -> x
+  | (Some _), (Some _ as y) -> y
+  | (Some _ as x), None -> x
+  | None, (Some _ as y) -> y
+  | None, None -> None
   end
   in
   {
@@ -119,14 +134,9 @@ let process_counts_closed div =
     violation_of;
   }
 
-let fake_fetch () = Lwt_io.chars_of_file "case7.html" |> Lwt_stream.to_string
-
-let scrape ~last_name ?first_name ?middle_name uri =
+let process ~last_name ?first_name ?middle_name uri raw =
   let open Soup in
   let name_matcher = Oscn.make_name_matcher ~last_name ~first_name ~middle_name in
-
-  (* let%lwt raw = Oscn.real_fetch uri in *)
-  let%lwt raw = fake_fetch () in
   let html = parse raw in
 
   (* Process header *)
@@ -221,7 +231,7 @@ let scrape ~last_name ?first_name ?middle_name uri =
     with Not_present _ -> OpenCaseCounts [||] end
   | Completed ->
     begin match html $$ "div.CountsContainer" |> to_list with
-    | [] -> failwith "Invalid page structure, did not find a counts section on a Closed case."
+    | [] -> CompletedCaseCounts [||]
     | containers -> CompletedCaseCounts (Array.of_list_map containers ~f:process_counts_closed)
     end
   end
@@ -251,8 +261,7 @@ let scrape ~last_name ?first_name ?middle_name uri =
 
   (* Dockets lookups *)
   let transactions = Array.filter dockets ~f:(fun { amount; _ } -> Option.is_some amount) in
-
-  let case = {
+  {
     status;
     uri;
     title;
@@ -267,5 +276,3 @@ let scrape ~last_name ?first_name ?middle_name uri =
     transactions;
     counts;
   }
-  in
-  Lwt.return case

@@ -1,0 +1,172 @@
+{
+  "cases": [
+    {
+      "status": "Open",
+      "uri": "https://www.oscn.net/dockets/GetCaseInformation.aspx?db=mcclain&number=TR-2005-01955&cmid=127475",
+      "title": "STATE OF OKLAHOMA V. ROBERT ALLEN JOHNSON",
+      "parties": [
+        {
+          "Name__c": "JOHNSON, ROBERT ALLEN",
+          "Role__c": "Defendant"
+        },
+        {
+          "Name__c": "OHP",
+          "Role__c": "Arresting_agency"
+        },
+        {
+          "Name__c": "STACY, ERIC",
+          "Role__c": "Arresting_officer"
+        }
+      ],
+      "case_number": "TR-2005-01955",
+      "date_filed": "2005-07-22",
+      "date_closed": null,
+      "judge": "Unassigned",
+      "arresting_agency": "OHP",
+      "events": [
+        {
+          "Datetime__c": "2005-07-22 00:00:00.000000Z",
+          "Description__c": "OTC REPORT: IGNORE",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2005-07-22 00:00:00.000000Z",
+          "Description__c": "GUILTY PLEA",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2005-08-12 00:00:00.000000Z",
+          "Description__c": "COURT APPEARANCE",
+          "Judge__c": null
+        }
+      ],
+      "transactions": [
+        {
+          "Date__c": "2005-07-22",
+          "Code__c": null,
+          "Description__c": "CITATION",
+          "Count__c": null,
+          "Amount__c": "83.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "(Entry with fee only)",
+          "Count__c": null,
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "(Entry with fee only)",
+          "Count__c": null,
+          "Amount__c": "6.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "(Entry with fee only)",
+          "Count__c": null,
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "(Entry with fee only)",
+          "Count__c": null,
+          "Amount__c": "9.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "FORENSIC FEE",
+          "Count__c": null,
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "DPS REVOLVING FUND",
+          "Count__c": null,
+          "Amount__c": "20.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF AFS5",
+          "Count__c": null,
+          "Amount__c": "0.50"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF CLT9",
+          "Count__c": null,
+          "Amount__c": "0.90"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF FORE",
+          "Count__c": null,
+          "Amount__c": "0.50"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF DPS",
+          "Count__c": null,
+          "Amount__c": "2.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "DISTRICT ATTORNEY REVOLVING FUND",
+          "Count__c": null,
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF DARV",
+          "Count__c": null,
+          "Amount__c": "1.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "OKLAHOMA COURT INFORMATION SYSTEM FEE - EFFECTIVE 07/01/04",
+          "Count__c": null,
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "TCRF",
+          "Count__c": null,
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF TCRF",
+          "Count__c": null,
+          "Amount__c": "1.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "FINE",
+          "Count__c": null,
+          "Amount__c": "20.00"
+        }
+      ],
+      "open_counts": [
+        {
+          "Description__c": "83 IN 70, SPEEDING"
+        }
+      ],
+      "completed_counts": []
+    }
+  ]
+}

@@ -1,0 +1,260 @@
+{
+  "cases": [
+    {
+      "status": "Completed",
+      "uri": "https://www.oscn.net/dockets/GetCaseInformation.aspx?db=oklahoma&number=TR-2014-1119&cmid=3080009",
+      "title": "State of Oklahoma v. WARD, SHANTAL TEAIRRA",
+      "parties": [
+        {
+          "Name__c": "OKLAHOMA HIGHWAY PATROL",
+          "Role__c": "Arresting_agency"
+        },
+        {
+          "Name__c": "STATE OF OKLAHOMA",
+          "Role__c": "Plaintiff"
+        },
+        {
+          "Name__c": "WARD, SHANTAL TEAIRRA",
+          "Role__c": "Defendant"
+        }
+      ],
+      "case_number": "TR-2014-1119",
+      "date_filed": "2014-01-14",
+      "date_closed": "2015-04-02",
+      "judge": "Croy, James B.",
+      "arresting_agency": "OKLAHOMA HIGHWAY PATROL",
+      "events": [
+        {
+          "Datetime__c": "2014-02-21 08:00:00.000000Z",
+          "Description__c": "INITIAL APPEARANCE (TRAFFIC)",
+          "Judge__c": "James B. Croy"
+        },
+        {
+          "Datetime__c": "2017-03-14 13:30:00.000000Z",
+          "Description__c": "RULE 8 HEARING",
+          "Judge__c": "Donald L Easter"
+        },
+        {
+          "Datetime__c": "2020-02-26 13:30:00.000000Z",
+          "Description__c": "RULE 8 HEARING",
+          "Judge__c": "April Collins"
+        }
+      ],
+      "transactions": [
+        {
+          "Date__c": "2014-09-09",
+          "Code__c": "BWIFAP",
+          "Description__c": "BENCH WARRANT ISSUED FAILED TO APPEAR AND PAY, JUDGE: JAMES CROY - BOND AMOUNT: $408.85 COUNT 1 - FAIL TO PROPERLY USE A PASSENGER RESTRAINT SYSTEM FOR CHILD UNDER 6 YEARS OF AGE COMMENT: ATTENTION BOOKING DEPARTMENT: DEFENDANT MAY BE RELEASED UPON A CASH PAYMENT IN FULL OR SET FOR THE COST DOCKET.",
+          "Count__c": null,
+          "Amount__c": "50.00"
+        },
+        {
+          "Date__c": "2014-09-09",
+          "Code__c": "CBWF1",
+          "Description__c": "CLERK'S BENCH WARRANT FEE {TITLE 22 O.S.966A}",
+          "Count__c": null,
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": "2014-09-09",
+          "Code__c": "OCISR",
+          "Description__c": "OKLAHOMA COURT INFORMATION SYSTEM REVOLVING FUND",
+          "Count__c": null,
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": "2014-09-10",
+          "Code__c": "SFC",
+          "Description__c": "CASE SENT FOR COLLECTION. BATCH ID: 20140910-3318 - COLLECTION ID: 51712",
+          "Count__c": null,
+          "Amount__c": "94.35"
+        },
+        {
+          "Date__c": "2014-09-10",
+          "Code__c": "SFCSF",
+          "Description__c": "REDUCTION IN BENCH WARRANT FEE TO SHERIFF (10%)",
+          "Count__c": null,
+          "Amount__c": "-5.00"
+        },
+        {
+          "Date__c": "2014-09-10",
+          "Code__c": "SFCCC",
+          "Description__c": "ADDITION OF 10% FOR WARRANT COLLECTION",
+          "Count__c": null,
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": "2015-04-02",
+          "Code__c": "COSTT",
+          "Description__c": "TRAFFIC COSTS",
+          "Count__c": "1",
+          "Amount__c": "88.00"
+        },
+        {
+          "Date__c": "2015-04-02",
+          "Code__c": "FINEDPS",
+          "Description__c": "FINE PAYABLE TO DPS REVOLVING FUND",
+          "Count__c": "1",
+          "Amount__c": "50.00"
+        },
+        {
+          "Date__c": "2015-04-02",
+          "Code__c": "OCISR",
+          "Description__c": "OKLAHOMA COURT INFORMATION SYSTEM REVOLVING FUND",
+          "Count__c": "1",
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": "2015-04-02",
+          "Code__c": "DACPAT",
+          "Description__c": "DA COUNCIL PROSECUTION ASSESSMENT FOR TRAFFIC",
+          "Count__c": "1",
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": "2015-04-02",
+          "Code__c": "TCARF",
+          "Description__c": "TRAUMA CARE ASSISTANCE REVOLVING FUND",
+          "Count__c": "1",
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": "2015-04-02",
+          "Code__c": "SSFCHS",
+          "Description__c": "SHERIFF’S SERVICE FEE FOR COURT HOUSE SECURITY",
+          "Count__c": "1",
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": "2015-04-02",
+          "Code__c": "CLEET",
+          "Description__c": "CLEET PENALTY ASSESSMENT",
+          "Count__c": "1",
+          "Amount__c": "9.00"
+        },
+        {
+          "Date__c": "2015-04-02",
+          "Code__c": "PFE7",
+          "Description__c": "LAW LIBRARY FEE",
+          "Count__c": "1",
+          "Amount__c": "6.00"
+        },
+        {
+          "Date__c": "2015-04-02",
+          "Code__c": "FOREN",
+          "Description__c": "FORENSIC SCIENCE IMPROVEMENT ASSESSMENT",
+          "Count__c": "1",
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": "2015-04-02",
+          "Code__c": "SSF",
+          "Description__c": "SHERIFF'S SERVICE FEE ON ARRESTS",
+          "Count__c": "1",
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": "2015-04-02",
+          "Code__c": "AFIS",
+          "Description__c": "AFIS FEE",
+          "Count__c": "1",
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": "2015-04-02",
+          "Code__c": "CHAB",
+          "Description__c": "C.H.A.B. STATUTORY FEE",
+          "Count__c": "1",
+          "Amount__c": "3.00"
+        },
+        {
+          "Date__c": "2015-04-02",
+          "Code__c": "AGVSU",
+          "Description__c": "ATTORNEY GENERAL VICTIM SERVICES UNIT",
+          "Count__c": "1",
+          "Amount__c": "3.00"
+        },
+        {
+          "Date__c": "2015-04-02",
+          "Code__c": "CCADMIN",
+          "Description__c": "COURT CLERK ADMINISTRATIVE FEE ON COLLECTIONS",
+          "Count__c": "1",
+          "Amount__c": "5.50"
+        },
+        {
+          "Date__c": "2015-12-21",
+          "Code__c": "BWIFAP",
+          "Description__c": "BENCH WARRANT ISSUED FAILED TO APPEAR AND PAY, JUDGE: DONALD EASTER - BOND AMOUNT: $512.85 COUNT 1 - FAIL TO PROPERLY USE A PASSENGER RESTRAINT SYSTEM FOR CHILD UNDER 6 YEARS OF AGE COMMENT: ATTENTION BOOKING DEPARTMENT: DEFENDANT MAY BE RELEASED UPON A CASH PAYMENT IN FULL OR SET FOR THE COST DOCKET.",
+          "Count__c": null,
+          "Amount__c": "50.00"
+        },
+        {
+          "Date__c": "2015-12-21",
+          "Code__c": "CBWF1",
+          "Description__c": "CLERK'S BENCH WARRANT FEE {TITLE 22 O.S.966A}",
+          "Count__c": null,
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": "2015-12-21",
+          "Code__c": "OCISR",
+          "Description__c": "OKLAHOMA COURT INFORMATION SYSTEM REVOLVING FUND",
+          "Count__c": null,
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": "2016-12-06",
+          "Code__c": "BWIFAP",
+          "Description__c": "BENCH WARRANT ISSUED FAILED TO APPEAR AND PAY, JUDGE: DONALD EASTER - BOND AMOUNT: $568.85 COUNT 1 - FAIL TO PROPERLY USE A PASSENGER RESTRAINT SYSTEM FOR CHILD UNDER 6 YEARS OF AGE COMMENT: ATTENTION BOOKING DEPARTMENT: DEFENDANT MAY BE RELEASED UPON A CASH PAYMENT IN FULL OR SET FOR THE COST DOCKET.",
+          "Count__c": null,
+          "Amount__c": "50.00"
+        },
+        {
+          "Date__c": "2016-12-06",
+          "Code__c": "CBWF1",
+          "Description__c": "CLERK'S BENCH WARRANT FEE {TITLE 22 O.S.966A}",
+          "Count__c": null,
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": "2016-12-06",
+          "Code__c": "OCISR",
+          "Description__c": "OKLAHOMA COURT INFORMATION SYSTEM REVOLVING FUND",
+          "Count__c": null,
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": "2018-11-28",
+          "Code__c": "BWIFAP",
+          "Description__c": "BENCH WARRANT ISSUED FAILED TO APPEAR AND PAY, JUDGE: APRIL COLLINS - BOND AMOUNT: $648.85 COUNT 1 - FAIL TO PROPERLY USE A PASSENGER RESTRAINT SYSTEM FOR CHILD UNDER 6 YEARS OF AGE COMMENT: ATTENTION BOOKING DEPARTMENT: DEFENDANT MAY BE RELEASED UPON A CASH PAYMENT IN FULL OR SET FOR THE COST DOCKET.",
+          "Count__c": null,
+          "Amount__c": "50.00"
+        },
+        {
+          "Date__c": "2018-11-28",
+          "Code__c": "CBWF1",
+          "Description__c": "CLERK'S BENCH WARRANT FEE {TITLE 22 O.S.966A}",
+          "Count__c": null,
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": "2018-11-28",
+          "Code__c": "OCISR",
+          "Description__c": "OKLAHOMA COURT INFORMATION SYSTEM REVOLVING FUND",
+          "Count__c": null,
+          "Amount__c": "25.00"
+        }
+      ],
+      "open_counts": [],
+      "completed_counts": [
+        {
+          "CountAsFiled__c": "SB1, FAIL TO PROPERLY USE A PASSENGER RESTRAINT SYSTEM FOR CHILD UNDER 6 YEARS OF AGE",
+          "DateOfOffense__c": "2014-01-01",
+          "Disposition__c": "CONVICTION, 04/02/2015. Nolo Contendere Plea",
+          "CountAsDisposed__c": "FAIL TO PROPERLY USE A PASSENGER RESTRAINT SYSTEM FOR CHILD UNDER 6 YEARS OF AGE(SB1)",
+          "ViolationOf__c": "47 O.S. 11-1112(A,B)"
+        }
+      ]
+    }
+  ]
+}

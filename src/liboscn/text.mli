@@ -9,3 +9,5 @@ val require: t -> t option
 val uppercase: t -> t
 
 val to_string: t -> string
+
+val (=): t -> t -> bool

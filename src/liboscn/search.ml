@@ -1,6 +1,6 @@
 open! Core_kernel
 
-let fake_fetch () = Lwt_io.chars_of_file "results1.html" |> Lwt_stream.to_string
+let fetch_from_file filename = Lwt_io.chars_of_file filename |> Lwt_stream.to_string
 
 let yojson_of_date date = `String (Date.to_string date)
 let yojson_of_uri uri = `String (Uri.to_string uri)
@@ -62,8 +62,6 @@ let rec process_page raw results =
       begin match name tchild with
       | "caption" -> Lwt.return_unit
       | "tr" ->
-        (* let classes = Option.value ~default:"" (attribute "class" tchild) |> String.split ~on:' ' in *)
-        (* TODO: validate classes *)
         let classes = classes tchild in
         begin match classes with
         | ll when List.mem ll "resultTableRow" ~equal:String.equal ->
@@ -79,7 +77,7 @@ let rec process_page raw results =
           begin match Option.bind (tchild $? "td.moreResults a") ~f:(attribute "href") with
           | None | Some "" -> failwith "Could not find 'more results' link"
           | Some href ->
-            let%lwt page = Oscn.(href |> make_uri_from_href |> real_fetch) in
+            let%lwt page = Oscn.(href |> make_uri_from_href |> fetch) in
             process_page page results
           end
         | _ ->
@@ -102,7 +100,7 @@ let scrape ~last_name ?first_name ?middle_name ?dob_before ?dob_after () =
   in
   let _uri = Uri.make ~scheme:"https" ~host:"www.oscn.net" ~path:"/dockets/Results.aspx" ~query () in
 
-  let%lwt page = fake_fetch ()in
+  let%lwt page = fetch_from_file "results1.html" in
 
   let results = String.Table.create () in
   let%lwt () = process_page page results in

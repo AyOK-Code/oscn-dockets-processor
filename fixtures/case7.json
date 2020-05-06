@@ -1,0 +1,426 @@
+{
+  "cases": [
+    {
+      "status": "Completed",
+      "uri": "https://www.oscn.net/dockets/GetCaseInformation.aspx?db=oklahoma&number=CF-2016-5438&cmid=3420850",
+      "title": "STATE OF OKLAHOMA, Plaintiff, v. TANICE LASHAY NELSON, Defendant, and DANIEL WALDEMAR LAUGHLIN, Defendant.",
+      "parties": [
+        {
+          "Name__c": "LAUGHLIN, DANIEL WALDEMAR",
+          "Role__c": "Defendant"
+        },
+        {
+          "Name__c": "NELSON, TANICE LASHAY",
+          "Role__c": "Defendant"
+        },
+        {
+          "Name__c": "OCPD",
+          "Role__c": "Arresting_agency"
+        },
+        {
+          "Name__c": "STATE OF OKLAHOMA",
+          "Role__c": "Plaintiff"
+        }
+      ],
+      "case_number": "CF-2016-5438",
+      "date_filed": "2016-07-06",
+      "date_closed": "2017-11-07",
+      "judge": "Henderson, Timothy R",
+      "arresting_agency": "OCPD",
+      "events": [
+        {
+          "Datetime__c": "2017-06-15 00:00:00.000000Z",
+          "Description__c": "PRELIMINARY HEARING CONFERENCE",
+          "Judge__c": "Lisa K. Hammond"
+        },
+        {
+          "Datetime__c": "2017-06-15 13:30:00.000000Z",
+          "Description__c": "PRELIMINARY HEARING CONFERENCE",
+          "Judge__c": "Larry Shaw"
+        },
+        {
+          "Datetime__c": "2017-08-01 09:00:00.000000Z",
+          "Description__c": "PRELIMINARY HEARING CONFERENCE X1 CONT",
+          "Judge__c": "Mark McCormick"
+        },
+        {
+          "Datetime__c": "2017-09-19 13:30:00.000000Z",
+          "Description__c": "PRELIMINARY HEARING CONFERENCE X2 CONT",
+          "Judge__c": "Mark McCormick"
+        },
+        {
+          "Datetime__c": "2017-11-07 09:00:00.000000Z",
+          "Description__c": "PRELIMINARY HEARING CONFERENCE X3 CONT",
+          "Judge__c": "Mark McCormick"
+        },
+        {
+          "Datetime__c": "2018-12-19 00:00:00.000000Z",
+          "Description__c": "COST ADMINISTRATION REVIEW",
+          "Judge__c": "Cost Admin. Judge (General)"
+        }
+      ],
+      "transactions": [
+        {
+          "Date__c": "2011-07-07",
+          "Code__c": "WAI$",
+          "Description__c": "WARRANT OF ARREST ISSUED, JUDGE: RUSSELL HALL - BOND AMOUNT: $21,500.00 COMMENT: 2016022691",
+          "Count__c": null,
+          "Amount__c": "50.00"
+        },
+        {
+          "Date__c": "2011-07-07",
+          "Code__c": "OCISR",
+          "Description__c": "OKLAHOMA COURT INFORMATION SYSTEM REVOLVING FUND",
+          "Count__c": null,
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": "2017-06-15",
+          "Code__c": "PR",
+          "Description__c": "RECOGNIZANCE BOND FOR LAUGHLIN, DANIEL WALDEMAR, POSTED 06/15/2017 Document Available at Court Clerk's Office",
+          "Count__c": null,
+          "Amount__c": "35.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "COSTF",
+          "Description__c": "COURT COSTS ON FELONY",
+          "Count__c": "2",
+          "Amount__c": "103.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "TCARF",
+          "Description__c": "TRAUMA CARE ASSISTANCE REVOLVING FUND",
+          "Count__c": "2",
+          "Amount__c": "100.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "OCISR",
+          "Description__c": "OKLAHOMA COURT INFORMATION SYSTEM REVOLVING FUND",
+          "Count__c": "2",
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "DACPAF",
+          "Description__c": "DA COUNCIL PROSECUTION ASSESSMENT FOR FELONY",
+          "Count__c": "2",
+          "Amount__c": "150.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "MELRF",
+          "Description__c": "MEDICAL EXPENSE LIABILITY REVOLVING FUND",
+          "Count__c": "2",
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "SSFCHS",
+          "Description__c": "SHERIFF’S SERVICE FEE FOR COURT HOUSE SECURITY",
+          "Count__c": "2",
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "CLEET",
+          "Description__c": "CLEET PENALTY ASSESSMENT",
+          "Count__c": "2",
+          "Amount__c": "9.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "PFE7",
+          "Description__c": "LAW LIBRARY FEE",
+          "Count__c": "2",
+          "Amount__c": "6.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "FOREN",
+          "Description__c": "FORENSIC SCIENCE IMPROVEMENT ASSESSMENT",
+          "Count__c": "2",
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "AFIS",
+          "Description__c": "AFIS FEE",
+          "Count__c": "2",
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "SSF",
+          "Description__c": "SHERIFF'S SERVICE FEE ON ARRESTS",
+          "Count__c": "2",
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "AGVSU",
+          "Description__c": "ATTORNEY GENERAL VICTIM SERVICES UNIT",
+          "Count__c": "2",
+          "Amount__c": "3.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "CHAB",
+          "Description__c": "C.H.A.B. STATUTORY FEE",
+          "Count__c": "2",
+          "Amount__c": "3.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "CCADMIN",
+          "Description__c": "COURT CLERK ADMINISTRATIVE FEE ON COLLECTIONS",
+          "Count__c": "2",
+          "Amount__c": "49.50"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "FINE",
+          "Description__c": "FINES PAYABLE TO COUNTY",
+          "Count__c": "2",
+          "Amount__c": "45.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "VCA",
+          "Description__c": "VICTIMS COMPENSATION ASSESSMENT (AC12)",
+          "Count__c": "2",
+          "Amount__c": "120.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "ATTO",
+          "Description__c": "ATTORNEY FEE - TULSA AND OKLAHOMA COUNTY PUBLIC DEFENDER",
+          "Count__c": "2",
+          "Amount__c": "200.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "COSTF",
+          "Description__c": "COURT COSTS ON FELONY",
+          "Count__c": "3",
+          "Amount__c": "103.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "TCARF",
+          "Description__c": "TRAUMA CARE ASSISTANCE REVOLVING FUND",
+          "Count__c": "3",
+          "Amount__c": "100.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "DACPAF",
+          "Description__c": "DA COUNCIL PROSECUTION ASSESSMENT FOR FELONY",
+          "Count__c": "3",
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "OCISR",
+          "Description__c": "OKLAHOMA COURT INFORMATION SYSTEM REVOLVING FUND",
+          "Count__c": "3",
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "MELRF",
+          "Description__c": "MEDICAL EXPENSE LIABILITY REVOLVING FUND",
+          "Count__c": "3",
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "SSFCHS",
+          "Description__c": "SHERIFF’S SERVICE FEE FOR COURT HOUSE SECURITY",
+          "Count__c": "3",
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "CLEET",
+          "Description__c": "CLEET PENALTY ASSESSMENT",
+          "Count__c": "3",
+          "Amount__c": "9.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "PFE7",
+          "Description__c": "LAW LIBRARY FEE",
+          "Count__c": "3",
+          "Amount__c": "6.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "AFIS",
+          "Description__c": "AFIS FEE",
+          "Count__c": "3",
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "SSF",
+          "Description__c": "SHERIFF'S SERVICE FEE ON ARRESTS",
+          "Count__c": "3",
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "FOREN",
+          "Description__c": "FORENSIC SCIENCE IMPROVEMENT ASSESSMENT",
+          "Count__c": "3",
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "AGVSU",
+          "Description__c": "ATTORNEY GENERAL VICTIM SERVICES UNIT",
+          "Count__c": "3",
+          "Amount__c": "3.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "CHAB",
+          "Description__c": "C.H.A.B. STATUTORY FEE",
+          "Count__c": "3",
+          "Amount__c": "3.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "CCADMIN",
+          "Description__c": "COURT CLERK ADMINISTRATIVE FEE ON COLLECTIONS",
+          "Count__c": "3",
+          "Amount__c": "17.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "COSTF",
+          "Description__c": "COURT COSTS ON FELONY",
+          "Count__c": "6",
+          "Amount__c": "103.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "OCISR",
+          "Description__c": "OKLAHOMA COURT INFORMATION SYSTEM REVOLVING FUND",
+          "Count__c": "6",
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "DACPAF",
+          "Description__c": "DA COUNCIL PROSECUTION ASSESSMENT FOR FELONY",
+          "Count__c": "6",
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "MELRF",
+          "Description__c": "MEDICAL EXPENSE LIABILITY REVOLVING FUND",
+          "Count__c": "6",
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "SSFCHS",
+          "Description__c": "SHERIFF’S SERVICE FEE FOR COURT HOUSE SECURITY",
+          "Count__c": "6",
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "CLEET",
+          "Description__c": "CLEET PENALTY ASSESSMENT",
+          "Count__c": "6",
+          "Amount__c": "9.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "PFE7",
+          "Description__c": "LAW LIBRARY FEE",
+          "Count__c": "6",
+          "Amount__c": "6.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "FOREN",
+          "Description__c": "FORENSIC SCIENCE IMPROVEMENT ASSESSMENT",
+          "Count__c": "6",
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "AFIS",
+          "Description__c": "AFIS FEE",
+          "Count__c": "6",
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "SSF",
+          "Description__c": "SHERIFF'S SERVICE FEE ON ARRESTS",
+          "Count__c": "6",
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "AGVSU",
+          "Description__c": "ATTORNEY GENERAL VICTIM SERVICES UNIT",
+          "Count__c": "6",
+          "Amount__c": "3.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "CHAB",
+          "Description__c": "C.H.A.B. STATUTORY FEE",
+          "Count__c": "6",
+          "Amount__c": "3.00"
+        },
+        {
+          "Date__c": "2017-11-07",
+          "Code__c": "CCADMIN",
+          "Description__c": "COURT CLERK ADMINISTRATIVE FEE ON COLLECTIONS",
+          "Count__c": "6",
+          "Amount__c": "7.00"
+        }
+      ],
+      "open_counts": [],
+      "completed_counts": [
+        {
+          "CountAsFiled__c": "DU8II, POSSESSION OF A CDS - METHAMPHETAMINE",
+          "DateOfOffense__c": "2016-06-20",
+          "Disposition__c": "DEFERRED, 11/07/2017. Guilty Plea",
+          "CountAsDisposed__c": "POSSESSION OF A CDS - METHAMPHETAMINE(DU8II)",
+          "ViolationOf__c": "63 O.S. 2-401-2-420"
+        },
+        {
+          "CountAsFiled__c": "PROCD, POSSESSION OF PROCEEDS DERIVED FROM A VIOLATION OF THE UNIFORM CONTROLLED DANGEROUS SUBSTANCE ACT",
+          "DateOfOffense__c": "2016-06-20",
+          "Disposition__c": "DEFERRED, 11/07/2017. Guilty Plea",
+          "CountAsDisposed__c": "POSSESSION OF PROCEEDS DERIVED FROM A VIOLATION OF THE UNIFORM CONTROLLED DANGEROUS SUBSTANCE ACT(PROCD)",
+          "ViolationOf__c": "63 O.S. 2-401-2-420"
+        },
+        {
+          "CountAsFiled__c": "DU8IV, POSSESSION OF A CDS - XANAX",
+          "DateOfOffense__c": "2016-06-20",
+          "Disposition__c": "DISMISSED, 11/07/2017. Dismissed- Request of the State",
+          "CountAsDisposed__c": "POSSESSION OF A CDS - XANAX(DU8IV)",
+          "ViolationOf__c": "63 O.S. 2-401-2-420"
+        },
+        {
+          "CountAsFiled__c": "PROS, AIDING AND ABETTING PROSTITUTION",
+          "DateOfOffense__c": "2016-06-20",
+          "Disposition__c": "DEFERRED, 11/07/2017. Guilty Plea",
+          "CountAsDisposed__c": "AIDING AND ABETTING PROSTITUTION(PROS)",
+          "ViolationOf__c": "21 O.S. 1026-1031"
+        }
+      ]
+    }
+  ]
+}
