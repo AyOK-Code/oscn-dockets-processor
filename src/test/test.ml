@@ -2,26 +2,6 @@ open! Core_kernel
 
 open Liboscn
 
-let str = Alcotest.(check (string))
-let int = Alcotest.(check (int))
-let fails s exn f = Alcotest.(check_raises s exn f)
-
-let sdiff left right =
-  let around s pos = String.slice s (max (pos - 10) 0) (min (pos + 30) (String.length s)) in
-  String.fold_until left ~init:(0)
-    ~finish:(fun _ -> Ok ())
-    ~f:(fun acc c ->
-      try begin
-        let x = String.get right acc in
-        if Char.(c = x) then Continue (acc + 1) else Stop (Error acc)
-      end with _ -> Stop (Error acc)
-    )
-  |> function
-  | Ok _ -> ()
-  | Error pos ->
-    eprintf "❌ Mistmatch at index %d:\n%s\n----- VS -----\n%s\n" pos (around left pos) (around right pos);
-    failwith "MISMATCH ERROR"
-
 type mismatch =
 | Changed of (Yojson.Safe.t * Yojson.Safe.t)
 | Added of Yojson.Safe.t
