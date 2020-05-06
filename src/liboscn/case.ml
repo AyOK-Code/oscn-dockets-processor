@@ -230,7 +230,7 @@ let process ~last_name ?first_name ?middle_name uri raw =
     with Not_present _ -> OpenCaseCounts [||] end
   | Completed ->
     begin match html $$ "div.CountsContainer" |> to_list with
-    | [] -> CompletedCaseCounts [||]
+    | [] -> failwith "Invalid page structure, did not find a counts section on a Closed case."
     | containers -> CompletedCaseCounts (Array.of_list_map containers ~f:process_counts_closed)
     end
   end

@@ -1,7 +1,5 @@
 open! Core_kernel
 
-let fetch_from_file filename = Lwt_io.chars_of_file filename |> Lwt_stream.to_string
-
 let yojson_of_date date = `String (Date.to_string date)
 let yojson_of_uri uri = `String (Uri.to_string uri)
 
@@ -98,9 +96,9 @@ let scrape ~last_name ?first_name ?middle_name ?dob_before ?dob_after () =
     "DoBMax", (Option.value_map dob_after ~default:"" ~f:Date.to_string |> List.return);
   ]
   in
-  let _uri = Uri.make ~scheme:"https" ~host:"www.oscn.net" ~path:"/dockets/Results.aspx" ~query () in
+  let uri = Uri.make ~scheme:"https" ~host:"www.oscn.net" ~path:"/dockets/Results.aspx" ~query () in
 
-  let%lwt page = fetch_from_file "results1.html" in
+  let%lwt page = Oscn.fetch uri in
 
   let results = String.Table.create () in
   let%lwt () = process_page page results in

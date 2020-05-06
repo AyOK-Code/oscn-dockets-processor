@@ -12,7 +12,7 @@ let color s = function
 | `Green -> sprintf "\x1b[0;32m%s\x1b[m" s
 | `Red -> sprintf "\x1b[0;31m%s\x1b[m" s
 
-let jdiff left right =
+let json_diff left right =
   let errors = Queue.create () in
   let serialize_path path = List.rev path |> String.concat in
   let mismatch path m =
@@ -86,7 +86,7 @@ let basic ~last_name ?first_name ?middle_name filename query () =
   let case_data = Case.process ~last_name ?first_name ?middle_name uri raw_case in
   let expected = Yojson.Safe.from_string raw_expected in
 
-  jdiff (Oscn.prepare_data ~last_name ?first_name ?middle_name [case_data]) expected;
+  json_diff (Oscn.prepare_data ~last_name ?first_name ?middle_name [case_data]) expected;
 
   Lwt.return_unit
 
@@ -97,7 +97,6 @@ let () =
       "case2.html", `Quick, basic ~last_name:"johnson" "case2" "?db=mcclain&number=TR-2005-01955&cmid=127475";
       "case3.html", `Quick, basic ~last_name:"johnson" "case3" "?db=mcclain&number=CJ-2014-00181&cmid=16110";
       "case4.html", `Quick, basic ~last_name:"ward" "case4" "?db=oklahoma&number=TR-2014-1119&cmid=3080009";
-      "case5.html", `Quick, basic ~last_name:"Laughlin" "case5" "?db=oklahoma&number=SC-2019-23057&cmid=3833620";
       "case6.html", `Quick, basic ~last_name:"Laughlin" "case6" "?db=oklahoma&number=CM-2010-1584&cmid=2596069";
       "case7.html", `Quick, basic ~last_name:"Laughlin" "case7" "?db=oklahoma&number=CF-2016-5438&cmid=3420850";
       "case8.html", `Quick, basic ~last_name:"johnson" "case8" "?db=oklahoma&number=TR-1991-3731&cmid=180879";

@@ -24,17 +24,21 @@ let fetch uri =
   Lwt_pool.use pool (fun () ->
     let%lwt () = Lwt_unix.sleep 0.5 in
     let debug_uri = Uri.to_string uri in
+    let t0 = Time_now.nanoseconds_since_unix_epoch () in
     let%lwt () = Lwt_io.printlf "Calling %s" debug_uri in
     let%lwt res, body = Client.post uri in
+    let t1 = Time_now.nanoseconds_since_unix_epoch () in
     let status = Response.status res in
-    let%lwt () = Lwt_io.printlf "Got %s from %s" (Code.string_of_status status) debug_uri in
+    let%lwt () = Lwt_io.printlf "[%s][%s ms] %s"
+        (Code.string_of_status status)
+        Int63.((t1 - t0) / (of_int 1_000_000) |> to_string_hum ~delimiter:',')
+        debug_uri
+    in
     begin match Code.code_of_status status with
     | 200 -> Body.to_string body
     | _ -> failwithf "The OSCN Dockets website failed with HTTP %s" (Code.string_of_status status) ()
     end
   )
-
-let fetch_from_file filename = Lwt_io.chars_of_file filename |> Lwt_stream.to_string
 
 let parse_role = function
 | "Defendant" -> Defendant
@@ -49,7 +53,7 @@ let name_to_text = function
 
 let make_name_matcher ~last_name ~first_name ~middle_name =
   begin match first_name, middle_name with
-  | (Some fn), (Some mn) -> Some (sprintf "%s, %s %s." last_name fn mn |> String.uppercase)
+  | (Some fn), (Some mn) -> Some (sprintf "%s, %s %s" last_name fn mn |> String.uppercase)
   | (Some fn), None -> Some (sprintf "%s, %s" last_name fn |> String.uppercase)
   | None, None -> Some (sprintf "%s," last_name |> String.uppercase)
   | _ -> None
