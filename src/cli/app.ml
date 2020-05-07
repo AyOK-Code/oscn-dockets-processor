@@ -21,6 +21,8 @@ let exec request =
   Lwt.return json
 
 let main = function
+| [_; "--help"] -> Lwt_io.printlf "Usage:\n1. run LAST_NAME [FIRST_NAME [MIDDLE_NAME]]\n2. serve"
+
 | _::"run"::ln::rest ->
   let last_name = ln in
   let first_name, middle_name = begin match rest with
