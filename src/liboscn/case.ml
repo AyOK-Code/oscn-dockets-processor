@@ -133,9 +133,9 @@ let process_counts_closed div =
     violation_of;
   }
 
-let process ~last_name ?first_name ?middle_name uri raw =
+let process request uri raw =
   let open Soup in
-  let name_matcher = Oscn.make_name_matcher ~last_name ~first_name ~middle_name in
+  let name_matcher = Oscn.make_name_matcher request in
   let html = parse raw in
 
   (* Process header *)

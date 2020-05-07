@@ -1,3 +1,17 @@
+module Date = Core_kernel.Date
+
+let date_option_of_yojson = function
+| `String s -> Ok (Some (Date.of_string s))
+| _ -> Error (Format.sprintf "Invalid JSON type for Date, expected String")
+
+type search_request = {
+  last_name: string;
+  first_name: string option [@default None];
+  middle_name: string option [@default None];
+  dob_before: Date.t option [@default None] [@of_yojson date_option_of_yojson];
+  dob_after: Date.t option [@default None] [@of_yojson date_option_of_yojson];
+} [@@deriving of_yojson]
+
 open! Core_kernel
 
 let yojson_of_time time = `String (Time.to_string time)

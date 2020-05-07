@@ -4,10 +4,13 @@
     libutils
     liboscn
 
-    core_kernel
+    core
     lwt
     lwt.unix
+    cohttp
+    cohttp-lwt-unix
   )
+
   (preprocess (pps
     lwt_ppx
   ))

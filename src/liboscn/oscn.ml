@@ -51,7 +51,7 @@ let name_to_text = function
 | Full_name { first_name; last_name } -> sprintf "%s, %s" (Text.to_string last_name) (Text.to_string first_name) |> Text.clean
 | Other_name s -> s
 
-let make_name_matcher ~last_name ~first_name ~middle_name =
+let make_name_matcher { first_name; middle_name; last_name; dob_before = _; dob_after = _ } =
   begin match first_name, middle_name with
   | (Some fn), (Some mn) -> Some (sprintf "%s, %s %s" last_name fn mn |> String.uppercase)
   | (Some fn), None -> Some (sprintf "%s, %s" last_name fn |> String.uppercase)
@@ -107,8 +107,8 @@ let parse_date ~section text =
   | Ok _ | Error _ -> failwithf "Invalid %s date '%s'" section raw ()
   end
 
-let prepare_data ~last_name ?first_name ?middle_name datas =
-  let name_matcher = make_name_matcher ~last_name ~first_name ~middle_name in
+let prepare_data request datas =
+  let name_matcher = make_name_matcher request in
   let cases = List.filter_map datas ~f:(fun data ->
       (* Done this way to ensure we get warnings if we miss a field *)
       let {

@@ -70,7 +70,7 @@ let rec process_page raw results =
           end;
           Lwt.return_unit
         | ll when List.mem ll "resultTableHeaders" ~equal:String.equal -> Lwt.return_unit
-        | [""] when tchild $? "td.moreResults a" |> Option.is_some ->
+        | [] when tchild $? "td.moreResults a" |> Option.is_some ->
           (* It contains a 'moreResults' link *)
           begin match Option.bind (tchild $? "td.moreResults a") ~f:(attribute "href") with
           | None | Some "" -> failwith "Could not find 'more results' link"
@@ -86,7 +86,7 @@ let rec process_page raw results =
     )
   )
 
-let scrape ~last_name ?first_name ?middle_name ?dob_before ?dob_after () =
+let scrape S.{ first_name; middle_name; last_name; dob_before; dob_after } () =
   let query = [
     "db", ["all"];
     "lname", [last_name];

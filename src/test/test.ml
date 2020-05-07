@@ -12,64 +12,40 @@ let color s = function
 | `Green -> sprintf "\x1b[0;32m%s\x1b[m" s
 | `Red -> sprintf "\x1b[0;31m%s\x1b[m" s
 
+let flatten (json : Yojson.Safe.t) =
+  let rec loop json prefix acc =
+    begin match json with
+    | `Assoc pairs ->
+      List.iter pairs ~f:(fun (key, value) ->
+        loop value (sprintf "%s.%s" prefix key) acc
+      )
+    | `List values ->
+      List.iteri values ~f:(fun key value ->
+        loop value (sprintf "%s[%d]" prefix key) acc
+      )
+    | x -> String.Table.add_exn acc ~key:prefix ~data:x
+    end in
+  begin match json with
+  | `Assoc _ ->
+    let acc = String.Table.create () in
+    loop json "" acc;
+    acc
+  | x -> failwithf "Cannot flatten a non-object: %s" (Yojson.Safe.to_string x) ()
+  end
+
 let json_diff left right =
   let errors = Queue.create () in
-  let serialize_path path = List.rev path |> String.concat in
-  let mismatch path m =
-    let s = begin match m with
-    | Changed (x, y) -> sprintf "%s: %s %s %s"
-        (color (sprintf "+/- %s" (serialize_path path)) `Yellow)
-        (Yojson.Safe.to_string x)
-        (color "!=" `Yellow)
-        (Yojson.Safe.to_string y)
-    | Added x -> sprintf "%s: %s"
-        (color (sprintf "+++ %s" (serialize_path path)) `Green)
-        (Yojson.Safe.to_string x)
-    | Deleted x -> sprintf "%s: %s"
-        (color (sprintf "--- %s" (serialize_path path)) `Red)
-        (Yojson.Safe.to_string x)
-    end
-    in
-    Queue.enqueue errors s
+  let mismatch s = Queue.enqueue errors s; None in
+  let stringify = Yojson.Safe.to_string in
+  let _merged = String.Table.merge (flatten left) (flatten right) ~f:(fun ~key -> function
+    | `Left x -> sprintf "%s: %s" (color (sprintf "+++ %s" key) `Green) (stringify x) |> mismatch
+    | `Right y -> sprintf "%s: %s" (color (sprintf "--- %s" key) `Red) (stringify y) |> mismatch
+    | `Both (x, y) when Yojson.Safe.equal x y -> None
+    | `Both (x, y) ->
+      sprintf "%s: %s %s %s" (color (sprintf "+/- %s" key) `Yellow) (stringify x) (color "!=" `Yellow) (stringify y)
+      |> mismatch
+    )
   in
-  let rec loop path = function
-  | `Null, `Null -> ()
-  | (`Bool x), (`Bool y) when Bool.(x = y) -> ()
-  | (`Bool _ as x), (`Bool _ as y) -> mismatch path (Changed (x, y))
-  | (`Float x), (`Float y) when Float.(x = y) -> ()
-  | (`Float _ as x), (`Float _ as y) -> mismatch path (Changed (x, y))
-  | (`String x), (`String y)
-  | (`Intlit x), (`Intlit y) when String.(x = y) -> ()
-  | (`String _ as x), (`String _ as y)
-  | (`Intlit _ as x), (`Intlit _ as y) -> mismatch path (Changed (x, y))
-  | (`Int x), (`Int y) when Int.(x = y) -> ()
-  | (`Int _ as x), (`Int _ as y) -> mismatch path (Changed (x, y))
-  | (`List llx), (`List lly)
-  | (`Tuple llx), (`Tuple lly) ->
-    let zipped, rest = List.zip_with_remainder llx lly in
-    List.iteri zipped ~f:(fun i pair -> loop ((sprintf "[%d]" i)::path) pair);
-    begin match rest with
-    | Some (First ll) -> List.iter ll ~f:(fun x -> mismatch path (Deleted x))
-    | Some (Second ll) -> List.iter ll ~f:(fun x -> mismatch path (Added x))
-    | None -> ()
-    end
-  | (`Assoc llx), (`Assoc lly) ->
-    let to_table ll = begin match String.Table.of_alist ll with
-    | `Ok x -> x
-    | `Duplicate_key key -> failwithf "Duplicate key: '%s' at %s" key (serialize_path path) ()
-    end
-    in
-    let _merged = String.Table.merge (to_table llx) (to_table lly) ~f:(fun ~key -> function
-      | `Left x -> mismatch ((sprintf ".%s" key)::path) (Deleted x); None
-      | `Right x -> mismatch ((sprintf ".%s" key)::path) (Added x); None
-      | `Both pair -> loop ((sprintf ".%s" key)::path) pair; None
-      )
-    in
-    ()
-  | (`Variant _), (`Variant _) -> failwithf "Invalid variant at %s" (serialize_path path) ()
-  | x, y -> mismatch path (Changed (x, y))
-  in
-  loop [] (left, right);
   begin match Queue.length errors with
   | 0 -> ()
   | n ->
