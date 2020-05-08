@@ -1,0 +1,5 @@
+*.ml linguist-language=OCaml
+*.mli linguist-language=OCaml
+.ocamlinit linguist-language=OCaml
+
+fixtures/* linguist-vendored
