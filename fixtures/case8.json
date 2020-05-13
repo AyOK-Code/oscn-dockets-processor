@@ -21,12 +21,12 @@
       "arresting_agency": null,
       "events": [
         {
-          "Datetime__c": "1991-03-22 08:00:00.000000Z",
+          "Datetime__c": "1991-03-22T08:00:00.000Z",
           "Description__c": "INITIAL APPEARANCE (TRAFFIC)",
           "Judge__c": "Susan W. Bragg"
         },
         {
-          "Datetime__c": "1991-04-19 08:00:00.000000Z",
+          "Datetime__c": "1991-04-19T08:00:00.000Z",
           "Description__c": "HEARING",
           "Judge__c": "Susan W. Bragg"
         }

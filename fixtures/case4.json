@@ -25,17 +25,17 @@
       "arresting_agency": "OKLAHOMA HIGHWAY PATROL",
       "events": [
         {
-          "Datetime__c": "2014-02-21 08:00:00.000000Z",
+          "Datetime__c": "2014-02-21T08:00:00.000Z",
           "Description__c": "INITIAL APPEARANCE (TRAFFIC)",
           "Judge__c": "James B. Croy"
         },
         {
-          "Datetime__c": "2017-03-14 13:30:00.000000Z",
+          "Datetime__c": "2017-03-14T13:30:00.000Z",
           "Description__c": "RULE 8 HEARING",
           "Judge__c": "Donald L Easter"
         },
         {
-          "Datetime__c": "2020-02-26 13:30:00.000000Z",
+          "Datetime__c": "2020-02-26T13:30:00.000Z",
           "Description__c": "RULE 8 HEARING",
           "Judge__c": "April Collins"
         }

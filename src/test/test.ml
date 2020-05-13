@@ -59,10 +59,11 @@ let basic ~last_name ?first_name ?middle_name filename query () =
   let%lwt raw_expected = Lwt_io.chars_of_file (sprintf "../../../../fixtures/%s.json" filename) |> Lwt_stream.to_string in
 
   let uri = sprintf "https://www.oscn.net/dockets/GetCaseInformation.aspx%s" query |> Uri.of_string in
-  let case_data = Case.process ~last_name ?first_name ?middle_name uri raw_case in
+  let request = S.{ last_name; first_name; middle_name; dob_before = None; dob_after = None; } in
+  let case_data = Case.process request uri raw_case in
   let expected = Yojson.Safe.from_string raw_expected in
 
-  json_diff (Oscn.prepare_data ~last_name ?first_name ?middle_name [case_data]) expected;
+  json_diff (Oscn.prepare_data request [case_data]) expected;
 
   Lwt.return_unit
 

@@ -29,32 +29,32 @@
       "arresting_agency": "OCPD",
       "events": [
         {
-          "Datetime__c": "2017-06-15 00:00:00.000000Z",
+          "Datetime__c": "2017-06-15T00:00:00.000Z",
           "Description__c": "PRELIMINARY HEARING CONFERENCE",
           "Judge__c": "Lisa K. Hammond"
         },
         {
-          "Datetime__c": "2017-06-15 13:30:00.000000Z",
+          "Datetime__c": "2017-06-15T13:30:00.000Z",
           "Description__c": "PRELIMINARY HEARING CONFERENCE",
           "Judge__c": "Larry Shaw"
         },
         {
-          "Datetime__c": "2017-08-01 09:00:00.000000Z",
+          "Datetime__c": "2017-08-01T09:00:00.000Z",
           "Description__c": "PRELIMINARY HEARING CONFERENCE X1 CONT",
           "Judge__c": "Mark McCormick"
         },
         {
-          "Datetime__c": "2017-09-19 13:30:00.000000Z",
+          "Datetime__c": "2017-09-19T13:30:00.000Z",
           "Description__c": "PRELIMINARY HEARING CONFERENCE X2 CONT",
           "Judge__c": "Mark McCormick"
         },
         {
-          "Datetime__c": "2017-11-07 09:00:00.000000Z",
+          "Datetime__c": "2017-11-07T09:00:00.000Z",
           "Description__c": "PRELIMINARY HEARING CONFERENCE X3 CONT",
           "Judge__c": "Mark McCormick"
         },
         {
-          "Datetime__c": "2018-12-19 00:00:00.000000Z",
+          "Datetime__c": "2018-12-19T00:00:00.000Z",
           "Description__c": "COST ADMINISTRATION REVIEW",
           "Judge__c": "Cost Admin. Judge (General)"
         }

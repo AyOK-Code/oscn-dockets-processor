@@ -25,17 +25,17 @@
       "arresting_agency": "OHP",
       "events": [
         {
-          "Datetime__c": "2005-07-22 00:00:00.000000Z",
+          "Datetime__c": "2005-07-22T00:00:00.000Z",
           "Description__c": "OTC REPORT: IGNORE",
           "Judge__c": null
         },
         {
-          "Datetime__c": "2005-07-22 00:00:00.000000Z",
+          "Datetime__c": "2005-07-22T00:00:00.000Z",
           "Description__c": "GUILTY PLEA",
           "Judge__c": null
         },
         {
-          "Datetime__c": "2005-08-12 00:00:00.000000Z",
+          "Datetime__c": "2005-08-12T00:00:00.000Z",
           "Description__c": "COURT APPEARANCE",
           "Judge__c": null
         }

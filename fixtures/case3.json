@@ -41,12 +41,12 @@
       "arresting_agency": null,
       "events": [
         {
-          "Datetime__c": "2015-03-12 00:00:00.000000Z",
+          "Datetime__c": "2015-03-12T00:00:00.000Z",
           "Description__c": "COURT ORDER",
           "Judge__c": null
         },
         {
-          "Datetime__c": "2015-06-04 13:30:00.000000Z",
+          "Datetime__c": "2015-06-04T13:30:00.000Z",
           "Description__c": "MOTION TO CONFIRM SHERIFF'S SALE",
           "Judge__c": null
         }

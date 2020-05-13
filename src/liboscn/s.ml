@@ -14,7 +14,9 @@ type search_request = {
 
 open! Core_kernel
 
-let yojson_of_time time = `String (Time.to_string time)
+let yojson_of_time time =
+  let iso = Time.to_string_iso8601_basic ~zone:Time.Zone.utc time in
+  `String (String.slice iso 0 (-4) |> sprintf "%sZ")
 let yojson_of_date date = `String (Date.to_string date)
 let yojson_of_date_option = function
 | Some date -> `String (Date.to_string date)
