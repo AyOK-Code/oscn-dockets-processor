@@ -25,10 +25,9 @@ let exec_case S.{ person = request; case_uri = uri} =
   let name_matcher = Oscn.make_name_matcher request in
   let%lwt raw = Oscn.fetch uri in
   let case_data = Case.process ~name_matcher uri raw in
-  let json : Yojson.Safe.t = begin match Oscn.prepare_case ~name_matcher case_data with
-  | Some json -> `Assoc ["case", json]
-  | None -> `Assoc ["case", `Null]
-  end
+  let json : Yojson.Safe.t = `Assoc [
+      "case_data", (Oscn.prepare_case ~name_matcher case_data |> Option.value ~default:(`Null))
+    ]
   in
   Lwt.return json
 
