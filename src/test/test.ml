@@ -16,10 +16,12 @@ let flatten (json : Yojson.Safe.t) =
   let rec loop json prefix acc =
     begin match json with
     | `Assoc pairs ->
+      String.Table.add_exn acc ~key:prefix ~data:(`Assoc []);
       List.iter pairs ~f:(fun (key, value) ->
         loop value (sprintf "%s.%s" prefix key) acc
       )
     | `List values ->
+      String.Table.add_exn acc ~key:prefix ~data:(`List []);
       List.iteri values ~f:(fun key value ->
         loop value (sprintf "%s[%d]" prefix key) acc
       )
@@ -60,10 +62,11 @@ let basic ~last_name ?first_name ?middle_name filename query () =
 
   let uri = sprintf "https://www.oscn.net/dockets/GetCaseInformation.aspx%s" query |> Uri.of_string in
   let request = S.{ last_name; first_name; middle_name; dob_before = None; dob_after = None; } in
-  let case_data = Case.process request uri raw_case in
+  let name_matcher = Oscn.make_name_matcher request in
+  let case_data = Case.process ~name_matcher uri raw_case in
   let expected = Yojson.Safe.from_string raw_expected in
 
-  json_diff (Oscn.prepare_data request [case_data]) expected;
+  json_diff (Oscn.prepare_data ~name_matcher [case_data]) expected;
 
   Lwt.return_unit
 
@@ -74,6 +77,7 @@ let () =
       "case2.html", `Quick, basic ~last_name:"johnson" "case2" "?db=mcclain&number=TR-2005-01955&cmid=127475";
       "case3.html", `Quick, basic ~last_name:"johnson" "case3" "?db=mcclain&number=CJ-2014-00181&cmid=16110";
       "case4.html", `Quick, basic ~last_name:"ward" "case4" "?db=oklahoma&number=TR-2014-1119&cmid=3080009";
+      "case5.html", `Quick, basic ~last_name:"ward" "case5" "?db=oklahoma&number=CF-2015-2603&cmid=3251429";
       "case6.html", `Quick, basic ~last_name:"Laughlin" "case6" "?db=oklahoma&number=CM-2010-1584&cmid=2596069";
       "case7.html", `Quick, basic ~last_name:"Laughlin" "case7" "?db=oklahoma&number=CF-2016-5438&cmid=3420850";
       "case8.html", `Quick, basic ~last_name:"johnson" "case8" "?db=oklahoma&number=TR-1991-3731&cmid=180879";

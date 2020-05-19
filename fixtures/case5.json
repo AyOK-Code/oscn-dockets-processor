@@ -1,0 +1,386 @@
+{
+  "cases": [
+    {
+      "status": "Completed",
+      "uri":
+        "https://www.oscn.net/dockets/GetCaseInformation.aspx?db=oklahoma&number=CF-2015-2603&cmid=3251429",
+      "title":
+        "STATE OF OKLAHOMA, Plaintiff, v. SHANTAL TEAIRRA WARD, Defendant.",
+      "parties": [
+        { "Name__c": "DEL CITY PD", "Role__c": "Arresting_agency" },
+        { "Name__c": "STATE OF OKLAHOMA", "Role__c": "Plaintiff" },
+        { "Name__c": "WARD, SHANTAL TEAIRRA", "Role__c": "Defendant" }
+      ],
+      "case_number": "CF-2015-2603",
+      "date_filed": "2015-04-09",
+      "date_closed": "2018-10-03",
+      "judge": "Henderson, Timothy R",
+      "arresting_agency": "DEL CITY PD",
+      "events": [
+        {
+          "Datetime__c": "2015-04-30T13:30:00.000Z",
+          "Description__c": "PRELIMINARY HEARING CONFERENCE",
+          "Judge__c": "D. Fred Doak"
+        },
+        {
+          "Datetime__c": "2015-06-04T09:00:00.000Z",
+          "Description__c":
+            "PRELIMINARY HEARING CONFERENCE X 2 THA X 1 (DEFT WAS LATE)",
+          "Judge__c": "D. Fred Doak"
+        },
+        {
+          "Datetime__c": "2015-07-08T09:00:00.000Z",
+          "Description__c": "PRELIMINARY HEARING CONFERENCE X 3 THA X 2",
+          "Judge__c": "D. Fred Doak"
+        },
+        {
+          "Datetime__c": "2015-08-05T00:00:00.000Z",
+          "Description__c": "REVIEW BOND FORFEITURE 1",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2015-10-23T00:00:00.000Z",
+          "Description__c": "REVIEW BOND FORFEITURE 2",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2015-11-09T09:00:00.000Z",
+          "Description__c": "PRETRIAL CONFERENCE",
+          "Judge__c": "Timothy R Henderson"
+        },
+        {
+          "Datetime__c": "2016-01-25T09:01:00.000Z",
+          "Description__c": "ARRAIGNMENT; FTA-PTC",
+          "Judge__c": "Timothy R Henderson"
+        },
+        {
+          "Datetime__c": "2016-02-19T09:00:00.000Z",
+          "Description__c": "PRETRIAL CONFERENCE; PREV FTA",
+          "Judge__c": "Timothy R Henderson"
+        },
+        {
+          "Datetime__c": "2016-02-29T00:00:00.000Z",
+          "Description__c": "REVIEW BOND FORFEITURE 2 (STRICKEN)",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2016-03-08T00:00:00.000Z",
+          "Description__c": "REVIEW BOND FORFEITURE 1 (STRICKEN)",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2020-02-26T13:30:00.000Z",
+          "Description__c": "RULE 8 HEARING",
+          "Judge__c": "April Collins"
+        }
+      ],
+      "transactions": [
+        {
+          "Date__c": "2015-04-10",
+          "Code__c": "WAI$",
+          "Description__c":
+            "WARRANT OF ARREST ISSUED, JUDGE: RUSSELL HALL - BOND AMOUNT: $2,000.00 COMMENT: 2015019896",
+          "Count__c": null,
+          "Amount__c": "50.00"
+        },
+        {
+          "Date__c": "2015-04-10",
+          "Code__c": "OCISR",
+          "Description__c":
+            "OKLAHOMA COURT INFORMATION SYSTEM REVOLVING FUND",
+          "Count__c": null,
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": "2015-05-04",
+          "Code__c": "BO",
+          "Description__c":
+            "PROFESSIONAL BOND FOR WARD, SHANTAL TEAIRRA POSTED BY JONES, ANGELA (MULTICOUNTY AGENT:PLETCHER, CURT ) (POWER NUMBER:72079 ), IN THE AMOUNT OF $2,000.00, POSTED 04/06/2015",
+          "Count__c": null,
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": "2015-05-04",
+          "Code__c": "BOJ",
+          "Description__c": "BOND INITIAL FILING JAIL FUND FEE",
+          "Count__c": null,
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": "2015-05-04",
+          "Code__c": "CCADMIN25",
+          "Description__c":
+            "COURT CLERK ADMINISTRATIVE FEE ON $25 COLLECTIONS",
+          "Count__c": null,
+          "Amount__c": "2.50"
+        },
+        {
+          "Date__c": "2015-07-13",
+          "Code__c": "BWIFA",
+          "Description__c":
+            "BENCH WARRANT ISSUED FAILED TO APPEAR, JUDGE: D. DOAK - BOND AMOUNT: $4,000.00 COUNT 1 - GRAND LARCENY COMMENT: WARRANT RECALLED 7/20/2015, WARRANT ISSUED ON 7/13/2015",
+          "Count__c": null,
+          "Amount__c": "50.00"
+        },
+        {
+          "Date__c": "2015-07-13",
+          "Code__c": "OCISR",
+          "Description__c":
+            "OKLAHOMA COURT INFORMATION SYSTEM REVOLVING FUND",
+          "Count__c": null,
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": "2015-07-27",
+          "Code__c": "RECCM",
+          "Description__c":
+            "RECEIPT FOR CERTIFIED MAIL-CURT PLETCHER-CURT PLETCHER SIGNED ON 7/24/15.",
+          "Count__c": null,
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": "2015-08-06",
+          "Code__c": "RECCM",
+          "Description__c":
+            "FRECEIPT FOR CERTIFIED MAIL\" ANGELA JONES-SIGNED BY ANGELA JONES GRREN CARD NOT DATED ACCORDING TO USPS ITEM WAS DELIVERED ON.",
+          "Count__c": null,
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": "2015-11-13",
+          "Code__c": "BWIFA",
+          "Description__c":
+            "BENCH WARRANT ISSUED FAILED TO APPEAR, JUDGE: TIMOTHY HENDERSON - BOND AMOUNT: COUNT 1 - GRAND LARCENY HOLD WITHOUT BOND COMMENT: BOND DENIED",
+          "Count__c": null,
+          "Amount__c": "50.00"
+        },
+        {
+          "Date__c": "2015-11-13",
+          "Code__c": "OCISR",
+          "Description__c":
+            "OKLAHOMA COURT INFORMATION SYSTEM REVOLVING FUND",
+          "Count__c": null,
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": "2015-12-01",
+          "Code__c": "RECCM",
+          "Description__c":
+            "RECEIPT FOR CERTIFIED MAIL-CURT PLETCHER-CURT PLETCHER SIGNED ON 11/30/15.",
+          "Count__c": null,
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": "2015-12-10",
+          "Code__c": "RECCM",
+          "Description__c":
+            "RECEIPT FOR CERTIFIED MAIL-ANGELA JONES-ANGELA JONES SIGNED ON 12/8/15.",
+          "Count__c": null,
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": "2016-01-29",
+          "Code__c": "AC80",
+          "Description__c":
+            "CORRECTIONS TO ACCOUNTING ENTRIES FOR INITIAL BOND FILING.",
+          "Count__c": null,
+          "Amount__c": "-25.00"
+        },
+        {
+          "Date__c": "2016-01-29",
+          "Code__c": "AC31",
+          "Description__c":
+            "CORRECTIONS TO ACCOUNTING ENTRIES FOR INITIAL BOND FILING.",
+          "Count__c": null,
+          "Amount__c": "-2.50"
+        },
+        {
+          "Date__c": "2016-01-29",
+          "Code__c": "AC01",
+          "Description__c":
+            "CORRECTIONS TO ACCOUNTING ENTRIES FOR INITIAL BOND FILING.",
+          "Count__c": null,
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": "2016-02-11",
+          "Code__c": "COSTF",
+          "Description__c": "COURT COSTS ON FELONY",
+          "Count__c": "1",
+          "Amount__c": "103.00"
+        },
+        {
+          "Date__c": "2016-02-11",
+          "Code__c": "DACPAF",
+          "Description__c": "DA COUNCIL PROSECUTION ASSESSMENT FOR FELONY",
+          "Count__c": "1",
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": "2016-02-11",
+          "Code__c": "OCISR",
+          "Description__c":
+            "OKLAHOMA COURT INFORMATION SYSTEM REVOLVING FUND",
+          "Count__c": "1",
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": "2016-02-11",
+          "Code__c": "SSFCHS",
+          "Description__c":
+            "SHERIFF’S SERVICE FEE FOR COURT HOUSE SECURITY",
+          "Count__c": "1",
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": "2016-02-11",
+          "Code__c": "MELRF",
+          "Description__c": "MEDICAL EXPENSE LIABILITY REVOLVING FUND",
+          "Count__c": "1",
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": "2016-02-11",
+          "Code__c": "CLEET",
+          "Description__c": "CLEET PENALTY ASSESSMENT",
+          "Count__c": "1",
+          "Amount__c": "9.00"
+        },
+        {
+          "Date__c": "2016-02-11",
+          "Code__c": "PFE7",
+          "Description__c": "LAW LIBRARY FEE",
+          "Count__c": "1",
+          "Amount__c": "6.00"
+        },
+        {
+          "Date__c": "2016-02-11",
+          "Code__c": "FOREN",
+          "Description__c": "FORENSIC SCIENCE IMPROVEMENT ASSESSMENT",
+          "Count__c": "1",
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": "2016-02-11",
+          "Code__c": "SSF",
+          "Description__c": "SHERIFF'S SERVICE FEE ON ARRESTS",
+          "Count__c": "1",
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": "2016-02-11",
+          "Code__c": "AFIS",
+          "Description__c": "AFIS FEE",
+          "Count__c": "1",
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": "2016-02-11",
+          "Code__c": "CHAB",
+          "Description__c": "C.H.A.B. STATUTORY FEE",
+          "Count__c": "1",
+          "Amount__c": "3.00"
+        },
+        {
+          "Date__c": "2016-02-11",
+          "Code__c": "AGVSU",
+          "Description__c": "ATTORNEY GENERAL VICTIM SERVICES UNIT",
+          "Count__c": "1",
+          "Amount__c": "3.00"
+        },
+        {
+          "Date__c": "2016-02-11",
+          "Code__c": "DNAO",
+          "Description__c": "DNA LAB FEE- - PAY TO OSBI",
+          "Count__c": "1",
+          "Amount__c": "150.00"
+        },
+        {
+          "Date__c": "2016-02-11",
+          "Code__c": "ATTO",
+          "Description__c":
+            "ATTORNEY FEE - TULSA AND OKLAHOMA COUNTY PUBLIC DEFENDER",
+          "Count__c": "1",
+          "Amount__c": "200.00"
+        },
+        {
+          "Date__c": "2016-02-11",
+          "Code__c": "VCA",
+          "Description__c": "VICTIMS COMPENSATION ASSESSMENT (AC12)",
+          "Count__c": "1",
+          "Amount__c": "45.00"
+        },
+        {
+          "Date__c": "2016-02-11",
+          "Code__c": "CCADMIN",
+          "Description__c": "COURT CLERK ADMINISTRATIVE FEE ON COLLECTIONS",
+          "Count__c": "1",
+          "Amount__c": "42.00"
+        },
+        {
+          "Date__c": "2016-12-06",
+          "Code__c": "BWIFAP",
+          "Description__c":
+            "BENCH WARRANT ISSUED FAILED TO APPEAR AND PAY, JUDGE: DONALD EASTER - BOND AMOUNT: $1,333.80 COUNT 1 - GRAND LARCENY COMMENT: ATTENTION BOOKING DEPARTMENT: DEFENDANT MAY BE RELEASED UPON A CASH PAYMENT IN FULL OR SET FOR THE COST DOCKET.",
+          "Count__c": null,
+          "Amount__c": "50.00"
+        },
+        {
+          "Date__c": "2016-12-06",
+          "Code__c": "CBWF1",
+          "Description__c": "CLERK'S BENCH WARRANT FEE {TITLE 22 O.S.966A}",
+          "Count__c": null,
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": "2016-12-06",
+          "Code__c": "OCISR",
+          "Description__c":
+            "OKLAHOMA COURT INFORMATION SYSTEM REVOLVING FUND",
+          "Count__c": null,
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": "2016-12-08",
+          "Code__c": "SFC",
+          "Description__c":
+            "CASE SENT FOR COLLECTION. BATCH ID: 20161208-5815 - COLLECTION ID: 115211",
+          "Count__c": null,
+          "Amount__c": "307.80"
+        },
+        {
+          "Date__c": "2016-12-08",
+          "Code__c": "SFCSF",
+          "Description__c": "REDUCTION IN BENCH WARRANT FEE TO SHERIFF (10%)",
+          "Count__c": null,
+          "Amount__c": "-5.00"
+        },
+        {
+          "Date__c": "2016-12-08",
+          "Code__c": "SFCCC",
+          "Description__c": "ADDITION OF 10% FOR WARRANT COLLECTION",
+          "Count__c": null,
+          "Amount__c": "5.00"
+        }
+      ],
+      "open_counts": [],
+      "completed_counts": [
+        {
+          "CountAsFiled__c": "LMFR, GRAND LARCENY",
+          "DateOfOffense__c": "2015-03-30",
+          "Disposition__c": "DEFERRED, 02/11/2016. Guilty Plea",
+          "CountAsDisposed__c": "GRAND LARCENY(LMFR)",
+          "ViolationOf__c": "21 O.S. 1701-1708,1731"
+        },
+        {
+          "CountAsFiled__c": "LMFR, GRAND LARCENY",
+          "DateOfOffense__c": "2015-03-30",
+          "Disposition__c": "CONVICTION, 10/03/2018. Guilty Plea",
+          "CountAsDisposed__c":
+            "LARCENY OF MERCHANDISE FROM A RETAILER (OVER $500 LESS THAN $1,000)(LMFR)",
+          "ViolationOf__c": "21 O.S. 1701-1708,1731"
+        }
+      ]
+    }
+  ]
+}

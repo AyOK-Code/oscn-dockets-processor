@@ -9,21 +9,33 @@ let () = Lwt.async_exception_hook := (fun ex ->
     |> ignore
   )
 
-let exec request =
+let exec_search request =
+  let name_matcher = Oscn.make_name_matcher request in
   let%lwt results = Search.scrape request () in
   let%lwt case_data = String.Table.fold results ~init:[] ~f:(fun ~key:_ ~data acc ->
       let uri = data.uri in
-      let p = Lwt.map (Case.process request uri) (Oscn.fetch uri) in
+      let p = Lwt.map (Case.process ~name_matcher uri) (Oscn.fetch uri) in
       p::acc
     ) |> Lwt.all
   in
-  let json : Yojson.Safe.t = Oscn.prepare_data request case_data in
+  let json : Yojson.Safe.t = Oscn.prepare_data ~name_matcher case_data in
+  Lwt.return json
+
+let exec_case S.{ person = request; case_uri = uri} =
+  let name_matcher = Oscn.make_name_matcher request in
+  let%lwt raw = Oscn.fetch uri in
+  let case_data = Case.process ~name_matcher uri raw in
+  let json : Yojson.Safe.t = begin match Oscn.prepare_case ~name_matcher case_data with
+  | Some json -> `Assoc ["case", json]
+  | None -> `Assoc ["case", `Null]
+  end
+  in
   Lwt.return json
 
 let main = function
 | [_; "--help"] -> Lwt_io.printlf "Usage:\n1. run LAST_NAME [FIRST_NAME [MIDDLE_NAME]]\n2. serve"
 
-| _::"run"::ln::rest ->
+| _::"search"::ln::rest ->
   let last_name = ln in
   let first_name, middle_name = begin match rest with
   | []
@@ -34,12 +46,31 @@ let main = function
   end
   in
   let request = S.{ first_name; middle_name; last_name; dob_before = None; dob_after = None } in
-  let%lwt output = Lwt.map Yojson.Safe.pretty_to_string (exec request) in
+  let%lwt out = Lwt.map Yojson.Safe.to_string (exec_search request) in
   let%lwt () = Lwt_io.with_file ~flags:Unix.[O_WRONLY; O_NONBLOCK; O_TRUNC; O_CREAT] ~mode:Output "cases.json" (fun oc ->
-      Lwt_io.write oc output
+      Lwt_io.write oc out
     )
   in
   Lwt_io.printl "Successfully wrote cases.json"
+
+| _::"case"::uri_str::ln::rest ->
+  let last_name = ln in
+  let first_name, middle_name = begin match rest with
+  | []
+  | ""::[]
+  | ""::""::_ -> None, None
+  | x::[] -> Some x, None
+  | x::y::_ -> Some x, Some y
+  end
+  in
+  let request = S.{ first_name; middle_name; last_name; dob_before = None; dob_after = None } in
+  let uri = Uri.of_string uri_str in
+  let%lwt out = Lwt.map Yojson.Safe.to_string (exec_case { person = request; case_uri = uri }) in
+  let%lwt () = Lwt_io.with_file ~flags:Unix.[O_WRONLY; O_NONBLOCK; O_TRUNC; O_CREAT] ~mode:Output "case.json" (fun oc ->
+      Lwt_io.write oc out
+    )
+  in
+  Lwt_io.printl "Successfully wrote case.json"
 
 | [_; "serve"] ->
   let open Cohttp in
@@ -97,11 +128,13 @@ let main = function
     let meth = Request.meth req in
     try%lwt
       (* HTTP validations *)
-      begin match meth, path with
+      let kind = begin match meth, path with
       | `GET, "/health" -> raise (Http_ok "OK")
-      | `POST, "/search" -> ()
-      | _ -> raise (Http_not_found (sprintf "Invalid endpoint: '%s'" path))
-      end;
+      | `POST, "/search" -> `Search
+      | `POST, "/case" -> `Case
+      | _ -> raise (Http_not_found (sprintf "Invalid endpoint or method: %s '%s'" (Code.string_of_method meth) path))
+      end
+      in
       begin match meth, Header.get (Request.headers req) "api-key" with
       | `POST, Some passed when String.(=) api_key passed -> ()
       | `POST, Some _ -> raise (Http_unauthorized "Invalid 'api-key' header")
@@ -110,14 +143,23 @@ let main = function
       end;
 
       (* Serve request *)
-      let%lwt request =
-        let%lwt raw = Body.to_string req_body in
-        begin match Yojson.Safe.from_string raw |> Liboscn.S.search_request_of_yojson with
-        | Ok x -> Lwt.return x
+      let parse_request p raw =
+        begin match Yojson.Safe.from_string raw |> p with
+        | Ok x -> x
         | Error msg -> failwith msg
         end
       in
-      let%lwt body = Lwt.map Yojson.Safe.to_string (exec request) in
+      let%lwt body =
+        let%lwt raw = Body.to_string req_body in
+        begin match kind with
+        | `Search ->
+          let request = parse_request Liboscn.S.search_request_of_yojson raw in
+          Lwt.map Yojson.Safe.to_string (exec_search request)
+        | `Case ->
+          let request = parse_request Liboscn.S.case_request_of_yojson raw in
+          Lwt.map Yojson.Safe.to_string (exec_case request)
+        end
+      in
 
       reply t0 200 req
         ~body

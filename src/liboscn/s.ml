@@ -3,6 +3,9 @@ module Date = Core_kernel.Date
 let date_option_of_yojson = function
 | `String s -> Ok (Some (Date.of_string s))
 | _ -> Error (Format.sprintf "Invalid JSON type for Date, expected String")
+let uri_of_yojson = function
+| `String s -> Ok (Uri.of_string s)
+| _ -> Error (Format.sprintf "Invalid JSON type for Uri, expected String")
 
 type search_request = {
   last_name: string;
@@ -10,6 +13,11 @@ type search_request = {
   middle_name: string option [@default None];
   dob_before: Date.t option [@default None] [@of_yojson date_option_of_yojson];
   dob_after: Date.t option [@default None] [@of_yojson date_option_of_yojson];
+} [@@deriving of_yojson]
+
+type case_request = {
+  person: search_request;
+  case_uri: Uri.t [@of_yojson uri_of_yojson];
 } [@@deriving of_yojson]
 
 open! Core_kernel

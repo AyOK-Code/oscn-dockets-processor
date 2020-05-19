@@ -107,51 +107,53 @@ let parse_date ~section text =
   | Ok _ | Error _ -> failwithf "Invalid %s date '%s'" section raw ()
   end
 
-let prepare_data request datas =
-  let name_matcher = make_name_matcher request in
+let prepare_case ~name_matcher case =
+  (* Done this way to ensure we get warnings if we miss a field *)
+  let {
+    status;
+    uri;
+    title;
+    parties;
+    is_defendant;
+    case_number;
+    date_filed;
+    date_closed;
+    judge;
+    arresting_agency;
+    events;
+    transactions;
+    counts;
+  } = case
+  in
+  let open_counts, completed_counts = begin match counts with
+  | OpenCaseCounts x -> x, [||]
+  | CompletedCaseCounts x -> [||], x
+  end
+  in
+  begin match is_defendant with
+  | false -> None
+  | true ->
+    case_to_yojson {
+      status;
+      uri;
+      title;
+      parties;
+      case_number;
+      date_filed;
+      date_closed;
+      judge;
+      arresting_agency;
+      events = Array.filter events ~f:(fun { party; _ } -> Option.value_map party ~default:true ~f:name_matcher);
+      transactions = Array.filter transactions ~f:(fun { party; _ } -> Option.value_map party ~default:true ~f:name_matcher);
+      open_counts;
+      completed_counts = Array.filter completed_counts ~f:(fun { party; _ } -> Option.value_map party ~default:true ~f:name_matcher);
+    }
+    |> Option.return
+  end
+
+let prepare_data ~name_matcher datas =
   let cases = List.filter_map datas ~f:(fun data ->
-      (* Done this way to ensure we get warnings if we miss a field *)
-      let {
-        status;
-        uri;
-        title;
-        parties;
-        is_defendant;
-        case_number;
-        date_filed;
-        date_closed;
-        judge;
-        arresting_agency;
-        events;
-        transactions;
-        counts;
-      } = data
-      in
-      let open_counts, completed_counts = begin match counts with
-      | OpenCaseCounts x -> x, [||]
-      | CompletedCaseCounts x -> [||], x
-      end
-      in
-      begin match is_defendant with
-      | false -> None
-      | true ->
-        case_to_yojson {
-          status;
-          uri;
-          title;
-          parties;
-          case_number;
-          date_filed;
-          date_closed;
-          judge;
-          arresting_agency;
-          events = Array.filter events ~f:(fun { party; _ } -> Option.value_map party ~default:true ~f:name_matcher);
-          transactions = Array.filter transactions ~f:(fun { party; _ } -> Option.value_map party ~default:true ~f:name_matcher);
-          open_counts;
-          completed_counts = Array.filter completed_counts ~f:(fun { party; _ } -> Option.value_map party ~default:true ~f:name_matcher);
-        }
-        |> Option.return
-      end
+      prepare_case ~name_matcher data
     )
   in
   `Assoc [

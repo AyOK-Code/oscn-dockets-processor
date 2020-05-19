@@ -89,53 +89,54 @@ let process_counts_closed div =
   end
   in
   (* Second table *)
-  let disposition, count_as_disposed, violation_of2, party = begin match second $$ "tbody tr td" |> to_list with
-  | [_td1; td2; td3] ->
-    let party = td_party td2 in
-    begin match trimmed_texts td3 with
-    | td1::td2::rest ->
-      let disposition = begin match String.chop_prefix td1 ~prefix:"Disposed:" with
-      | Some s -> Text.clean s
-      | None -> failwith "Could not find disposition information"
+  second $$ "tbody tr" |> to_list |> List.map ~f:(fun tr ->
+    let disposition, count_as_disposed, violation_of2, party = begin match tr $$ "td" |> to_list with
+    | [_td1; td2; td3] ->
+      let party = td_party td2 in
+      begin match trimmed_texts td3 with
+      | td1::td2::rest ->
+        let disposition = begin match String.chop_prefix td1 ~prefix:"Disposed:" with
+        | Some s -> Text.clean s
+        | None -> failwith "Could not find disposition information"
+        end
+        in
+        let count_as_disposed = begin match String.chop_prefix td2 ~prefix:"Count as Disposed:" with
+        | Some s -> Text.clean s
+        | None -> failwith "Could not find count as disposed information"
+        end
+        in
+        let violation_of = begin match rest with
+        | ["Violation of"; td4] -> Some (Text.clean td4)
+        | [] -> None
+        | _ -> failwith "Invalid page structure, end of fragments of second count column for the second line"
+        end
+        in
+        disposition, count_as_disposed, violation_of, party
+      | _ -> failwith "Invalid page structure, fragments of second count column for the second line"
       end
-      in
-      let count_as_disposed = begin match String.chop_prefix td2 ~prefix:"Count as Disposed:" with
-      | Some s -> Text.clean s
-      | None -> failwith "Could not find count as disposed information"
-      end
-      in
-      let violation_of = begin match rest with
-      | ["Violation of"; td4] -> Some (Text.clean td4)
-      | [] -> None
-      | _ -> failwith "Invalid page structure, end of fragments of second count column for the second line"
-      end
-      in
-      disposition, count_as_disposed, violation_of, party
-    | _ -> failwith "Invalid page structure, fragments of second count column for the second line"
+    | _ -> failwith "Invalid page structure, could not locate distinct count columns for the second line"
     end
-  | _ -> failwith "Invalid page structure, could not locate distinct count columns for the second line"
-  end
-  in
-  let violation_of = begin match violation_of1, violation_of2 with
-  | (Some xx as x), (Some yy) when Text.(xx = yy) -> x
-  | (Some _), (Some _ as y) -> y
-  | (Some _ as x), None -> x
-  | None, (Some _ as y) -> y
-  | None, None -> None
-  end
-  in
-  {
-    party;
-    count_as_filed;
-    date_of_offense;
-    disposition;
-    count_as_disposed;
-    violation_of;
-  }
+    in
+    let violation_of = begin match violation_of1, violation_of2 with
+    | (Some xx as x), (Some yy) when Text.(xx = yy) -> x
+    | (Some _), (Some _ as y) -> y
+    | (Some _ as x), None -> x
+    | None, (Some _ as y) -> y
+    | None, None -> None
+    end
+    in
+    {
+      party;
+      count_as_filed;
+      date_of_offense;
+      disposition;
+      count_as_disposed;
+      violation_of;
+    }
+  )
 
-let process request uri raw =
+let process ~name_matcher uri raw =
   let open Soup in
-  let name_matcher = Oscn.make_name_matcher request in
   let html = parse raw in
 
   (* Process header *)
@@ -231,7 +232,12 @@ let process request uri raw =
   | Completed ->
     begin match html $$ "div.CountsContainer" |> to_list with
     | [] -> failwith "Invalid page structure, did not find a counts section on a Closed case."
-    | containers -> CompletedCaseCounts (Array.of_list_map containers ~f:process_counts_closed)
+    | containers ->
+      let queue = Queue.create () in
+      List.iter containers ~f:(fun container ->
+        Queue.enqueue_all queue (process_counts_closed container)
+      );
+      CompletedCaseCounts (Queue.to_array queue)
     end
   end
   in
