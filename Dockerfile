@@ -1,6 +1,7 @@
 FROM asemio/mountain-caravan:0.2.2 AS build
 WORKDIR /app
 RUN sudo apk update \
+  && sudo apk upgrade \
   && sudo apk add --no-cache perl cmake ca-certificates
 
 COPY oscn-dockets-processor.opam .

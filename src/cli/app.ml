@@ -32,7 +32,10 @@ let exec_case S.{ person = request; case_uri = uri} =
   Lwt.return json
 
 let main = function
-| [_; "--help"] -> Lwt_io.printlf "Usage:\n1. run LAST_NAME [FIRST_NAME [MIDDLE_NAME]]\n2. serve"
+| [_; "--help"] -> Lwt_io.printlf {s|Usage methods:
+1. search LAST_NAME [FIRST_NAME [MIDDLE_NAME]]
+2. case URI LAST_NAME [FIRST_NAME [MIDDLE_NAME]]
+3. serve|s}
 
 | _::"search"::ln::rest ->
   let last_name = ln in
