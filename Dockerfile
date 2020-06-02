@@ -27,7 +27,9 @@ FROM alpine:3.11
 WORKDIR /app
 COPY --from=build /app/app.exe .
 COPY --from=build /app/lib ./lib/
-RUN apk add --no-cache ca-certificates
+RUN apk update \
+  && apk upgrade \
+  && apk add --no-cache ca-certificates
 ENV LD_LIBRARY_PATH ./lib
 RUN ./app.exe --help
 
