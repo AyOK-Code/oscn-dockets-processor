@@ -1,13 +1,14 @@
-FROM asemio/mountain-caravan:0.2.2 AS build
+FROM asemio/mountain-caravan:0.2.3 AS build
 WORKDIR /app
 RUN sudo apk update \
   && sudo apk upgrade \
-  && sudo apk add --no-cache perl cmake ca-certificates
+  && sudo apk add --no-cache perl cmake ca-certificates gmp-dev
 
 COPY oscn-dockets-processor.opam .
 
-RUN OPAMYES=1 opam install . --deps-only \
-  && OPAMYES=1 opam reinstall ssl
+RUN opam update \
+  && OPAMYES=1 opam install . --deps-only \
+  && OPAMYES=1 opam reinstall tls
 
 COPY . .
 
