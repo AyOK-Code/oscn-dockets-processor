@@ -390,8 +390,8 @@
           "Amount__c": "7.00"
         }
       ],
-      "open_counts": [],
-      "completed_counts": [
+      "basic_counts": [],
+      "extended_counts": [
         {
           "CountAsFiled__c": "DU8II, POSSESSION OF A CDS - METHAMPHETAMINE",
           "DateOfOffense__c": "2016-06-20",

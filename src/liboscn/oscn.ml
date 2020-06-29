@@ -122,13 +122,9 @@ let prepare_case ~name_matcher case =
     arresting_agency;
     events;
     transactions;
-    counts;
+    open_counts;
+    completed_counts;
   } = case
-  in
-  let open_counts, completed_counts = begin match counts with
-  | OpenCaseCounts x -> x, [||]
-  | CompletedCaseCounts x -> [||], x
-  end
   in
   begin match is_defendant with
   | false -> None

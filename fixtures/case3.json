@@ -200,8 +200,8 @@
           "Amount__c": "52,500.00"
         }
       ],
-      "open_counts": [],
-      "completed_counts": []
+      "basic_counts": [],
+      "extended_counts": []
     }
   ]
 }

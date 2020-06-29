@@ -161,12 +161,12 @@
           "Amount__c": "20.00"
         }
       ],
-      "open_counts": [
+      "basic_counts": [
         {
           "Description__c": "83 IN 70, SPEEDING"
         }
       ],
-      "completed_counts": []
+      "extended_counts": []
     }
   ]
 }

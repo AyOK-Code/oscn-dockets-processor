@@ -245,8 +245,8 @@
           "Amount__c": "25.00"
         }
       ],
-      "open_counts": [],
-      "completed_counts": [
+      "basic_counts": [],
+      "extended_counts": [
         {
           "CountAsFiled__c": "SB1, FAIL TO PROPERLY USE A PASSENGER RESTRAINT SYSTEM FOR CHILD UNDER 6 YEARS OF AGE",
           "DateOfOffense__c": "2014-01-01",

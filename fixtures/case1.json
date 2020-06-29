@@ -658,7 +658,7 @@
           "Amount__c": "5.00"
         }
       ],
-      "open_counts": [
+      "basic_counts": [
         {
           "Description__c": "BATTERY/ASSAULT & BATTERY ON POLICE OFFICER"
         },
@@ -669,7 +669,7 @@
           "Description__c": "PUBLIC INTOX"
         }
       ],
-      "completed_counts": []
+      "extended_counts": []
     }
   ]
 }

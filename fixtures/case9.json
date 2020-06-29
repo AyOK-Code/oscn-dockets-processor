@@ -1,0 +1,55 @@
+{
+  "cases": [
+    {
+      "status": "Open",
+      "uri": "https://www.oscn.net/dockets/GetCaseInformation.aspx?db=oklahoma&number=CM-2020-1446&cmid=3879230",
+      "title": "STATE OF OKLAHOMA, Plaintiff, v. KEELY LAUREN VANDERBURG, Defendant.",
+      "parties": [
+        {
+          "Name__c": "EDMOND PD",
+          "Role__c": "Arresting_agency"
+        },
+        {
+          "Name__c": "STATE OF OKLAHOMA",
+          "Role__c": "Plaintiff"
+        },
+        {
+          "Name__c": "VANDERBURG, KEELY LAUREN",
+          "Role__c": "Defendant"
+        }
+      ],
+      "case_number": "CM-2020-1446",
+      "date_filed": "2020-05-28",
+      "date_closed": null,
+      "judge": "Kerr, Elizabeth",
+      "arresting_agency": "EDMOND PD",
+      "events": [],
+      "transactions": [
+        {
+          "Date__c": "2020-05-29",
+          "Code__c": "WAI$",
+          "Description__c": "WARRANT OF ARREST ISSUED, JUDGE: KEVIN MCCRAY - BOND AMOUNT: $500.00 COMMENT:",
+          "Count__c": null,
+          "Amount__c": "50.00"
+        },
+        {
+          "Date__c": "2020-05-29",
+          "Code__c": "OCISR",
+          "Description__c": "OKLAHOMA COURT INFORMATION SYSTEM REVOLVING FUND",
+          "Count__c": null,
+          "Amount__c": "25.00"
+        }
+      ],
+      "basic_counts": [],
+      "extended_counts": [
+        {
+          "CountAsFiled__c": "FORG, PUBLISHING COUNTERFEIT INSTRUMENT(S) AS TRUE",
+          "DateOfOffense__c": "2020-01-13",
+          "Disposition__c": null,
+          "CountAsDisposed__c": null,
+          "ViolationOf__c": "21 O.S. 1561-1628"
+        }
+      ]
+    }
+  ]
+}

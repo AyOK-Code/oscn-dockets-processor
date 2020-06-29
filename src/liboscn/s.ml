@@ -102,16 +102,11 @@ type completed_case_count = {
   party: Text.t option;
   count_as_filed: Text.t [@key "CountAsFiled__c"];
   date_of_offense: Date.t [@to_yojson yojson_of_date] [@key "DateOfOffense__c"];
-  disposition: Text.t [@key "Disposition__c"];
-  count_as_disposed: Text.t [@key "CountAsDisposed__c"];
+  disposition: Text.t option [@key "Disposition__c"];
+  count_as_disposed: Text.t option [@key "CountAsDisposed__c"];
   violation_of: Text.t option [@key "ViolationOf__c"];
 } [@@deriving to_yojson]
 let completed_case_count_to_yojson j = completed_case_count_to_yojson j |> except [|"party"|]
-
-type counts =
-| OpenCaseCounts of open_case_count array
-| CompletedCaseCounts of completed_case_count array
-[@@deriving to_yojson]
 
 type case_data = {
   status: status;
@@ -126,7 +121,8 @@ type case_data = {
   arresting_agency: Text.t option;
   events: event array;
   transactions: docket array;
-  counts: counts;
+  open_counts: open_case_count array;
+  completed_counts: completed_case_count array;
 }
 
 type case = {
@@ -141,6 +137,6 @@ type case = {
   arresting_agency: Text.t option;
   events: event array;
   transactions: docket array;
-  open_counts: open_case_count array;
-  completed_counts: completed_case_count array;
+  open_counts: open_case_count array [@key "basic_counts"];
+  completed_counts: completed_case_count array [@key "extended_counts"];
 } [@@deriving to_yojson]

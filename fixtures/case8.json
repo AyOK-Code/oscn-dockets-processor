@@ -32,8 +32,8 @@
         }
       ],
       "transactions": [],
-      "open_counts": [],
-      "completed_counts": [
+      "basic_counts": [],
+      "extended_counts": [
         {
           "CountAsFiled__c": "FAILURE TO PROPERLY WEAR SAFETY BELT",
           "DateOfOffense__c": "1991-03-12",

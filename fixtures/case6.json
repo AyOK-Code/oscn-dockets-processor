@@ -32,8 +32,8 @@
         }
       ],
       "transactions": [],
-      "open_counts": [],
-      "completed_counts": [
+      "basic_counts": [],
+      "extended_counts": [
         {
           "CountAsFiled__c": "EDUC, REFUSING AND NEGLECTING TO CAUSE A CHILD UNDER THE AGE EIGHTEEN(18) TO ATTEND SCHOOL",
           "DateOfOffense__c": "2009-12-08",

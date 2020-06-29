@@ -363,8 +363,8 @@
           "Amount__c": "5.00"
         }
       ],
-      "open_counts": [],
-      "completed_counts": [
+      "basic_counts": [],
+      "extended_counts": [
         {
           "CountAsFiled__c": "LMFR, GRAND LARCENY",
           "DateOfOffense__c": "2015-03-30",

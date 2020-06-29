@@ -10,15 +10,17 @@ let find_prefixed ~prefix strs =
   | Some s -> s
   end
 
-let find_section ~html ~section_classes ~el_type =
+let find_section ~html ~section_classes ~el_type ?empty_type () =
   let open Soup in
   let section_class = List.map section_classes ~f:(fun s -> sprintf ".%s" s) |> String.concat in
   begin match html $? (sprintf "h2%s" section_class) with
   | None -> raise (Not_present (sprintf "Invalid page structure, could not find '%s' header" section_class))
   | Some h2 ->
-    begin match next_element h2 with
-    | Some el when String.(name el = el_type) -> el
-    | (None as next) | (Some _ as next) ->
+    begin match next_element h2, empty_type with
+    | Some el, _ when String.(name el = el_type) -> el
+    | Some el, Some empty when String.(name el = empty) -> create_element el_type
+    | (None as next), _
+    | (Some _ as next), _ ->
       raise (Not_present (
           sprintf "Invalid page structure, could not find '%s' data (was %s instead of '%s')"
             section_class (Option.value_map next ~default:"not found" ~f:(fun x -> sprintf "'%s'" (name x))) el_type
@@ -56,7 +58,13 @@ let rec process_counts_open acc el =
   begin match Option.bind p ~f:(fun x -> texts x |> List.last) with
   | None -> acc
   | Some s ->
-    process_counts_open ({ description = Text.clean s }::acc) (Option.value_exn ~message:"Faulty assumption in counts processing" p)
+    let p_el = Option.value_exn ~message:"Faulty assumption in counts processing" p in
+    begin match Text.clean s |> Text.require with
+    | None ->
+      process_counts_open acc p_el
+    | Some description ->
+      process_counts_open ({ description }::acc) p_el
+    end
   end
 
 let process_counts_closed div =
@@ -96,12 +104,12 @@ let process_counts_closed div =
       begin match trimmed_texts td3 with
       | td1::td2::rest ->
         let disposition = begin match String.chop_prefix td1 ~prefix:"Disposed:" with
-        | Some s -> Text.clean s
+        | Some s -> Some (Text.clean s)
         | None -> failwith "Could not find disposition information"
         end
         in
         let count_as_disposed = begin match String.chop_prefix td2 ~prefix:"Count as Disposed:" with
-        | Some s -> Text.clean s
+        | Some s -> Some (Text.clean s)
         | None -> failwith "Could not find count as disposed information"
         end
         in
@@ -112,6 +120,8 @@ let process_counts_closed div =
         end
         in
         disposition, count_as_disposed, violation_of, party
+      | [] ->
+        None, None, None, party
       | _ -> failwith "Invalid page structure, fragments of second count column for the second line"
       end
     | _ -> failwith "Invalid page structure, could not locate distinct count columns for the second line"
@@ -141,7 +151,7 @@ let process ~name_matcher uri raw =
 
   (* Process header *)
   let title, case_number, date_filed, date_closed, judge =
-    let table = find_section ~html ~section_classes:["styletop"] ~el_type:"table" in
+    let table = find_section ~html ~section_classes:["styletop"] ~el_type:"table" () in
     begin match table $$ "tbody tr td" |> to_list with
     | [left; right] ->
       let title = (texts left |> String.concat ~sep:" " |> Text.clean) in
@@ -161,7 +171,7 @@ let process ~name_matcher uri raw =
 
   (* Process parties *)
   let parties =
-    let p = find_section ~html ~section_classes:["section"; "party"] ~el_type:"p" in
+    let p = find_section ~html ~section_classes:["section"; "party"] ~el_type:"p" () in
     let groups = descendants p |> to_list |> List.group ~break:(fun _left right ->
         Option.value_map (element right) ~default:false ~f:(fun el -> String.((name el) = "br"))
       )
@@ -201,7 +211,7 @@ let process ~name_matcher uri raw =
 
   (* Process events *)
   let events =
-    let table = find_section ~html ~section_classes:["section"; "events"] ~el_type:"table" in
+    let table = find_section ~html ~section_classes:["section"; "events"] ~el_type:"table" ~empty_type:"p" () in
     table $$ "tbody tr" |> to_list |> Array.of_list_map ~f:(fun row ->
       begin match row $$ "td" |> to_list with
       | [td1; td2; td3; _td4] ->
@@ -221,30 +231,30 @@ let process ~name_matcher uri raw =
   in
 
   (* Process counts *)
-  let counts = begin match status with
-  | Open ->
-    begin try
-      begin match html $? "h2.section.counts" with
-      | None -> raise (Not_present "Did not find a counts section")
-      | Some h2 -> OpenCaseCounts (process_counts_open [] h2 |> Array.of_list_rev)
-      end
-    with Not_present _ -> OpenCaseCounts [||] end
-  | Completed ->
-    begin match html $$ "div.CountsContainer" |> to_list with
-    | [] -> failwith "Invalid page structure, did not find a counts section on a Closed case."
-    | containers ->
-      let queue = Queue.create () in
-      List.iter containers ~f:(fun container ->
-        Queue.enqueue_all queue (process_counts_closed container)
-      );
-      CompletedCaseCounts (Queue.to_array queue)
+  let open_counts = begin try
+    begin match html $? "h2.section.counts" with
+    | None -> raise (Not_present "Did not find a counts section")
+    | Some h2 ->
+      process_counts_open [] h2 |> Array.of_list_rev
     end
+  with Not_present _ -> [||] end
+  in
+
+  let completed_counts = begin match (html $$ "div.CountsContainer" |> to_list), status with
+  | [], Open -> [||]
+  | [], Completed -> failwith "Invalid page structure, did not find a counts section on a Closed case."
+  | containers, _ ->
+    let queue = Queue.create () in
+    List.iter containers ~f:(fun container ->
+      Queue.enqueue_all queue (process_counts_closed container)
+    );
+    Queue.to_array queue
   end
   in
 
   (* Process dockets *)
   let dockets =
-    let table = find_section ~html ~section_classes:["section"; "dockets"] ~el_type:"table" in
+    let table = find_section ~html ~section_classes:["section"; "dockets"] ~el_type:"table" () in
     table $$ "tbody tr" |> to_list |> Array.of_list_map ~f:(fun row ->
       let rows = row $$ "td" |> to_list in
       begin match rows with
@@ -281,5 +291,6 @@ let process ~name_matcher uri raw =
     arresting_agency;
     events;
     transactions;
-    counts;
+    open_counts;
+    completed_counts;
   }
