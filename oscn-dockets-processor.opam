@@ -13,7 +13,7 @@ homepage: "https://github.com/AyOK-Code/oscn-dockets-processor"
 doc: "https://github.com/AyOK-Code/oscn-dockets-processor"
 bug-reports: "https://github.com/AyOK-Code/oscn-dockets-processor/issues"
 depends: [
-  "ocaml" {>= "4.08.1"}
+  "ocaml" {= "4.10.0"}
   "dune" {build & >= "1.9.0"}
 
   "alcotest-lwt" { = "1.1.0" }

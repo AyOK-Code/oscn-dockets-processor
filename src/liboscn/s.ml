@@ -96,7 +96,7 @@ let docket_to_yojson j = docket_to_yojson j |> except [|"party"; "links"|]
 
 type open_case_count = {
   description: Text.t [@key "Description__c"];
-} [@@deriving to_yojson]
+} [@@deriving to_yojson] [@@unboxed]
 
 type completed_case_count = {
   party: Text.t option;

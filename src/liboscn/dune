@@ -16,8 +16,4 @@
     lwt_ppx
     ppx_deriving_yojson
   ))
-  (ocamlopt_flags -O3 -unbox-closures))
-
-(env
-  (dev
-    (flags (:standard -warn-error -A))))
+)

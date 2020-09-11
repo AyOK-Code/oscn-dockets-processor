@@ -1,4 +1,4 @@
-FROM asemio/mountain-caravan:0.2.3 AS build
+FROM asemio/mountain-caravan:1.0.0 AS build
 WORKDIR /app
 RUN sudo apk update \
   && sudo apk upgrade \
@@ -24,7 +24,7 @@ RUN mkdir lib \
 
 
 ##############################
-FROM alpine:3.11
+FROM alpine:3.12
 WORKDIR /app
 COPY --from=build /app/app.exe .
 COPY --from=build /app/lib ./lib/

@@ -5,10 +5,4 @@
     lwt
     lwt.unix
   )
-  ;(preprocess (pps
-  ;))
-  (ocamlopt_flags -O3 -unbox-closures))
-
-(env
-  (dev
-    (flags (:standard -warn-error -A))))
+)
