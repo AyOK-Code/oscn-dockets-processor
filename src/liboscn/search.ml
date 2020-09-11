@@ -75,7 +75,7 @@ let rec process_page raw results =
           begin match Option.bind (tchild $? "td.moreResults a") ~f:(attribute "href") with
           | None | Some "" -> failwith "Could not find 'more results' link"
           | Some href ->
-            let%lwt page = Oscn.(href |> make_uri_from_href |> fetch) in
+            let%lwt page = Oscn.(href |> make_uri_from_href |> fetch `GET) in
             process_page page results
           end
         | _ ->
@@ -98,7 +98,7 @@ let scrape S.{ first_name; middle_name; last_name; dob_before; dob_after } () =
   in
   let uri = Uri.make ~scheme:"https" ~host:"www.oscn.net" ~path:"/dockets/Results.aspx" ~query () in
 
-  let%lwt page = Oscn.fetch uri in
+  let%lwt page = Oscn.fetch `GET uri in
 
   let results = String.Table.create () in
   let%lwt () = process_page page results in

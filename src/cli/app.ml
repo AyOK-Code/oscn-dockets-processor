@@ -14,7 +14,7 @@ let exec_search request =
   let%lwt results = Search.scrape request () in
   let%lwt case_data = String.Table.fold results ~init:[] ~f:(fun ~key:_ ~data acc ->
       let uri = data.uri in
-      let p = Lwt.map (Case.process ~name_matcher uri) (Oscn.fetch uri) in
+      let p = Lwt.map (Case.process ~name_matcher uri) (Oscn.fetch `GET uri) in
       p::acc
     ) |> Lwt.all
   in
@@ -23,7 +23,7 @@ let exec_search request =
 
 let exec_case S.{ person = request; case_uri = uri} =
   let name_matcher = Oscn.make_name_matcher request in
-  let%lwt raw = Oscn.fetch uri in
+  let%lwt raw = Oscn.fetch `GET uri in
   let case_data = Case.process ~name_matcher uri raw in
   let json : Yojson.Safe.t = `Assoc [
       "case_data", (Oscn.prepare_case ~name_matcher case_data |> Option.value ~default:(`Null))
@@ -31,11 +31,13 @@ let exec_case S.{ person = request; case_uri = uri} =
   in
   Lwt.return json
 
-let main = function
-| [_; "--help"] -> Lwt_io.printlf {s|Usage methods:
+let help_message = {s|Usage methods:
 1. search LAST_NAME [FIRST_NAME [MIDDLE_NAME]]
 2. case URI LAST_NAME [FIRST_NAME [MIDDLE_NAME]]
 3. serve|s}
+
+let main = function
+| [_; "--help"] -> Lwt_io.printl help_message
 
 | _::"search"::ln::rest ->
   let last_name = ln in
@@ -196,8 +198,8 @@ let main = function
     server
 
 | argv ->
-  failwithf "Invalid arguments: %s"
-    (`List (List.map argv ~f:(fun x -> `String x)) |> Yojson.Basic.to_string) ()
+  failwithf "Invalid arguments: %s\n%s"
+    (`List (List.map argv ~f:(fun x -> `String x)) |> Yojson.Basic.to_string) help_message ()
 
 let () =
   Lwt_main.run (

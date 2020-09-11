@@ -17,7 +17,7 @@ let make_uri_from_href href =
   |> (fun u -> Uri.with_scheme u (Some "https"))
   |> (fun u -> Uri.with_host u (Some "www.oscn.net"))
 
-let fetch uri =
+let fetch (meth : Cohttp.Code.meth) uri =
   let open Cohttp in
   let open Cohttp_lwt_unix in
   let module Body = Cohttp_lwt.Body in
@@ -25,8 +25,8 @@ let fetch uri =
     let%lwt () = Lwt_unix.sleep 0.5 in
     let debug_uri = Uri.to_string uri in
     let t0 = Time_now.nanoseconds_since_unix_epoch () in
-    let%lwt () = Lwt_io.printlf "Calling %s" debug_uri in
-    let%lwt res, body = Client.post uri in
+    let%lwt () = Lwt_io.printlf "%s %s" (Code.string_of_method meth) debug_uri in
+    let%lwt res, body = Client.call meth uri in
     let t1 = Time_now.nanoseconds_since_unix_epoch () in
     let status = Response.status res in
     let%lwt () = Lwt_io.printlf "[%s][%s ms] %s"
