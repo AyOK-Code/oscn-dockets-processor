@@ -1,0 +1,383 @@
+{
+  "cases": [
+    {
+      "status": "Open",
+      "uri": "https://www.oscn.net/dockets/GetCaseInformation.aspx?db=pittsburg&number=CM-2016-00117&cmid=51212",
+      "title": "STATE OF OKLAHOMA V. AARON JAMAR WILSON",
+      "parties": [
+        {
+          "Name__c": "WILSON, AARON JAMAR",
+          "Role__c": "Defendant"
+        }
+      ],
+      "case_number": "CM-2016-00117",
+      "date_filed": "2016-02-08",
+      "date_closed": null,
+      "judge": "BLAND, JAMES D.",
+      "arresting_agency": null,
+      "events": [
+        {
+          "Datetime__c": "2016-02-23T08:30:00.000Z",
+          "Description__c": "PRELIMINARY HEARING CONF",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2016-03-29T00:00:00.000Z",
+          "Description__c": "DISPOSITION DOCKET",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2016-03-29T08:30:00.000Z",
+          "Description__c": "DISPOSITION DOCKET",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2016-03-31T14:00:00.000Z",
+          "Description__c": "BOND HEARING",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2016-05-04T13:30:00.000Z",
+          "Description__c": "HEARING ON STATES REQUEST",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2016-05-06T08:30:00.000Z",
+          "Description__c": "SOUNDING",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2016-05-17T09:00:00.000Z",
+          "Description__c": "JURY TRIAL",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2016-05-20T00:00:00.000Z",
+          "Description__c": "GUILTY PLEA",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2016-07-15T00:00:00.000Z",
+          "Description__c": "PRELIMINARY HEARING CONF",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2016-08-31T13:30:00.000Z",
+          "Description__c": "ATR HEARING",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2016-08-31T00:00:00.000Z",
+          "Description__c": "APPLICATION TO REVOKE",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2016-09-19T00:00:00.000Z",
+          "Description__c": "OTC REPORT: ADD",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2018-01-22T00:00:00.000Z",
+          "Description__c": "OTC REPORT: ADD",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2019-03-29T00:00:00.000Z",
+          "Description__c": "OTC REPORT: ADD",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2020-02-05T00:00:00.000Z",
+          "Description__c": "WC - CASE SENT TO COLLECTIONS",
+          "Judge__c": null
+        },
+        {
+          "Datetime__c": "2020-06-02T00:00:00.000Z",
+          "Description__c": "OTC REPORT: ADD",
+          "Judge__c": null
+        }
+      ],
+      "transactions": [
+        {
+          "Date__c": "2016-02-08",
+          "Code__c": null,
+          "Description__c": "FILE, ENTER, RECORD INFORMATION",
+          "Count__c": null,
+          "Amount__c": "83.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "",
+          "Count__c": null,
+          "Amount__c": "6.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "",
+          "Count__c": null,
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "",
+          "Count__c": null,
+          "Amount__c": "9.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "",
+          "Count__c": null,
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "STATE TREASURERS FORENSIC FEE",
+          "Count__c": null,
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF AFS1",
+          "Count__c": null,
+          "Amount__c": "0.50"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF CLT2",
+          "Count__c": null,
+          "Amount__c": "0.90"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF FORE",
+          "Count__c": null,
+          "Amount__c": "0.50"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "DISTRICT ATTORNEY COUNCIL",
+          "Count__c": null,
+          "Amount__c": "15.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% DISTRICT ATTY COUNCIL",
+          "Count__c": null,
+          "Amount__c": "1.50"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "TRAMA CARE",
+          "Count__c": null,
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "OKLA. COURT INFORMATION SYSTEM",
+          "Count__c": null,
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% TRAMA CARE",
+          "Count__c": null,
+          "Amount__c": "1.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "SHERIFF'S SERVICE FEE-COURTHOUSE SECURITY",
+          "Count__c": null,
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% COURTHOUSE SECURITY",
+          "Count__c": null,
+          "Amount__c": "1.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "MEDICAL EXPENSE LIABILTIY REVOLVING FUND",
+          "Count__c": null,
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% MLRF",
+          "Count__c": null,
+          "Amount__c": "1.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "ATTORNEY GENERAL VICTIM SERVICES UNIT",
+          "Count__c": null,
+          "Amount__c": "3.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF AG VICTIM SERVICES FEE",
+          "Count__c": null,
+          "Amount__c": "0.30"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "CHILD ABUSE MULTIDISCIPLINARY ACCOUNT",
+          "Count__c": null,
+          "Amount__c": "3.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "10% OF CAMA FEE",
+          "Count__c": null,
+          "Amount__c": "0.30"
+        },
+        {
+          "Date__c": "2016-02-18",
+          "Code__c": null,
+          "Description__c": "F&E APP FOR CT APPTED ATTNY; FEE WAIVED.S/SHEETS",
+          "Count__c": null,
+          "Amount__c": "150.00"
+        },
+        {
+          "Date__c": "2016-02-18",
+          "Code__c": null,
+          "Description__c": "F&E INDIGENCY DETERMINATION.S/SHEETS",
+          "Count__c": null,
+          "Amount__c": "15.00"
+        },
+        {
+          "Date__c": "2016-03-29",
+          "Code__c": null,
+          "Description__c": "F&E CM OF 3-29-16 DD; SET FOR SOUNDING 5-6-16 AT",
+          "Count__c": null,
+          "Amount__c": "30.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "8:30AM; DIS ORDER 4-22-16; BOND HEARING 3-31-16 AT 2PM",
+          "Count__c": null,
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": "2016-04-12",
+          "Code__c": null,
+          "Description__c": "ISSUE SUBP TO PCSO; D DAYTON, K JOHNSTON, M KOS, L",
+          "Count__c": null,
+          "Amount__c": "150.00"
+        },
+        {
+          "Date__c": "2016-04-12",
+          "Code__c": null,
+          "Description__c": "F AND E APPEARANCE BOND",
+          "Count__c": null,
+          "Amount__c": "10.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "ENTER BONDSMAN'S NAME: MARY MIDDLETON",
+          "Count__c": null,
+          "Amount__c": "25.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "ENTER POWER NUMBER: 22293",
+          "Count__c": null,
+          "Amount__c": "2.50"
+        },
+        {
+          "Date__c": "2016-05-25",
+          "Code__c": null,
+          "Description__c": "F&E CT MN OF 5/20/16 PHC; DEFT P/G. CT SUSPENDS SENT 1)",
+          "Count__c": null,
+          "Amount__c": "250.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "1 YR C/C W/CM-16-61 & CF-16-345. CC,COI. C/C TO BE PAID",
+          "Count__c": null,
+          "Amount__c": "50.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "PER R8. DDBX. S/MILLS",
+          "Count__c": null,
+          "Amount__c": "5.00"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "",
+          "Count__c": null,
+          "Amount__c": "2,534.40"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "",
+          "Count__c": null,
+          "Amount__c": "281.60"
+        },
+        {
+          "Date__c": null,
+          "Code__c": null,
+          "Description__c": "",
+          "Count__c": null,
+          "Amount__c": "281.60"
+        },
+        {
+          "Date__c": "2020-02-05",
+          "Code__c": null,
+          "Description__c": "WC COLLECTIONS FEE",
+          "Count__c": null,
+          "Amount__c": "1,201.83"
+        },
+        {
+          "Date__c": "2020-02-05",
+          "Code__c": null,
+          "Description__c": "REDUCTION IN BENCH WARRANT FEE",
+          "Count__c": null,
+          "Amount__c": "-5.00"
+        },
+        {
+          "Date__c": "2020-02-05",
+          "Code__c": null,
+          "Description__c": "ADDITION FOR WARRANT COLLECTION",
+          "Count__c": null,
+          "Amount__c": "5.00"
+        }
+      ],
+      "basic_counts": [
+        {
+          "Description__c": "DOMESTIC ASSAULT AND BATTERY IN PRESENCE OF MINOR"
+        }
+      ],
+      "extended_counts": []
+    }
+  ]
+}

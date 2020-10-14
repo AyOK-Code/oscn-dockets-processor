@@ -88,10 +88,12 @@ let parse_datetime ~section text =
   begin match Re2.find_submatches datetime_regex raw with
   | Ok [|_whole; Some m; Some d; Some y; t|] ->
     let date = Date.create_exn ~m:(parse_month m) ~d:(Int.of_string d) ~y:(Int.of_string y) in
-    let time = begin match t with
-    | Some "0:00 AM" | None -> Time.Ofday.start_of_day
-    | Some x -> Time.Ofday.of_string x
-    end
+    let time =
+      Option.bind t ~f:(function
+      | "0:00 AM" | "0:00AM" -> None
+      | x -> Option.try_with (fun () -> Time.Ofday.of_string x)
+      )
+      |> Option.value ~default:Time.Ofday.start_of_day
     in
     Time.of_date_ofday ~zone:Time.Zone.utc date time
   | Ok _ | Error _ -> failwithf "Invalid %s datetime '%s'" section raw ()
