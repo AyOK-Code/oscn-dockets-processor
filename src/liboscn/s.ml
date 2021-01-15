@@ -25,6 +25,10 @@ open! Core_kernel
 let yojson_of_time time =
   let iso = Time.to_string_iso8601_basic ~zone:Time.Zone.utc time in
   `String (String.slice iso 0 (-4) |> sprintf "%sZ")
+let yojson_of_time_option = function
+| Some t -> yojson_of_time t
+| None -> `Null
+
 let yojson_of_date date = `String (Date.to_string date)
 let yojson_of_date_option = function
 | Some date -> `String (Date.to_string date)
@@ -46,14 +50,20 @@ let status_to_yojson = function
 | Completed -> `String "Completed"
 
 type role =
+| Appellant
+| Appellee
 | Defendant
 | Plaintiff
+| Other
 | Arresting_agency
 | Arresting_officer
 
 let role_to_yojson = function
+| Appellant -> `String "Appellant"
+| Appellee -> `String "Appellee"
 | Defendant -> `String "Defendant"
 | Plaintiff -> `String "Plaintiff"
+| Other -> `String "Other"
 | Arresting_agency -> `String "Arresting_agency"
 | Arresting_officer -> `String "Arresting_officer"
 
@@ -77,7 +87,7 @@ let party_to_yojson j = party_to_yojson j |> except [|"uri"|]
 
 type event = {
   party: Text.t option;
-  datetime: Time.t [@to_yojson yojson_of_time] [@key "Datetime__c"];
+  datetime: Time.t option [@to_yojson yojson_of_time_option] [@key "Datetime__c"];
   description: Text.t [@key "Description__c"];
   judge: Text.t option [@key "Judge__c"];
 } [@@deriving to_yojson]

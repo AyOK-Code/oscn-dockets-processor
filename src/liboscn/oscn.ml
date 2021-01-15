@@ -41,8 +41,11 @@ let fetch (meth : Cohttp.Code.meth) uri =
   )
 
 let parse_role = function
+| "Appellant" -> Appellant
+| "Appellee" -> Appellee
 | "Defendant" -> Defendant
 | "Plaintiff" -> Plaintiff
+| "Other" -> Other
 | "ARRESTING OFFICER" -> Arresting_officer
 | "ARRESTING AGENCY" -> Arresting_agency
 | s -> failwithf "Invalid role: '%s'" s ()

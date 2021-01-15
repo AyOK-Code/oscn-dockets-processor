@@ -1,0 +1,164 @@
+{
+    "cases": [
+      {
+        "status": "Completed",
+        "uri":
+          "https://www.oscn.net/dockets/GetCaseInformation.aspx?db=oklahoma&number=CF-1995-723&cmid=50663",
+        "title": "State of Oklahoma v. MILES REGINALD DAMON, CA-05-3174",
+        "parties": [
+          { "Name__c": "MILES, REGINALD D", "Role__c": "Defendant" },
+          { "Name__c": "STATE OF OKLAHOMA", "Role__c": "Plaintiff" }
+        ],
+        "case_number": "CF-1995-723",
+        "date_filed": "1995-02-01",
+        "date_closed": "1996-02-15",
+        "judge": "Caswell, Susan P.",
+        "arresting_agency": null,
+        "events": [
+          {
+            "Datetime__c": "1996-01-10T09:00:00.000Z",
+            "Description__c": "PRELIMINARY HEARING",
+            "Judge__c": "David M. Harbour"
+          },
+          {
+            "Datetime__c": "1996-01-23T09:00:00.000Z",
+            "Description__c": "PRELIMINARY ANN X 1-PL W/CF 95-995 & 3317",
+            "Judge__c": "David M. Harbour"
+          },
+          {
+            "Datetime__c": "1996-02-15T09:00:00.000Z",
+            "Description__c": "PRELIMINARYANN X 2 W/CF 95-995& 3317",
+            "Judge__c": "David M. Harbour"
+          },
+          {
+            "Datetime__c": "2005-09-05T00:00:00.000Z",
+            "Description__c": "PAYMENT PLAN @ $100.00 MO BEG 9/5/05",
+            "Judge__c": null
+          },
+          {
+            "Datetime__c": "2006-06-28T00:00:00.000Z",
+            "Description__c": "COST ADMINISTRATION REVIEW",
+            "Judge__c": null
+          },
+          {
+            "Datetime__c": "2006-09-29T00:00:00.000Z",
+            "Description__c": "PER PPA @ $40.00 MO BEG 9/29/06",
+            "Judge__c": null
+          },
+          {
+            "Datetime__c": "2020-03-21T00:00:00.000Z",
+            "Description__c": "COST ADMINISTRATION REVIEW",
+            "Judge__c": "Cost Admin. Judge (General)"
+          }
+        ],
+        "transactions": [
+          {
+            "Date__c": "1999-10-11",
+            "Code__c": "AC01",
+            "Description__c":
+              "ACCOUNT BALANCE- AC01. AS OF CONVERSION FROM THE MAINFRAME (10/20/1999), THE TOTAL AMOUNT FOR THIS ACCOUNT (THIS DEFENDANT) IS: $340.00. THE TOTAL PAID ON THIS ACCOUNT IS $ 0.00. THE BALANCE ON THIS ACCOUNT IS $ 340.00",
+            "Count__c": null,
+            "Amount__c": "340.00"
+          },
+          {
+            "Date__c": "1999-10-11",
+            "Code__c": "AC08",
+            "Description__c":
+              "ACCOUNT BALANCE- AC08. AS OF CONVERSION FROM THE MAINFRAME (10/20/1999), THE TOTAL AMOUNT FOR THIS ACCOUNT (THIS DEFENDANT) IS: $359.00. THE TOTAL PAID ON THIS ACCOUNT IS $ 0.00. THE BALANCE ON THIS ACCOUNT IS $ 359.00",
+            "Count__c": null,
+            "Amount__c": "359.00"
+          },
+          {
+            "Date__c": "1999-10-11",
+            "Code__c": "AC11",
+            "Description__c":
+              "ACCOUNT BALANCE- AC11. AS OF CONVERSION FROM THE MAINFRAME (10/20/1999), THE TOTAL AMOUNT FOR THIS ACCOUNT (THIS DEFENDANT) IS: $16.00. THE TOTAL PAID ON THIS ACCOUNT IS $ 0.00. THE BALANCE ON THIS ACCOUNT IS $ 16.00",
+            "Count__c": null,
+            "Amount__c": "16.00"
+          },
+          {
+            "Date__c": "1999-10-11",
+            "Code__c": "AC12",
+            "Description__c":
+              "ACCOUNT BALANCE- AC12. AS OF CONVERSION FROM THE MAINFRAME (10/20/1999), THE TOTAL AMOUNT FOR THIS ACCOUNT (THIS DEFENDANT) IS: $100.00. THE TOTAL PAID ON THIS ACCOUNT IS $ 0.00. THE BALANCE ON THIS ACCOUNT IS $ 100.00",
+            "Count__c": null,
+            "Amount__c": "100.00"
+          },
+          {
+            "Date__c": "1999-10-11",
+            "Code__c": "AC20",
+            "Description__c":
+              "ACCOUNT BALANCE- AC20. AS OF CONVERSION FROM THE MAINFRAME (10/20/1999), THE TOTAL AMOUNT FOR THIS ACCOUNT (THIS DEFENDANT) IS: $175.00. THE TOTAL PAID ON THIS ACCOUNT IS $ 0.00. THE BALANCE ON THIS ACCOUNT IS $ 175.00",
+            "Count__c": null,
+            "Amount__c": "175.00"
+          },
+          {
+            "Date__c": "1999-10-11",
+            "Code__c": "AC21",
+            "Description__c":
+              "ACCOUNT BALANCE- AC21. AS OF CONVERSION FROM THE MAINFRAME (10/20/1999), THE TOTAL AMOUNT FOR THIS ACCOUNT (THIS DEFENDANT) IS: $12.00. THE TOTAL PAID ON THIS ACCOUNT IS $ 0.00. THE BALANCE ON THIS ACCOUNT IS $ 12.00",
+            "Count__c": null,
+            "Amount__c": "12.00"
+          },
+          {
+            "Date__c": "1999-10-11",
+            "Code__c": "AC22",
+            "Description__c":
+              "ACCOUNT BALANCE- AC22. AS OF CONVERSION FROM THE MAINFRAME (10/20/1999), THE TOTAL AMOUNT FOR THIS ACCOUNT (THIS DEFENDANT) IS: $20.00. THE TOTAL PAID ON THIS ACCOUNT IS $ 0.00. THE BALANCE ON THIS ACCOUNT IS $ 20.00",
+            "Count__c": null,
+            "Amount__c": "20.00"
+          },
+          {
+            "Date__c": "1999-10-11",
+            "Code__c": "AC23",
+            "Description__c":
+              "ACCOUNT BALANCE- AC23. AS OF CONVERSION FROM THE MAINFRAME (10/20/1999), THE TOTAL AMOUNT FOR THIS ACCOUNT (THIS DEFENDANT) IS: $12.00. THE TOTAL PAID ON THIS ACCOUNT IS $ 0.00. THE BALANCE ON THIS ACCOUNT IS $ 12.00",
+            "Count__c": null,
+            "Amount__c": "12.00"
+          },
+          {
+            "Date__c": "2007-04-17",
+            "Code__c": "WICF",
+            "Description__c": "WARRANT INTERCEPT 3% COLLECTION FEE",
+            "Count__c": null,
+            "Amount__c": "15.48"
+          }
+        ],
+        "basic_counts": [],
+        "extended_counts": [
+          {
+            "CountAsFiled__c": "CT 1 FORGERY IN THE SECOND DEGREE AFCF",
+            "DateOfOffense__c": "1995-01-21",
+            "Disposition__c": "CONVICTION, 02/15/1996. Guilty Plea",
+            "CountAsDisposed__c":
+              "CT 1 FORGERY IN THE SECOND DEGREE AFCF (CTFG)",
+            "ViolationOf__c": "21 O.S. 1592"
+          },
+          {
+            "CountAsFiled__c": "CT 2 CONCEALING STOLEN PROPERTY AFCF",
+            "DateOfOffense__c": "1995-01-21",
+            "Disposition__c": "CONVICTION, 02/15/1996. Guilty Plea",
+            "CountAsDisposed__c": "CT 2 CONCEALING STOLEN PROPERTY AFCF (RCSP)",
+            "ViolationOf__c": "21 O.S. 1713"
+          },
+          {
+            "CountAsFiled__c":
+              "CT 3 POSSESSION OF IDENTIFICATION CARD BEARING PHOTO OF ANOTHER AFCF",
+            "DateOfOffense__c": "1995-01-21",
+            "Disposition__c": "CONVICTION, 02/15/1996. Guilty Plea",
+            "CountAsDisposed__c":
+              "CT 3 POSSESSION OF IDENTIFICATION CARD BEARING PHOTO OF ANOTHER AFCF (PCRG)",
+            "ViolationOf__c": "47 O.S. 6-301 2 D"
+          },
+          {
+            "CountAsFiled__c": "CT 4 FALSELY PERSONATING ANOTHER AFCF",
+            "DateOfOffense__c": "1995-01-21",
+            "Disposition__c": "CONVICTION, 02/15/1996. Guilty Plea",
+            "CountAsDisposed__c":
+              "CT 4 FALSELY PERSONATING ANOTHER AFCF (PCRG)",
+            "ViolationOf__c": "21 O.S. 1531 4"
+          }
+        ]
+      }
+    ]
+  }

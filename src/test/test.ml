@@ -83,5 +83,7 @@ let () =
       "case8.html", `Quick, basic ~last_name:"johnson" "case8" "?db=oklahoma&number=TR-1991-3731&cmid=180879";
       "case9.html", `Quick, basic ~last_name:"Vanderburg" ~first_name:"Keely" "case9" "?db=oklahoma&number=CM-2020-1446&cmid=3879230";
       "case10.html", `Quick, basic ~last_name:"Wilson" ~first_name:"Aaron" "case10" "?db=pittsburg&number=CM-2016-00117&cmid=51212";
+      "case11.html", `Quick, basic ~last_name:"Miles" "case11" "?db=oklahoma&number=CF-1995-723&cmid=50663";
+      "case12.html", `Quick, basic ~last_name:"Anderson" "case12" "?db=appellate&number=F-1988-1005&cmid=23557";
     ];
   ]

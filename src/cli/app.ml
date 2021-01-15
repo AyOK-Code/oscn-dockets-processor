@@ -12,11 +12,16 @@ let () = Lwt.async_exception_hook := (fun ex ->
 let exec_search request =
   let name_matcher = Oscn.make_name_matcher request in
   let%lwt results = Search.scrape request () in
-  let%lwt case_data = String.Table.fold results ~init:[] ~f:(fun ~key:_ ~data acc ->
-      let uri = data.uri in
-      let p = Lwt.map (Case.process ~name_matcher uri) (Oscn.fetch `GET uri) in
-      p::acc
-    ) |> Lwt.all
+  let%lwt case_data =
+    Lwt_list.filter_map_p
+      (fun key ->
+        let Search.{ uri; _ } = String.Table.find_exn results key in
+        Lwt.catch
+        (fun () -> let%lwt data = Lwt.map (Case.process ~name_matcher uri) (Oscn.fetch `GET uri) in
+        Lwt.return_some data )
+        (fun exn -> raise (Exn.reraisef exn "Exception for URI '%s'" (Uri.to_string uri) ()))
+        )
+      (String.Table.keys results)
   in
   let json : Yojson.Safe.t = Oscn.prepare_data ~name_matcher case_data in
   Lwt.return json
