@@ -118,5 +118,8 @@ let () =
              ( "case12.html",
                `Quick,
                basic ~last_name:"Anderson" "case12" "?db=appellate&number=F-1988-1005&cmid=23557" );
+             ( "case13.html",
+               `Quick,
+               basic ~last_name:"Bailey" "case13" "?db=okmulgee&number=CM-1996-00655&cmid=43339" );
            ] );
        ]

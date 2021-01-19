@@ -70,7 +70,7 @@ let make_name_matcher { first_name; middle_name; last_name; dob_before = _; dob_
 
 let datetime_regex =
   Re2.create_exn
-    "^[A-Z][a-z]+, ([A-Z][a-z]+) ([1-9][0-9]?), ([12][0-9]{3})(?: at ([0-9][0-2]?:[0-5][0-9] ?[AP]M))?$"
+    "^[A-Z][a-z]+, ([A-Z][a-z]+) ([1-9][0-9]?), ([12][0-9]{3})(?: at ([0-9][0-2]?:[0-5][0-9] ?[AP]?M?))?$"
 
 let date_regex = Re2.create_exn "^([01][0-9])-([0-3][0-9])-([12][0-9]{3})$"
 

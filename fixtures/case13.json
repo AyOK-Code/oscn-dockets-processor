@@ -1,0 +1,101 @@
+{
+    "cases": [
+      {
+        "status": "Open",
+        "uri":
+          "https://www.oscn.net/dockets/GetCaseInformation.aspx?db=okmulgee&number=CM-1996-00655&cmid=43339",
+        "title": "STATE OF OKLAHOMA V. TAMMY LYNN BAILEY",
+        "parties": [
+          { "Name__c": "BAILEY, TAMMY LYNN", "Role__c": "Defendant" }
+        ],
+        "case_number": "CM-1996-00655",
+        "date_filed": "1996-09-16",
+        "date_closed": null,
+        "judge": "CLAVER, H. MICHAEL",
+        "arresting_agency": null,
+        "events": [
+          {
+            "Datetime__c": "1996-09-10T03:00:00.000Z",
+            "Description__c": "INITIAL APPEARANCE",
+            "Judge__c": null
+          },
+          {
+            "Datetime__c": "1997-01-16T00:00:00.000Z",
+            "Description__c": "WARRANT ISSUED",
+            "Judge__c": null
+          },
+          {
+            "Datetime__c": "2001-03-21T00:00:00.000Z",
+            "Description__c": "GUILTY PLEA",
+            "Judge__c": null
+          },
+          {
+            "Datetime__c": "2001-03-21T00:00:00.000Z",
+            "Description__c": "COMMUNITY SERVICE",
+            "Judge__c": null
+          },
+          {
+            "Datetime__c": "2001-03-28T00:00:00.000Z",
+            "Description__c": "JUDGMENT AND SENTENCE",
+            "Judge__c": null
+          }
+        ],
+        "transactions": [
+          {
+            "Date__c": "1996-09-16",
+            "Code__c": null,
+            "Description__c": "INFORMATION",
+            "Count__c": null,
+            "Amount__c": "75.00"
+          },
+          {
+            "Date__c": null,
+            "Code__c": null,
+            "Description__c": "",
+            "Count__c": null,
+            "Amount__c": "3.00"
+          },
+          {
+            "Date__c": null,
+            "Code__c": null,
+            "Description__c": "",
+            "Count__c": null,
+            "Amount__c": "5.00"
+          },
+          {
+            "Date__c": null,
+            "Code__c": null,
+            "Description__c": "",
+            "Count__c": null,
+            "Amount__c": "7.00"
+          },
+          {
+            "Date__c": null,
+            "Code__c": null,
+            "Description__c": "",
+            "Count__c": null,
+            "Amount__c": "10.00"
+          },
+          {
+            "Date__c": "2001-03-21",
+            "Code__c": null,
+            "Description__c":
+              "COURT MINUTE: PLEAD GUILTY 21 HOURS COMMUNITY SERVICE",
+            "Count__c": null,
+            "Amount__c": "20.00"
+          },
+          {
+            "Date__c": "2001-04-17",
+            "Code__c": null,
+            "Description__c": "OCCSP REPORT OF COMPLETION 21 HOURS",
+            "Count__c": null,
+            "Amount__c": "-120.00"
+          }
+        ],
+        "basic_counts": [
+          { "Description__c": "TRANSPORTING OPENED CONTAINER-BEER" }
+        ],
+        "extended_counts": []
+      }
+    ]
+  }
